@@ -1,0 +1,23 @@
+[core]
+	excludesfile = /Users/cmagid/.gitignore_global
+	pager = cat
+	quotepath = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[alias]
+	co = checkout
+  branch-point = !sh -c 'merge=$(git rev-list --grep="Merge.*$1" --all | tail -1) && git merge-base $merge^1 $merge^2'
+[user]
+	name = Charles Magid
+	email = cmagid@rbmtechnologies.com
+[mergetool]
+	keepBackup = true
+	prompt = false
+[gui]
+	recentrepo = /Users/cmagid/projects/newppm
+[color]
+	ui = auto
