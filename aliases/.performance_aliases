@@ -1,0 +1,19 @@
+http://www.youtube.com/watch?v=52gL93S3usU&feature=channel
+
+   14 Rules
+============================
+1. Make fewer HTTP requests
+2. Use a CDN
+3. Add an Expires header
+4. Gzip components
+5. Put stylesheets at the top
+6. Put scripts at the bottom
+7. Avoid CSS expressions
+8. Make JS and CSS external
+9. Reduce DNS lookups
+10. Minify JS
+11. Avoid redirects
+12. Remove duplicate scripts
+13. Contigure ETags
+14. Make AJAX cacheable
+

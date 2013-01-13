@@ -1,0 +1,18 @@
+rabbitmqctl help
+
+sudo rabbitmq-server
+
+rabbitmqctl status
+
+sudo rabbitmqctl start
+
+sudo rabbitmqctl stop
+
+
+
+--- NEW VERSION
+sudo rabbitmqctl set_permissions -p /ruote-test ruote '.*' '.*' '.*'
+--- OLD VERSION
+sudo rabbitmqctl map_user_vhost ruote /ruote-test
+
+sudo rabbitmqctl list_queues -p /ruote-test 

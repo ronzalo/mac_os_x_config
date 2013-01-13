@@ -1,0 +1,132 @@
+# change next 1 line for mac
+#alias ls='ls --color=auto'
+alias ls='ls -G'
+alias l='ls -alF'
+#alias ll='ls -alFtr'
+alias ll='ls -alFtr'
+alias lll='ls -alFu'
+alias h=history
+alias ht='history|tail'
+alias ss='script/server'
+alias rss='rdebug script/server'
+alias rssp='script/server --debugger -e production'
+alias rsc='rdebug script/console'
+alias sc='script/console'
+alias sg='script/generate'
+alias sgs='script/generate scaffold'
+alias rr='rake routes'
+alias rdbm='rake db:migrate'
+alias ff=firefox
+alias ff="find . -type f \( -iname \*.rb -o -iname \*.erb -o -iname \*.js -o -iname \*.css -o -iname \*.rhtml \)"
+#alias rubymine='cd ~/Desktop/rubymine952/bin/ && ./rubymine.sh'
+#alias rubymine='cd ~/Desktop/rubymine975/bin/ && ./rubymine.sh'
+alias rubymine='cd ~/rubymine975/bin && ./rubymine.sh'
+alias fixaudio='killall pulseaudio'
+alias fixaudio2='pasuspender -- audacity'
+alias git='git --no-pager'
+alias lt='ls -alFtr | tail'
+#alias lw='ls -alFtr | tail -9999'
+alias gr="ps alxww|grep ruby"
+alias lg="ls -alFtr | grep"
+alias tts=espeak
+#alias installfestival="sudo apt-get install festival festlex-cmu festlex-poslex festlex-oald libestools1.2 unzip"
+alias ports='netstat -tln && netstat -tl'
+# replaced with function!
+#alias hg="history | grep "
+# remove next see rtags is hashed (/usr/bin/rtags) instead
+#alias rtags="ctags -e -a --Ruby-kinds=-f -o TAGS -R ."
+alias gs='git status'
+alias debss='rdebug script/server'
+#alias cd=pushd
+alias lr='ls -alFtr|grep ruote'
+alias psg='ps auxww | grep'
+alias psgr='ps auxww | grep ruby'
+alias mate="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+alias e="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+alias ee="/Applications/Emacs.app/Contents/MacOS/Emacs"
+#alias mate='cd /Users/cmmagid/rails_projects/usfirst && rvm use ruby-1.9.2-head@rails3tutorial && redcar .'
+alias emate='cd /Users/cmmagid/rails_projects/usfirst && rvm use ruby-1.9.2-head@rails3tutorial && redcar .'
+#alias e='sudo term emacs'
+#alias e='term sudo emacs'
+#alias e='sudo term sudo emacs'
+## I put sudo in term so dropped from next alias
+#alias e='term emacs -q'
+alias ga='git add . -v'
+alias gb='git branch -v'
+alias gba='git branch -a -v'
+alias gw='git branch -a -v|grep \*'
+alias pwb='git branch -a -v|grep \*'
+alias gc='git commit -a -v'
+alias gcom='git commit -v'
+alias gcoma='git commit -a -v'
+alias gs='git status'
+alias gd='git diff'
+alias gdm='git diff | m'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gl='git log --pretty=oneline'
+alias gls='git log --stat'
+alias gsr='git svn rebase'
+alias gsd='git svn dcommit --edit'
+
+alias gl='git pull'
+alias gp='git push'
+alias gfs='git ls-files -t -s'
+#git log --stat
+alias gp='git log -p | cat'
+alias networkinfo='bwm-ng'
+alias networkinfo2='netstat -taup'
+
+#alias ruby_tags='ctags -e -a --Ruby-kinds=-cmfF -o TAGS -R .'
+alias ruby_tags='/opt/local/bin/ctags -e -a --Ruby-kinds=-cmfF -o TAGS -R .'
+
+#alias js_tags='ctags -e -a --languages=js -o TAGS -R .'
+alias js_tags='/opt/local/bin/ctags -e -a --languages=js -o TAGS -R .'
+
+alias f="find . -name "
+
+# GROWLER LIKE FOR LINUX
+alias termtest='gnome-terminal -e autospec'
+alias termspec='gnome-terminal -e autospec'
+alias autospecterm='gnome-terminal -e autospec'
+alias spectest='gnome-terminal -e autospec'
+alias testspec='gnome-terminal -e autospec'
+
+# remove the next 2 lines because of mac
+#export PATH=$PATH:/home/charles/githubcloned/goaloc/bin/
+#export PATH=$PATH:/home/charles/emacs-packages/ri-emacs/
+export PATH=$PATH:/usr/local/git/bin
+export PATH=$PATH:~/.gem/ruby/1.8/bin
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:/usr/local/mysql/bin
+export PATH=/usr/local/bin:$PATH
+export PATH=/Applications/Xcode.app/Contents/Developer/usr/bin:$PATH
+
+# TOM DYER'S ACCOUNT
+# alias devteam='ssh -p 31222 devteam@new.railsinboston.com'
+# scp -P 31222  devteam@new.railsinboston.com:v-dtrubyom-v-01.mov .
+# scp -P 31222  devteam@new.railsinboston.com:v-dtrubyom-v-02.mov .
+# scp -P 31222  devteam@new.railsinboston.com:v-dtrubyom-v-03.mov .
+# scp -P 31222  devteam@new.railsinboston.com:v-dtrubyom-v-04.mov .
+# scp -P 31222  devteam@new.railsinboston.com:v-dtrubyom-v-05.mov .
+
+# safari
+# tdyer1
+# crummy
+
+hg () { history | grep "$*" ;}
+myf () { find . -type d \( -path \*tmp  -o -path \*log \) -prune -o -type f -exec egrep "$*" {} \; -print ;}
+
+dbstart() { echo "use macbook password"; sudo /Library/StartupItems/MySQLCOM/MySQLCOM start; }
+dbstop() { echo "use macbook password"; sudo /Library/StartupItems/MySQLCOM/MySQLCOM stop; }
+
+# date "+%Y-%m-%d"
+
+#PS1="\$(~/.rvm/bin/rvm-prompt) $PS1"
+PS1="\$(~/.rvm/bin/rvm-prompt) $ "
+
+#rg()  find . -type d \( -path \*/.git \) -prune -o  -type f \( -iname \* -o -iname .\* \) -exec grep -i -nH -e match_string {} \; -print
+#all non git files() find . -type d \( -path \*/.git \) -prune -o  -type f -print
+
+
+chrome() { open -a Google\ Chrome "$*" ; }

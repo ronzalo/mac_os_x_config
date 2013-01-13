@@ -1,0 +1,56 @@
+# DANE STREET (DS) SPECIFIC FUNCTIONS/ALIASES
+
+ # ssh jill@danestreet.com
+ # ssh -i ~/.ssh/id_danestreet deploy@184.73.168.139
+ # scp -i ~/.ssh/id_danestreet danestreet_2010-05-19_db.tar.gz deploy@184.73.168.139:/home/deploy/
+ # mv ~/.ssh/known_hosts ~
+ # scp -i ~/.ssh/id_danestreet danestreet_2010-05-19_db.tar.gz deploy@184.73.168.139:/home/deploy/
+
+alias ds_shell_to_production="ssh -i ~/.ssh/id_danestreet deploy@184.73.167.197"
+alias danestreet_shell_to_production="ssh -i ~/.ssh/id_danestreet deploy@184.73.167.197"
+alias sshprod="ssh -i ~/.ssh/id_danestreet deploy@184.73.167.197"
+
+alias ds_shell_to_development="ssh -i ~/.ssh/id_danestreet deploy@174.129.211.200"
+alias danestreet_shell_to_development="ssh -i ~/.ssh/id_danestreet deploy@174.129.211.200"
+alias sshdev="ssh -i ~/.ssh/id_danestreet deploy@174.129.211.200"
+
+alias ds_shell_to_test="ssh -i ~/.ssh/id_danestreet deploy@184.73.168.139"
+alias danestreet_shell_to_test="ssh -i ~/.ssh/id_danestreet deploy@184.73.168.139"
+alias sshtest="ssh -i ~/.ssh/id_danestreet deploy@184.73.168.139"
+
+# alias scppullfromprod="scp -i ~/.ssh/id_danestreet ~/.ssh/id_danestreet deploy@184.73.167.197:/home/deploy/$0 ."
+# scp -i ~/.ssh/id_danestreet deploy@184.73.167.197:/data/danestreet4/current/log/production.log .
+# use function because can not substitute in aliases in bash
+
+# dfp(DANESTREET FROM PRODUCTION)
+# scppullfromprod () { scp -i ~/.ssh/id_danestreet "deploy@184.73.167.197:/home/deploy/$*" .; }
+dfp() { scp -i ~/.ssh/id_danestreet "deploy@184.73.167.197:/home/deploy/$*" .; }
+# dtp(DANESTREET TO PRODUCTION)
+# scppushtotest () { scp -i ~/.ssh/id_danestreet "$*" "deploy@184.73.168.139:/home/deploy/$*" ;}
+dtp() { scp -i ~/.ssh/id_danestreet "$*" "deploy@184.73.168.139:/home/deploy/$*" ;}
+# dtd(DANESTREET TO DEVELOPMENT)
+# scppushtodev () { scp -i ~/.ssh/id_danestreet "$*" "deploy@174.129.211.200:/home/deploy/$*" ;}
+dtd () { scp -i ~/.ssh/id_danestreet "$*" "deploy@174.129.211.200:/home/deploy/$*" ;}
+
+# MANAGE DOCMOSIS FILES
+# t2c (Template To Cloud) PUSH DANESTREET TEMPLATE UP TO DOCMOSIS TEMPLATES BUCKET ON S3
+t2c() { s3cmd put --acl-public --guess-mime-type $* s3://com.docmosis.development_ds_templates/$* ; }
+
+# tfc (Template From Cloud) COPY DANESTREET TEMPLATE FROM CLOUD LOCALLY
+#tfc s3cmd get s3://com.docmosis.development_ds_templates/CONCENTRA_HEALTH_SOLUTIONS_TEMPLATE.odt 
+tfc() { s3cmd get s3://com.docmosis.development_ds_templates/$* $* ; }
+
+# ltc (List Templates In Cloud) LS TEMPLATES
+alias ltc='s3cmd ls s3://com.docmosis.development_ds_templates'
+
+# ldc (List Documents In The Cloud) LS DOCUMENTS
+alias ldc='s3cmd ls s3://com.docmosis.development_ds_template_comm'
+# tbd CLEAN DOCUMENTS BUCKET IN CLOUD
+
+# dfc (Documents From Cloud/Comm) GET DOCUMENTS
+dfc() { s3cmd get s3://com.docmosis.development_ds_template_comm/$* $* ; }
+
+#rmdc (r)
+
+
+#  mysqldump -u root -p root danes_development > charles-laptop.sql

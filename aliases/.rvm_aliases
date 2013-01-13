@@ -1,0 +1,506 @@
+bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer )
+Downloading RVM from wayneeseguin branch stable
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  799k  100  799k    0     0   478k      0  0:00:01  0:00:01 --:--:-- 2344k
+
+Installing RVM to /Users/cmmagid/Developer/.rvm/
+    RVM sourcing line found in: /Users/cmmagid/.bashrc
+/Users/cmmagid/.bashrc~.
+
+# RVM:  Shell scripts enabling management of multiple ruby environments.
+# RTFM: https://rvm.beginrescueend.com/
+# HELP: http://webchat.freenode.net/?channels=rvm (#rvm on irc.freenode.net)
+# Screencast: http://screencasts.org/episodes/how-to-use-rvm
+
+# In case of any issues read output of 'rvm requirements' and/or 'rvm notes'
+
+Installation of RVM in /Users/cmmagid/Developer/.rvm/ is almost complete:
+
+  * To start using RVM you need to run `source /Users/cmmagid/.profile`
+    in all your open shell windows, in rare cases you need to reopen all shell windows.
+
+  * Optionally you can run `rvm tools rvm-env ruby bash` which will generate
+    shebang wrappers for easier selecting ruby in scripts.
+
+# Charles Magid,
+#
+#   Thank you for using RVM!
+#   I sincerely hope that RVM helps to make your life easier and more enjoyable!!!
+#
+# ~Wayne
+
+
+===== below is the old stuff =====
+===== below is the old stuff =====
+===== below is the old stuff =====
+
+
+# NOTE:
+MRI stands for Matz's Ruby Interpreter (1.8.X, 1.9.X),
+ree stands for Ruby Enterprise Edition
+rbx stands for Rubinius.
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
+
+charles@charles-laptop:~/workspace/prvm$ sudo bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+[sudo] password for charles:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+109   328  109   328    0     0   1348      0 --:--:-- --:--:-- --:--:--  3123
+
+Initialized empty Git repository in /home/charles/.rvm/src/rvm/.git/
+remote: Counting objects: 14179, done.
+remote: Compressing objects: 100% (3763/3763), done.
+remote: Total 14179 (delta 9470), reused 13677 (delta 9055)
+Receiving objects: 100% (14179/14179), 2.51 MiB | 346 KiB/s, done.
+Resolving deltas: 100% (9470/9470), done.
+
+  RVM:  Shell scripts enabling management of multiple ruby environments.
+  RTFM: http://rvm.beginrescueend.com/
+  HELP: http://webchat.freenode.net/?channels=rvm (#rvm on irc.freenode.net)
+
+Installing rvm to /usr/local/rvm/
+    Correct permissions for base binaries in /usr/local/bin...
+    Copying manpages into place.
+
+Notes for Linux ( DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=10.04
+DISTRIB_CODENAME=lucid
+DISTRIB_DESCRIPTION="Ubuntu 10.04.1 LTS" )
+
+# NOTE: MRI stands for Matz's Ruby Interpreter (1.8.X, 1.9.X), ree stands for Ruby Enterprise Edition and rbx stands for Rubinius.
+# curl is required.
+# git is required.
+# patch is required (for ree, some ruby head's).
+# If you wish to install rbx and/or any MRI head (eg. 1.9.2-head) then you must install and use rvm 1.8.7 first.
+# If you wish to have the 'pretty colors' again, set 'export rvm_pretty_print=1' in ~/.rvmrc.
+
+dependencies:
+# For RVM
+  rvm: bash curl git-core
+
+# For JRuby (if you wish to use it) you will need:
+  jruby: aptitude install curl sun-java6-bin sun-java6-jre sun-java6-jdk
+
+# For MRI & ree (if you wish to use it) you will need (depending on what you are installing):
+  ruby: aptitude install build-essential bison openssl libreadline5 libreadline-dev curl git-core zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libreadline-dev libxml2-dev git-core
+  ruby-head: git subversion autoconf
+
+# For IronRuby (if you wish to use it) you will need:
+  ironruby: aptitude install curl mono-2.0-devel
+
+
+  WARNING:  you have a 'return' statement in your ~/.bashrc
+              This could cause some features of RVM to not work.
+
+
+  This means that if you see something like:
+
+    '[ -z "$PS1" ] && return'
+
+  then you change this line to:
+
+  if [[ -n "$PS1" ]] ; then
+
+    # ... original content that was below the '&& return' line ...
+
+  fi # <= be sure to close the if at the end of the .bashrc.
+
+  # This is a good place to source rvm v v v
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
+EOF - This marks the end of the .bashrc file
+
+  Even if you are using zsh you should still adjust the ~/.bashrc
+  If you have any questions about this please visit
+    #rvm on irc.freenode.net.
+
+
+Installation of RVM to /usr/local/rvm/ is complete.
+
+
+ Charles_Magid,
+
+Thank you very much for using RVM! I sincerely hope that RVM helps to
+make your work both easier and more enjoyable.
+
+If you have any questions, issues and/or ideas for improvement please
+join#rvm on irc.freenode.net and let me know, note you must register
+(http://bit.ly/5mGjlm) and identify (/msg nickserv <nick> <pass>) to
+talk, this prevents spambots from ruining our day.
+
+My irc nickname is 'wayneeseguin' and I hang out in #rvm typically
+
+  ~09:00-17:00EDT and again from ~21:00EDT-~23:00EDT
+
+If I do not respond right away, please hang around after asking your
+question, I will respond as soon as I am back.  It is best to talk in
+#rvm itself as then other users can help out should I be offline.
+
+Be sure to get head often as rvm development happens fast,
+you can do this by running 'rvm update --head' followed by 'rvm reload'
+or opening a new shell
+
+  w⦿‿⦿$
+
+    ~ Wayne
+
+
+charles@charles-laptop:~/workspace/prvm$ rvm notes
+
+
+Notes for Linux ( DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=10.04
+DISTRIB_CODENAME=lucid
+DISTRIB_DESCRIPTION="Ubuntu 10.04.1 LTS" )
+
+# NOTE: MRI stands for Matz's Ruby Interpreter (1.8.X, 1.9.X), ree stands for Ruby Enterprise Edition and rbx stands for Rubinius.
+# curl is required.
+# git is required.
+# patch is required (for ree, some ruby head's).
+# If you wish to install rbx and/or any MRI head (eg. 1.9.2-head) then you must install and use rvm 1.8.7 first.
+# If you wish to have the 'pretty colors' again, set 'export rvm_pretty_print=1' in ~/.rvmrc.
+
+dependencies:
+# For RVM
+  rvm: bash curl git-core
+
+# For JRuby (if you wish to use it) you will need:
+  jruby: aptitude install curl sun-java6-bin sun-java6-jre sun-java6-jdk
+
+# For MRI & ree (if you wish to use it) you will need (depending on what you are installing):
+  ruby: aptitude install build-essential bison openssl libreadline5 libreadline-dev curl git-core zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libreadline-dev libxml2-dev git-core
+  ruby-head: git subversion autoconf
+
+# For IronRuby (if you wish to use it) you will need:
+  ironruby: aptitude install curl mono-2.0-devel
+
+commands
+
+rvm use 1.9.2@rails3tutorial
+
+
+********************************* Fri Jan 14 16:08:45 2011 *********************************
+http://rvm.beginrescueend.com/workflow/examples/
+
+$ rvm help # Documentation Index
+Documentation  >  Workflow  >  Examples
+Examples of using RVM
+RVM version
+
+$ rvm -v
+
+rvm 0.0.49 (2009.09.24) [http://rvm.beginrescueend.com/]
+
+Use a particular Ruby.
+
+$ rvm use 1.8.6
+
+Equivalently (because of RVM's defaults):
+
+$ rvm 1.8.6
+
+Available RVM Ruby Interpreter installations
+
+$ rvm list
+
+   ruby-1.8.6-p383:  ruby 1.8.6 (2009-08-04 patchlevel 383) [i686-darwin10.0.0]
+   ruby-1.9.1-head:  ruby 1.9.2dev (2009-10-30 trunk 25559) [x86_64-darwin10.0.0]
+=> ruby-1.9.1-p243:  ruby 1.9.1p243 (2009-07-16 revision 24175) [i686-darwin10]
+   ruby-1.9.1-p25443:  ruby 1.9.1p281 (2009-08-09 revision 24476) [i386-darwin10.0.0]
+   ruby-1.9.1-r25271:  ruby 1.9.1p281 (2009-08-09 revision 24476) [i386-darwin10.0.0]
+   ruby-1.9.2-preview1:  ruby 1.9.2dev (2009-07-18 trunk 24186) [i386-darwin10.0.0]
+   ree-1.8.6-20090610:  ruby 1.8.6 (2008-08-11 patchlevel 287) [i686-darwin10.0.0] Ruby Enterprise Edition 20090610
+   ree-1.8.7-2009.10:  ruby 1.8.7 (2009-06-12 patchlevel 174) [x86_64-darwin10.0.0], MBARI 0x6770, Ruby Enterprise Edition 2009.10
+   ree-1.8.7-head:  ruby 1.8.7 (2009-06-12 patchlevel 174) [i686-darwin10.0.0]
+   jruby-1.3.1:  jruby 1.3.1 (ruby 1.8.6p287) (2009-06-15 2fd6c3d) (Java HotSpot(TM) 64-Bit Server VM 1.6.0_15) [x86_64-java]
+   jruby-1.4.0:  jruby 1.4.0 (ruby 1.8.7 patchlevel 174) (2009-11-02 69fbfa3) (Java HotSpot(TM) 64-Bit Server VM 1.6.0_15) [x86_64-java]
+   jruby-head:  jruby 1.5.0.dev (ruby 1.8.7 patchlevel 174) (2009-11-02 55366a1) (Java HotSpot(TM) 64-Bit Server VM 1.6.0_15) [x86_64-java]
+   macruby-head:  MacRuby version 0.5 (ruby 1.9.0) [universal-darwin10.0, x86_64]
+   macruby-nightly:  MacRuby version 0.5 (ruby 1.9.0) [universal-darwin10.0, x86_64]
+=> (default) ruby-1.9.1-p243:  ruby 1.9.1p243 (2009-07-16 revision 24175) [i686-darwin10]
+   system: ruby 1.8.7 (2008-08-11 patchlevel 72) [universal-darwin10.0]
+
+Ruby information for the current shell
+
+$ rvm info
+
+rvm 0.0.49 (2009.09.24) [http://rvm.beginrescueend.com/]
+
+ruby:
+interpreter:  "ruby"
+version:      "1.8.6"
+date:         "2009-08-04"
+platform:     "i686-darwin10.0.0"
+patchlevel:   "2009-08-04 patchlevel 383"
+full_version: "ruby 1.8.6 (2009-08-04 patchlevel 383) [i686-darwin10.0.0]"
+
+homes:
+gem:          "/Users/wayne/.rvm/gems/ruby/1.8.6"
+ruby:         "/Users/wayne/.rvm/ruby-1.8.6-p383"
+
+binaries:
+ruby:         "/Users/wayne/.rvm/ruby-1.8.6-p383/bin/ruby"
+irb:          "/Users/wayne/.rvm/ruby-1.8.6-p383/bin/irb"
+gem:          "/Users/wayne/.rvm/ruby-1.8.6-p383/bin/gem"
+rake:         "/Users/wayne/.rvm/ruby-1.8.6-p383/bin/rake"
+
+environment:
+GEM_HOME:     "/Users/wayne/.rvm/gems/ruby/1.8.6"
+MY_RUBY_HOME: "/Users/wayne/.rvm/ruby-1.8.6-p383"
+IRBRC:        "/Users/wayne/.rvm/ruby-1.8.6-p383/.irbrc"
+
+Install JRuby (default version is 1.3.1), but do not use it right now.
+
+$  rvm install jruby
+
+Use Ruby 1.9.1
+
+$  rvm use 1.9.1
+
+Equivalent to "rvm use 1.9.1", due to defaults
+
+$  rvm 1.9.1
+
+Use Ruby 1.8.6
+
+$  rvm 1.8.6
+
+Switch to gems directory for current ruby
+
+$ rvm gemdir
+
+/Users/wayne/.gem/ruby/1.9.1
+
+Switch to the system gems directory
+
+$ rvm gemdir system
+
+/Library/Ruby/Gems/1.8
+
+Switch to the system user gems directory
+
+$ rvm gemdir system user
+
+/Users/wayne/.gem/ruby/1.8
+
+Switch to gems directory for ruby jruby (1.3.1)
+
+$ rvm gemdir jruby
+
+/Users/wayne/.gem/jruby/1.8
+
+Use the user set default ruby
+
+$  rvm default
+
+Use the system ruby (as if no rvm)
+
+$  rvm system
+
+Reset to pre-RVM state.
+
+$  rvm reset
+
+Uninstall RVM installed 1.8.7 version
+
+$  rvm uninstall 1.8.7
+
+Install gems from system gem dir (osx: /Library/Ruby/Gems/1.8) using current ruby
+
+$  rvm system ; rvm gemset export system.gems ; rvm 1.8.7 ; rvm gemset import system
+
+=============================================================================
+Snowy
+=============================================================================
+
+
+gemset instructions
+
+rvm --create use 1.8.7-p174@rails2snowy
+gem install rails --version 2.3.5
+
+problem no such file to load -- xor (MissingSourceFile)
+=> gem install fast_xor
+
+rake gems:install
+
+problem !!! The bundled mysql.rb driver has been removed from Rails 2.2. Please install the mysql gem and try again: gem install mysql.
+/!\ FAILSAFE /!\  Fri Mar 11 14:40:18 -0500 2011
+=> gem install mysql
+
+
+ruby-1.8.7-p174@rails2snowy $ gem install gettext
+
+$ ss
+=> Booting WEBrick
+=> Rails 2.3.3 application starting on http://0.0.0.0:3000
+./script/../config/../vendor/rails/railties/lib/rails/gem_dependency.rb:119:Warning: Gem::Dependency#version_requirements is deprecated and will be removed on or after August 2010.  Use #requirement
+Missing these required gems:
+  locale_rails
+  gettext_rails
+  gettext_activerecord
+
+You're running:
+  ruby 1.8.7.174 at /Users/cmmagid/.rvm/rubies/ruby-1.8.7-p174/bin/ruby
+  rubygems 1.4.2 at /Users/cmmagid/.rvm/gems/ruby-1.8.7-p174@rails2snowy, /Users/cmmagid/.rvm/gems/ruby-1.8.7-p174@global
+
+Run `rake gems:install` to install the missing gems.
+=> rake gems:install
+
+mkdir /Users/cmmagid/rails_projects/usfirst/locale
+
+****** with an edit (Strange after doing all the other stuff this no longer seems to be needed)
+
+ruby-1.8.7-p174@rails2snowy $ gs
+# On branch master
+# Changed but not updated:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+# modified:   config/boot.rb
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+# Gemfile
+no changes added to commit (use "git add" and/or "git commit -a")
+ruby-1.8.7-p174@rails2snowy $ git diff
+diff --git a/config/boot.rb b/config/boot.rb
+index 0ad0f78..876101e 100644
+--- a/config/boot.rb
++++ b/config/boot.rb
+@@ -82,6 +82,7 @@ module Rails
+       end
+
+       def load_rubygems
++        require 'thread'        # mark cmmagid
+         require 'rubygems'
+         min_version = '1.3.1'
+         unless rubygems_version >= min_version
+
+
+
+From railscast #200
+
+bash
+
+ruby -v
+mkdir -p ~/.rvm/src/ && cd ~/.rvm/src && rm -rf ./rvm/ && git clone git://github.com/wayneeseguin/rvm.git && cd rvm && ./install
+rvm install 1.9.1
+rvm list
+rvm 1.9.1
+rvm 1.9.1 --default
+rvm system
+gem install tzinfo builder memcache-client rack rack-test rack-mount erubis mail text-format thor bundler i18n
+gem install rails --pre
+rails topscore
+cd topscore
+rails server
+gem install sqlite3-ruby
+rails generate scaffold game name:string
+rake db:migrate
+
+--- Minimal ---
+
+How to update RVM
+
+$ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+
+Locate RVM files
+
+Info Upgrade of RVM in /Users/cmmagid/Developer/.rvm/ is complete.
+
+stay at a particular level of ruby
+
+rvm 1.9.1 --default  => pegs it to this version
+
+
+ruby -v
+mkdir -p ~/.rvm/src/ && cd ~/.rvm/src && rm -rf ./rvm/ && git clone git://github.com/wayneeseguin/rvm.git && cd rvm && ./install
+rvm install 1.9.1
+rvm list
+rvm 1.9.1
+rvm 1.9.1 --default
+rvm system
+gem install tzinfo builder memcache-client rack rack-test rack-mount erubis mail text-format thor bundler i18n
+gem install rails --pre
+rails topscore
+cd topscore
+rails server
+gem install sqlite3-ruby
+rails generate scaffold game name:string
+rake db:migrate
+
+
+Install rails 2.3 on ruby 1.8.7
+
+rvm 1.8.7 gem install --version=2.3.14 rails
+
+
+........
+
+$ rvm --help
+$ rvm list
+rvm get head
+rvm reload
+rvm 1.8.7
+rvm ruby-1.8.7-p352 --default
+rvm requirements
+rvm use ruby-1.8.7-p302@rails2newwebiva
+
+================================
+
+Some commands from my most recent use of rvm
+
+$ rvm list known              # show versions of ruby rvm can install
+$ rvm get stable              # how to update rvm
+    $ rvm reload
+    $ rvm -v
+
+  $ rvm get latest            # how to update rvm to latest version.
+      $ rvm reload
+      $ rvm -v
+$ rvm install 1.9.2           # Install a version of Ruby
+
+$ rvm install 1.8.7-head      # install latest version of ruby 1.8
+$ rvm use 1.8.7-head          # Use this version of Ruby
+    $ rvm 1.9.1 --default         # pegs use of Ruby to this version
+
+$ rvm gemset list             # to list installed gemsets
+$ gem list                    # list of the gems included with the standard Ruby installation
+
+
+
+$ rvm gemset create rails2
+$ rvm use 1.8.7-head@rails2
+$ gem install rails -v 2.3.14 # Install latest version of rails 2
+
+
+
+-----------------------------------------------------------------------------------------------------------------------
+$ rvm install 1.8.7-head          # install latest version of ruby 1.8
+$ rvm use 1.8.7-head              # use ruby 1.8 head
+$ rvm gemset create rails2        # create holder for a collection of ruby gems, called a gemset with name rails2
+$ rvm use 1.8.7-head@rails2       # Switch to use (ruby version + set of gems) even though initially set is empty
+$ gem install rails -v 2.3.14     # Install gems, start filling holder, into gemset
+
+
+# create a rails2 environment
+
+# create a rails3 environment
+
+# Switch environments
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+# create a rails3 environment
+rvm install 1.9.3-head
+rvm use 1.9.3-head
+rvm gemset create rails3
+rvm use 1.9.3-head@rails3
+gem install rails --version 3.0.11
+echo "rvm use 1.9.3-head@rails3" > .rvmrc
+

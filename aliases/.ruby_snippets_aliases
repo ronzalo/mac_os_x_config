@@ -1,0 +1,25 @@
+# print out formated date stuff
+25.times do |d|
+  day_data = (15.days.ago + d.day)
+  dow = day_data.to_date.strftime("%A")
+  l = dow.length
+  s = 9 - l
+  f = ''
+  s.times{f += ' '}
+  puts  " #{dow} #{f}  #{day_data.to_date.strftime("(%m/%d/%Y)")}"
+end
+
+25.times do |d|
+  day_data = (15.days.ago + d.day)
+  dow = day_data.to_date.strftime("%A")
+  l = dow.length
+  s = 9 - l
+  f = ''
+  s.times{f += ' '}
+  puts  " #{dow} #{f}  #{day_data.to_date.strftime("(%m/%d/%Y)")}"
+end
+
+
+
+#  puts  "#{l} length of filler is #{f}  #{day_data.to_date.strftime("%A (%m/%d/%Y)")}"
+

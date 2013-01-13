@@ -1,0 +1,8 @@
+To quickly execute a Rake task press press or use Tools | Run Rake task... and start typing task name. There's no need to exactly start from the beginning of task name. Just type 'up' to quickly find 'db:migrate:up'
+
+
+The Introduce Variable refactoring helps you to simplify complicated statements in your code. For example, in the code fragment below, you can select an expression in the code:
+ 
+ and press Alt+Shift+L (Refactor | Introduce Variable...). This will result in the following:
+ 
+

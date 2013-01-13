@@ -1,0 +1,52 @@
+cd
+mv git-completion.sh .git-completion.sh 
+rvm reload
+rvm notes
+rvm list
+rvm --create use 1.9.2@rails3tutorial
+rvm --default use 1.9.2@rails3tutorial
+gem install rails --version 3.0.7
+rvm gemset delete rails3tutorial
+rvm gemset list 
+rvm list gemsets
+cd rails_projects/
+rails new first_app  # => start a new project
+mate Gemfile
+bundle install  # => Install all the gems in the Gemfile for this app
+bundle show # => Gems included by the bundle:
+rails server  # => fire up the server
+
+ # => Various basic local git commands
+http://progit.org/book/  # => Good online book on git
+git init
+git add .
+git status
+git commit
+git log
+
+ # => Interface to Github.com
+cd existing_git_repo
+git remote add origin git@github.com:ChasManRors/first_app.git
+git push -u origin master
+
+ # => branch, edit, commit, merge workflow
+git co -b 'modify-README'
+git branch                    
+git mv README README.markdown 
+ # => This first example does not have a git add .
+git commit -am"Improbe the README file"
+git co master            
+git merge 'modify-README'
+git branch -d 'modify-README'
+git branch -D topic-branch  # => Unlike the -d flag, the -D flag will delete the branch even though we haven’t merged in the changes.
+git push  # => can omit origin master RE: done above
+
+ # => Deploying
+gem install heroku
+heroku keys:add  # => Uploading ssh public key /Users/cmmagid/.ssh/id_rsa.pub
+heroku create
+ # => Creating cold-fog-612..... done, stack is bamboo-ree-1.8.7
+ # => http://cold-fog-612.heroku.com/ | git@heroku.com:cold-fog-612.git
+ # => Git remote heroku added                                          
+git push heroku master  # => Warning: Permanently added the RSA host key for IP address '50.16.233.102' to the list of known hosts.
+ # => update gem file for heroku => gem 'sqlite3-ruby', '1.3.2', :group => :development

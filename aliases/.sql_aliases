@@ -1,0 +1,47 @@
+
+# Intro to INNER JOIN, OUTER JOIN, and SELF JOIN
+http://www.developer.com/db/article.php/3873466/The-Basics-of-SQL-Joins-in-MySQL.htm
+
+
+Example from LC sql_for_foe.sql
+
+SELECT
+    `node`.type,
+    `node`.title,
+    `node`.created,
+    `content_type_article`.field_summary_value
+FROM
+    node
+INNER JOIN
+    `content_type_article` -- `blog_posts_categories`
+ON
+    `node`.nid = `content_type_article`.nid
+WHERE
+    `node`.type in ('media_release','article');
+
+
+
+Example from LC sql_for_foe.sql
+
+ SELECT
+          `node_revisions`.title  ,
+          "" AS 'permalink',
+          `users`.name            ,
+          FROM_UNIXTIME(`node`.created),
+          REPLACE(`node_revisions`.teaser,'\n','        '),
+          REPLACE(`node_revisions`.body,'\n','        ')
+            INTO OUTFILE '/tmp/max41.csv'
+            FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"'
+            LINES TERMINATED BY '\n'
+      FROM
+          node_revisions
+      INNER JOIN
+          `node`
+      ON
+          `node`.nid = `node_revisions`.nid
+      INNER JOIN
+          `users`
+      ON
+          `node_revisions`.uid = `users`.uid
+       WHERE
+          `node`.type in ('media_release');

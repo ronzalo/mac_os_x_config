@@ -1,0 +1,9 @@
+To record to the disk: 
+streamripper <station> -r 127.0.0.1:8000 -z 
+And to listen at the same time: 
+xmms http://127.0.0.1:8000 (or use mplayer)
+
+
+http://www.mikesradioworld.com/
+
+http://www.live-radio.net

@@ -1,0 +1,316 @@
+# -*- coding: utf-8 -*-
+#### http://rinari.rubyforge.org/Navigation.html#Navigation
+     C-c ; f c	rinari-find-controller
+     C-c ; f e	rinari-find-environment
+     C-c ; f f	rinari-find-file-in-project
+     C-c ; f h	rinari-find-helper
+     C-c ; f i	rinari-find-migration
+     C-c ; f j	rinari-find-javascript
+     C-c ; f l	rinari-find-plugin
+     C-c ; f m	rinari-find-model
+     C-c ; f n	rinari-find-configuration
+     C-c ; f o	rinari-find-log
+     C-c ; f p	rinari-find-public
+     C-c ; f s	rinari-find-script
+     C-c ; f t	rinari-find-test
+     C-c ; f v	rinari-find-view
+     C-c ; f w	rinari-find-worker
+     C-c ; f x	rinari-find-fixture
+     C-c ; f y	rinari-find-stylesheet
+
+copy-to-register							C-x r s, C-x r x
+insert-register								C-x r i, C-x r g
+
+emacs-rails
+emacs-rails-reloaded
+rinari
+emacs-rails-kit
+emacs-starter-kit
+my_emacs_for_rails  (git://github.com/spastorino/my_emacs_for_rails.git)
+my_emacs_for_rails  (git://github.com/selman/my_emacs_for_rails.git)
+
+
+
+inf-ruby.el
+A ruby process can be fired up with
+  M-x run-ruby.
+  M-x ruby-send-region-and-go
+
+# Start up emacs with different default lisp directory, Ex:
+# emacs -q -l ~/src/emacs-starter-kit/init.el
+  emacs -q -l ~/src/emacs-starter-kit/init.el
+
+# After starting the ruby debugger with rdebug in a shell turn on the source code tracker to see where you are.
+# I have not been successful with M-x rdebug.  It does not seem to synchr well
+  # http://rubyforge.org/projects/ruby-debug
+  M-x turn-on-rdebug-track-mode
+
+# Ruby Information like Man pages in emacs
+  M-x ri
+
+# start emacs within a text terminal, (no X windows frame), very useful if all you have is a VT100 emulation over a dial  up connection.
+  emacs -nw
+
+# start emacs and goto line 100 in file report.txt
+  emacs +100 report.txt
+
+# start emacs and ignore the .emacs file
+  emacs -q
+
+# start emacs configured using fred's .emacs
+  emacs -u fred
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;; .emacs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+# Add snippets to emacs
+# http://code.google.com/p/yasnippet/
+
+(add-to-list 'load-path
+             "~/.emacs.d/yasnippet-0.6.1c")
+(require 'yasnippet) ;; not yasnippet-bundle
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/yasnippet-0.6.1c/snippets/")
+
+;;; GET RID OF THE BLASTED CONTROL CHARACTERS IN EMACS
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+;;; ENABLE CLIPBOARD ON WIPE
+(global-set-key "w" (quote clipboard-kill-ring-save))
+
+;;; SET A KEY FOR COMMENTING CODE
+(global-set-key "" (quote comment-region))
+
+;;; LINE NUMBERS
+(global-linum-mode (quote toggle))
+
+;;; LOAD UP MY HELP FILE ALIASES
+(dired "~/.*_aliases" nil)
+
+;;; Start a shell
+(shell "*bash*")
+
+;;; NEW VERSION OF ORG-MODE
+(setq load-path (cons "~/emacs-packages/org/lisp" load-path))
+(setq load-path (cons "~/emacs-packages/org/contrib/lisp" load-path))
+(require 'org-install)
+         ;; The following lines are always needed.  Choose your own keys.
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+        ;; AGENDA FILE POINTER, JUST ONE FOR NOW
+(setq org-agenda-files (list "~/Documents/priorities.org"))
+
+;;; CHANGE POSITION OF TWO BUFFERS
+(fset 'cmm-swap-buffers
+   [?\C-x ?b ?m ?y ?t ?e ?m ?p ?a ?r ?y ?y ?b ?u ?f ?f ?f ?f ?e ?r return return ?\C-x ?o ?\C-x ?b return ?\C-x ?o ?\C-x ?b return ?\C-x ?o])
+
+;;; BETTER COMMENT OUT AN ERB LINE
+(fset 'cmm-comment-erb
+   [?\C-s ?< ?% ?\C-b ?  ?\C-b ?# ?\C-a ?\C-  ?\C-n ?\C-c ?\C-c ?\C-c])
+(global-set-key "" (quote cmm-comment-erb))
+(fset 'cmm-comment-erb-line
+   [?\C-a ?\C-  ?\C-e ?\C-x ?n ?n ?\C-a ?\C-x ?h escape ?x ?r ?e ?p ?l ?a ?c ?e ?  ?s ?t ?r ?i ?n ?g return ?% return ?# ?% ?# return ?\C-a ?\C-a ?\C-  ?\C-e ?\C-c ?\C-c ?\C-c ?\C-x ?n ?w ?\C-n])
+(global-set-key "" (quote cmm-universal-argument-comment-erb-line))
+(fset 'cmm-universal-argument-comment-erb-line
+   [?\C-a ?\C-  ?\C-e ?\C-x ?n ?n ?\C-x ?h ?\C-u ?\C-c ?\C-c ?\C-c ?\C-x ?h ?\C-a escape ?x ?r ?e ?p ?l ?a ?c ?e ?  ?s ?t ?r ?i ?n ?g return ?# ?% ?# return ?% return ?\C-x ?n ?w ?\C-n])
+
+
+;;; see ~/.emacs.d/addons.el
+;;; SIMPLE CODE FOLD TOGGLING
+;;; http://emacs.wordpress.com/2007/01/16/quick-and-dirty-code-folding/
+(defun jao-selective-display ()
+  "Activate selective display based on the column at point"
+  (interactive)
+  (set-selective-display
+   (if selective-display
+       nil
+     (+ 1 (current-column)))))
+(global-set-key (quote [3 67108896]) (quote jao-selective-display))  ;;; [C-c C-space]
+;;;(global-set-key "." (quote jao-selective-display))
+
+;; SAVE LAYOUT TO REGISTER A
+;; C-x r w a
+;; RESTORE LAYOUT SAVE IN REGISTER A
+;; C-x r j a
+(winner-mode 1)
+
+(put 'scroll-left 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;; .emacs ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+http://emacs-fu.blogspot.com/2009/03/color-theming.html
+
+If you see some text that has some unexpected color, and you wonder
+why that is, move the cursor there, and call
+
+M-x describe-face
+
+With that information, you can then configure the looks
+
+(set-face-foreground 'default "blue")
+(set-face-background 'default "green")
+
+ M-x list-colors-display
+
+Best command for rails views
+  C-c C-t runs the command sgml-tag, interactively insert tags
+  C-c C-e runs the command sgml-close-tag, insert end tag for open tag
+
+To install my_emacs_for_rails you need the following font
+   http://kevin.vanzonneveld.net/techblog/article/install_the_best_coding_font/
+    sudo aptitude install ttf-inconsolata
+
+Emacs VI command equivalents table http://grok2.tripod.com/
+
+
+M-x rdebug
+============
+  run with
+rdebug—emacs 3—no-stop PATH_TO/script/server
+rdebug --emacs 3 --no-stop PATH_TO/script/server
+
+
+To tail a file in emacs do
+==========================
+M-x ansi-term <return>
+tail -f development.log
+
+
+http://emacsblog.org/2008/12/05/emacs-starter-kit/
+$ git clone git://github.com/technomancy/emacs-starter-kit.git
+$ emacs -q -l ~/path/to/emacs-starter-kit/init.el
+
+
+expand-abbrev
+C-x a ', C-x a e, C-x '
+
+C-x a g runs the command add-global-abbrev, which is an interactive
+
+;How to remove blank lines
+(flush-lines "^$" nil nil t) ; M-x flush-lines ^$ <return>
+
+
+
+[*****]
+To select files to search by regexp:  (IOW search through all buffers)
+  M-x multi-occur-in-matching-buffers
+
+
+# Mon Jan 17 12:16:31 2011
+
+# go to line 100 in file.rb
+emacsclient +100 file.rb
+
+# exit from that file with C-x #
+
+* Add a line to head of file to control specific actions for that file in buffer
+   #-*- x-soft-wrap-text: false; x-show-navigation-bar: true; x-auto-expand-tabs: false; x-show-invisibles: true; x-typographers-quotes: false; x-show-gutter: true; x-show-spaces: true; x-show-page-guide: true; x-show-line-numbers: true; x-show-toolbar: true;  -*-
+
+
+
+comint-bol is an interactive compiled Lisp function in `comint.el'.
+
+(comint-bol &optional ARG)
+
+Go to the beginning of line, then skip past the prompt, if any.
+If prefix argument is given (C-u) the prompt is not skipped.
+If `comint-use-prompt-regexp' is non-nil, then the prompt skip is done
+by skipping text matching the regular expression `comint-prompt-regexp',
+a buffer local variable.
+
+[back]
+
+
+
+"^[^#$%>\n]*[#$%>] *"
+
+
+comint-prompt-regexp is a variable defined in `comint.el'.
+Its value is "^[^#$%>\n]*[#$%>] *"
+Local in buffer *shell*; global value is "^"
+
+Documentation:
+Regexp to recognize prompts in the inferior process.
+Defaults to "^", the null string at BOL.
+
+This variable is only used if the variable
+`comint-use-prompt-regexp' is non-nil.
+
+Good choices:
+  Canonical Lisp: "^[^> \n]*>+:? *" (Lucid, franz, kcl, T, cscheme, oaklisp)
+  Lucid Common Lisp: "^\\(>\\|\\(->\\)+\\) *"
+  franz: "^\\(->\\|<[0-9]*>:\\) *"
+  kcl: "^>+ *"
+  shell: "^[^#$%>\n]*[#$%>] *"
+  T: "^>+ *"
+
+This is a good thing to set in mode hooks.
+
+[back]
+
+
+# like $ tail -f developer.log
+M-x auto-revert-tail-mode for developer.log file to tail -f the file
+
+
+/usr/local/Cellar/emacs/HEAD/share/emacs/24.0.50/lisp/bookmark.el.gz
+
+;;; Misc comments:
+;;
+;; If variable bookmark-use-annotations is non-nil, an annotation is
+;; queried for when setting a bookmark.
+;;
+;; The bookmark list is sorted lexically by default, but you can turn
+;; this off by setting bookmark-sort-flag to nil.  If it is nil, then
+;; the list will be presented in the order it is recorded
+;; (chronologically), which is actually fairly useful as well.
+
+
+How to recursively change files
+
+  1. M-x find-name-dired: you will be prompted for a root directory and a filename pattern.
+  2. Press t to "toggle mark" for all files found.
+  3. Press Q for "Query-Replace in Files...": you will be prompted for query/substitution regexps.
+  4. Proceed as with query-replace-regexp: SPACE to replace and move to next match, n to skip a match, etc.
+
+FUNCTIONS TO REMEMBER
+=======================================================
+sgml-close-tag                    C-c ], C-c /, C-c C-e
+wrap-region-trigger               <
+sgml-tag                          C-c C-t
+sgml-close-tag                    C-c C-e
+auto-revert-tail-mode
+multi-occur-in-matching-buffers   M-M s
+col-highlight-flash               C-+
+describe-key                      C-h k                 ;; menus too!!
+org-table-move-column             M-right               ;; Mac M-right === OPTION-right
+
+
+To select files to search by regexp:
+
+  M-x multi-occur-in-matching-buffers
+
+Not About Keys:
+ EMACS				MAC
+  M-ESC === M-fn-option
+
+
+# http://emacswiki.org/emacs/SetFonts#toc2
+	Vanilla Emacs: You can use 
+`C-x C-+’  increase the buffer text size
+`C-+’ to repeat
+‘C-x C--’  decrease the buffer text size
+‘C--’ to repeat
+C-x C-0 To restore the default. 
+‘S-mouse-1’ pops up a menu where you can choose these same actions.
+
+
+# Basic command line file for ruby ;)
+
+		#!/usr/bin/env ruby
+
+		ARGV.each do|a|
+			puts "Argument: #{a}"
+		end

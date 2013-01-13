@@ -1,0 +1,7 @@
+| 2               | 3                       | common suffix                          |
+|-----------------+-------------------------+----------------------------------------|
+| rails           | rails new               | app_name                               |
+| script/generate | rails generate scaffold | scaffold User name:string email:string |
+| rake            | rake                    | db:migrate                             |
+| script/server   | rails s(erver)          |                                        |
+

@@ -1,0 +1,5 @@
+  # Create a queue:
+  Qusion.channel.queue("my-worker-queue")
+  # Topics:
+  Qusion.channel.topic("my-topic-exchange")
+  # etc.

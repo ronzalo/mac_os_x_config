@@ -1,0 +1,43 @@
+# SEE: http://dizzy.co.uk/ruby_on_rails/cheatsheets/rails-migrations
+# http://guides.rubyonrails.org/migrations.html#changing-migrations
+
+
+change_table :products do |t|
+  t.remove :description, :name
+  t.string :part_number
+  t.index :part_number
+  t.rename :upccode, :upc_code 
+end 
+
+
+# Get rid of data I no longer want in my db
+ rake db:migrate VERSION=0
+ rake db:migrate:reset
+
+# Add date in the migration file
+
+  def self.up
+    create_table :trials do |t|
+      t.string :dose
+      t.string :sex
+      t.integer :age
+      t.string :race
+
+      t.timestamps
+    end
+
+    200.times {
+      Trial.create( :dose => %w{2.0 1.0 0.5 0.0}[rand(4)], # 2.0 1.0 .5 0.0
+                    :sex  => %w{M F}[rand(2)], #M F
+                    :age  => rand(90).to_s, # random age
+                    :race  => %w{black white hispanic asian}[rand(4)] #black white hispanic asian
+                    )
+    }
+  end
+
+
+rename_column :table_name, :old_column_name, :new_column_name 
+
+
+    ./script/generate migration AddTitleBodyToPost title:string body:text published:boolean
+

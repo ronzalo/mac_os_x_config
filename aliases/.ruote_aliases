@@ -1,0 +1,4 @@
+  cd ~/githubcloned/ruote-web2/
+  ruby script/server
+
+

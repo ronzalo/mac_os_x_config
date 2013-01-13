@@ -1,0 +1,13 @@
+# Fri Sep 24 19:56:13 2010
+
+# update mac ports
+ $ sudo port selfupdate 
+
+# update the mac port installed software
+ $ port upgrade outdated
+
+# Find the correct name of a piece of free software for use with install command below
+ $ port search ispell
+
+# Sample install of software
+ $ sudo port install ispell

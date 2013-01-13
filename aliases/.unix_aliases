@@ -1,0 +1,8 @@
+# Howto find: What type of machine am I on?
+
+		> uname -a
+		Linux att-stg-app-00.dc-00.rbm.local 2.6.9-89.0.25.ELsmp #1 SMP Thu May 6 12:33:40 EDT 2010 x86_64 x86_64 x86_64 GNU/Linux
+
+		> uname -p
+		x86_64
+

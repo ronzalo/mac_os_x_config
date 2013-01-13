@@ -1,0 +1,272 @@
+#+TODO: NEXT INPROC WAITINGON | DONE REMEMBER RESOLVED REWRITE REASSIGNED COULDNT-DO
+#+STARTUP: indent
+
+* Passwords
+
+http://usfirst.unfuddle.com/
+cmagid
+openone1
+
+
+* Previous file click [[./USFirst-Original.org][here]]
+
+* How to setup FLL
+
+** Install necessary ssh files
+
+~/.ssh/config
+~/.ssh/id_rsa
+~/.ssh/id_rsa.pub
+~/.ssh/id_rsa.usfirst
+~/.ssh/id_rsa.usfirst.pub
+
+** Create the development database
+
+$ mysql -u root -p
+Enter password: root
+mysql> create database danes_development;
+
+
+* How to Develop on FLL
+
+** Notes:
+
+Many from (~/aliases/.bashrc_aliases_snowy)
+   
+** Shell to staging or production from local machine
+
+   sshstaging () { echo "Password: Aj792v43zF82" && ssh first@tm25-s00014 ; }
+   sshprod1   () { echo "Password: Aj792v43zF82" && ssh fllprod1 ; }
+   sshprod2   () { echo "Password: Aj792v43zF82" && ssh fllprod2 ; }
+
+** Dump db on staging or production
+
+   # Strange prod1 and prod2's /current directories are the same directories!
+
+   dumpprod()    { cd current; cat config/database.yml; echo "0L50ZO60Ze1U"; mysqldump --opt -u first_db -p -h first-mysql-production-master first_production > dumpprod.sql && gzip dumpprod.sql; echo 'DONE'; }
+   dumpstaging() { cd current; cat config/database.yml; echo "0L50ZO60Ze1U"; mysqldump -u first_db -p first_staging > dump.sql && gzip dump.sql; echo 'DONE'; }
+   dumplocal()   { cd ~/rails_projects/usfirst; cat config/database.yml;     mysqldump -u root -p first_development > dump.sql && gzip dump.sql; echo 'DONE'; }
+   
+** Copy files from staging or production to local machine
+
+   getfromstaging() { echo "from target machine"; echo "Password: Aj792v43zF82" && scp first@tm25-s00014:/data/first/current/dump.sql.gz .; }
+   getfromprod()    { echo "from target machine"; echo "Password: Aj792v43zF82" && scp fllprod1:/data/first/current/dumpprod.sql.gz .; }
+
+** Import data to mysql
+
+cat config/database.yml
+mysql first_development -u root  < /Users/cmmagid/Downloads/dump.sql 
+
+** Git commands
+
+EXAMPLE $ git clone git@subdomain.unfuddle.com:subdomain/abbreviation.git
+GOOD $ git clone git@usfirst.unfuddle.com:usfirst/usfirst.git
+
+*** Moving in the code
+**** Work on master (master is the development branch)
+   git add .
+   git commit -am "bug #"
+**** Merge with changes from others
+   git pull origin master
+   <resolve conflicts & recommit>
+**** Record SHA1 number (on master branch) for the ticket.   
+**** Push change to master back up to repository
+   git push origin master
+**** Sync staging with master
+   git checkout staging  # it does a pull? pull anyway.
+   git pull origin staging
+   git merge master
+   git pull origin staging
+**** push staging back up to repository
+   git push origin staging
+
+** Cap command
+
+   cap staging deploy
+
+** Console commands
+
+To run console in production mode
+$ RAILS_ENV=production script/console
+
+** Server commands
+
+# To use debugger in production environment
+$ script/server --debugger -e production
+
+** ~/.ssh/config info & staging vs production urls
+
+|------------+------------------------------------+------------+-------------------+--------------|
+| LABEL      | URL                                | HOST       | HOSTKEYALIAS      |     HOSTNAME |
+|------------+------------------------------------+------------+-------------------+--------------|
+| staging    | https://staging-gofll.usfirst.org/ | fllstaging | first@tm25-s00014 | 72.46.238.49 |
+| Production | https://gofll.usfirst.org/         | fllprod1   | first@tm25-s00015 | 72.46.238.95 |
+| Production | https://gofll.usfirst.org/         | fllprod2   | first@tm25-s00016 | 72.46.238.95 |
+
+** Sharing data on 'Evernote'
+
+folder:   http://tinyurl.com/flldevchma
+
+** When is a ticket complete
+
+*** When it runs on my local machine
+
+*** When it is pushed back to staging
+
+*** When it is deployed on the staging server
+
+*** When the test cases run on staging
+
+
+* How to Use FLL
+
+* Video Toc
+** What needs to be done for this version FLL  		-  Dan-Snowy-11.02.01.a (15 minutes)
+** Discuss the code for changing seasons  					-  Dan-Snowy-11.02.01.b (28 minutes)
+** Some rvm and selenium ide crap  								-  Dan-Snowy-11.02.01.b (28 minutes)
+** Walking through for starting a new season 			-  Dan-Snowy-2011.02.02-Season.screenflow (at the begining)
+
+* rvm Gemset: $ ruby-1.8.7-p174@rails2snowy
+
+* Steps Dan went over with me
+
+** Set up a new group event (User: Site admin)
+
+** Create an (3 for downstream ops) event (User: event group coordinator)
+
+*** Notes
+
+**** Do NOT check 'list this event to the public'
+
+**** Only restricted events can be:
+
+***** Grouped into event groups
+
+***** Scheduled
+
+
+**** MUST check 'restrict registration to this event'
+
+
+** BAD: Create a team (User: ?admin) [[tried and failed because of role limitations? => skip for now]]
+
+*** Notes
+
+**** May need to add role to admin to allow admin to create teams
+
+
+** Create a coach account (User: coach;  State: perspective coach)
+
+** Coach gets email and accepts (User: coach; State: perspective coach; Action: Copy link to browser action)
+
+** Coach fills in info (User: coach; State perspective coach)
+
+** Approve coach's registration from tab messages, subtab received messages, link subject 'fll user registration' (User: Site admin)
+
+** BAD?: To get extra buttons the admin must have the proper roles (be aware of for new season change code)
+
+** Admin gives coach the CoachRole with tab menu / subtab user then search for coach to give the role to.
+
+** Checkboxes for tab admin; subtab user (Can always:
+*** register => can always register a team even after having registered one already
+*** order
+*** bulk order
+* checkpoint buffer list
+** v1 (Thu Mar 17 16:31:28 2011)
+. * Reference.org<2>      5630  Org               ~/aliases/Reference.org
+  * *shell*             150522  Shell:run         ~/rails_projects/usfirst/
+    referral.rb          41852  Ruby              ~/rails_projects/danestreet/app/models/referral.rb
+    coach_invitation.rb   1844  Ruby              ~/rails_projects/usfirst/app/models/coach_invitation.rb
+    co_coaches_changes.: 19017  Org               ~/Documents/JobKit/SnowyOwl/co_coaches_changes.org
+  * 1                    17492  Shell:run         ~/rails_projects/usfirst/
+    mailer.rb             5050  Ruby              ~/rails_projects/usfirst/app/models/mailer.rb
+    coach_invitations_co: 4010  Ruby              ~/rails_projects/usfirst/app/controllers/coach_invitations_controller.rb
+    .rails_aliases       13075  Fundamental       ~/aliases/.rails_aliases
+    order.rb             14204  Ruby              ~/rails_projects/usfirst/app/models/order.rb
+ %* *grep*                2775  Grep:exit [match
+  * asdfklajsdfljasdlfjas    1  Fundamental
+ %* mailer                2231  Dired by name     ~/rails_projects/usfirst/app/views/mailer/
+ %  *Occur*                295  Occur
+    cancel_coach_invitati: 708  RHTML             ~/rails_projects/usfirst/app/views/mailer/cancel_coach_invitation.html.erb
+    coach_invitation.html: 681  RHTML             ~/rails_projects/usfirst/app/views/mailer/coach_invitation.html.erb
+    team.rb              26181  Ruby              ~/rails_projects/usfirst/app/models/team.rb
+    schema.rb<2>         24779  Ruby              ~/rails_projects/usfirst/db/schema.rb
+    coach_invitation_conf: 692  RHTML             ~/rails_projects/usfirst/app/views/mailer/coach_invitation_confirmation.html.erb
+ %  *Apropos*             3012  Apropos
+    *scratch*              191  Lisp Interaction
+    application.js         148  Javascript        ~/rails_projects/redboxicharles/public/javascripts/application.js
+    new_work_writeup.or: 12148  Org               ~/Documents/JobKit/SnowyOwl/new_work_writeup.org
+    temp.snowy.shell.: 2044686  Text              ~/rails_projects/temp.snowy.shell.txt
+    environment.rb<2>     5249  Ruby              ~/rails_projects/usfirst/config/environment.rb
+    new_work_writeup_sub: 2717  Org               ~/Documents/JobKit/SnowyOwl/new_work_writeup_subtree.org
+    MyExcellentSkills.or: 7660  Org               ~/Documents/JobKit/Inbox/MyExcellentSkills.org
+    dan.org               1800  Org               ~/Documents/JobKit/SnowyOwl/dan.org
+    .aprc                  752  Fundamental       ~/.aprc
+    planning.org         33646  Org               ~/Documents/private/orgs/planning.org
+    .orgmode_aliases     25541  Fundamental       ~/aliases/.orgmode_aliases
+    @today.txt              79  Text              ~/Documents/@today.txt
+    DaneStreet.org      925078  Org               ~/Documents/JobKit/DaneStreet/DaneStreet.org
+    DaneStreetNew.org  1027370  Org               ~/Documents/JobKit/DaneStreet/DaneStreetNew.org
+    .irbrc                3061  Fundamental       ~/.irbrc
+    rubycharles.txt      50355  Text              ~/Documents/JobKit/Rails_Interview_Q_and_A/rubycharles.txt
+    USFirst-Original.o: 564179  Org               ~/Documents/JobKit/SnowyOwl/USFirst-Original.org
+    history.log.7        10653  Nroff             ~/history.log.7
+    boot.rb<2>            2795  Ruby              ~/rails_projects/usfirst/config/boot.rb
+    Gemfile                  0  Ruby              ~/rails_projects/usfirst/Gemfile
+    season_changes.org   31246  Org               ~/Documents/JobKit/SnowyOwl/season_changes.org
+    Bug-49.org           24006  Org               ~/Documents/JobKit/SnowyOwl/BugDir/Bug-49.org
+    Dog.org               4214  Org               ~/Documents/Dog.org
+    Bug-.org               311  Org               ~/Documents/JobKit/SnowyOwl/BugDir/Bug-.org
+    USFirst.org          11626  Org               ~/Documents/JobKit/SnowyOwl/USFirst.org
+    coordinator_invitatio: 893  RHTML             ~/rails_projects/usfirst/app/views/mailer_for_events/coordinator_invitation.html.erb
+    mail_service_test.r: 37253  Ruby              ~/rails_projects/usfirst/vendor/rails/actionmailer/test/mail_service_test.rb
+    base.rb              28231  Ruby              ~/rails_projects/usfirst/vendor/rails/actionmailer/lib/action_mailer/base.rb
+    users_helper.rb        753  Ruby              ~/rails_projects/usfirst/app/helpers/users_helper.rb
+    coach_invitation_rece: 615  RHTML             ~/rails_projects/usfirst/app/views/mailer/coach_invitation_receipt.html.erb
+    development.log    1913641  Fundamental       ~/rails_projects/usfirst/log/development.log
+    index.org            15951  Org               ~/Documents/JobKit/Rails_Interview_Q_and_A/index.org
+    new.html.erb<4>       2150  RHTML             ~/rails_projects/usfirst/app/views/teams/new.html.erb
+    form.html.erb        14326  RHTML             ~/rails_projects/danestreet/app/views/referrals/form.html.erb
+    schema.rb            21763  Ruby              ~/rails_projects/danestreet/db/schema.rb
+    _model_partial.html.e: 631  RHTML             ~/rails_projects/railscasts-episodes/episode-124/todo/vendor/plugins/restful-authentication/generators/authenticated/templates/_model_partial.html.erb
+    config                 558  Conf[Space]       ~/.ssh/config
+    edit.html.erb         4873  RHTML             ~/rails_projects/usfirst/app/views/teams/edit.html.erb
+    edit_fr.html.erb      4873  RHTML             ~/rails_projects/usfirst/app/views/teams/edit_fr.html.erb
+    show.html.erb         6081  RHTML             ~/rails_projects/usfirst/app/views/teams/show.html.erb
+    show_fr.html.erb      6081  RHTML             ~/rails_projects/usfirst/app/views/teams/show_fr.html.erb
+    _invitations_fr.html.: 961  RHTML             ~/rails_projects/usfirst/app/views/teams/_invitations_fr.html.erb
+    mailer_for_bulk_orde: 2163  Ruby              ~/rails_projects/usfirst/test/unit/mailer_for_bulk_orders_test.rb
+    mailer_for_users.rb    691  Ruby              ~/rails_projects/usfirst/app/models/mailer_for_users.rb
+    message_mailer.rb      519  Ruby              ~/rails_projects/usfirst/app/models/message_mailer.rb
+    .ruby_aliases        11490  Fundamental       ~/aliases/.ruby_aliases
+    .rails2-to-rails3_ali: 523  Fundamental       ~/aliases/.rails2-to-rails3_aliases
+    .rails3_aliases        835  Fundamental       ~/aliases/.rails3_aliases
+    users_controller.rb   3621  Ruby              ~/rails_projects/usfirst/app/controllers/users_controller.rb
+    routes.rb<2>          5671  Ruby              ~/rails_projects/usfirst/config/routes.rb
+    reminder.html.erb      381  RHTML             ~/rails_projects/usfirst/app/views/mailer_for_passwords/reminder.html.erb
+    Access.txt           25685  Text              ~/Documents/private/Access.txt
+    redbox_helper.rb<2>   2843  Ruby              ~/rails_projects/usfirst/vendor/plugins/redbox/lib/redbox_helper.rb
+    README                3856  Fundamental       ~/rails_projects/usfirst/vendor/plugins/redbox/README
+    _invitations.html.erb  966  RHTML             ~/rails_projects/usfirst/app/views/teams/_invitations.html.erb
+    rails                  406  Ruby              ~/.rvm/gems/ruby-1.8.7-p334@rails2experiments/bin/rails
+    routes.rb             1932  Ruby              ~/rails_projects/redboxicharles/config/routes.rb
+    USAGE                  100  Fundamental       ~/.rvm/gems/ruby-1.8.7-p334@rails2experiments/gems/redbox-1.0.4/generators/redbox_static_files/USAGE
+    boot.rb               2832  Ruby              ~/rails_projects/redboxicharles/config/boot.rb
+    .rvmrc                  31  Fundamental       ~/.rvmrc
+    environment.rb        2002  Ruby              ~/rails_projects/redboxicharles/config/environment.rb
+    .rvm_aliases          9274  Fundamental       ~/aliases/.rvm_aliases
+    .gem_aliases          4116  Fundamental       ~/aliases/.gem_aliases
+    redbox_helper.rb      2844  Ruby              ~/.rvm/gems/ruby-1.8.7-p334@rails2experiments/gems/redbox-1.0.4/lib/redbox_helper.rb
+    application.html.erb  3524  RHTML             ~/rails_projects/usfirst/app/views/layouts/application.html.erb
+    posts.html.erb         630  RHTML             ~/rails_projects/redboxicharles/app/views/layouts/posts.html.erb
+    README.markdown       4448  Fundamental       ~/.rvm/gems/ruby-1.8.7-p334@rails2experiments/gems/redbox-1.0.4/README.markdown
+    index.html.erb         784  RHTML             ~/rails_projects/redboxicharles/app/views/posts/index.html.erb
+    new.html.erb<3>        393  RHTML             ~/rails_projects/redboxicharles/app/views/posts/new.html.erb
+    new.html.erb<2>       2730  RHTML             ~/rails_projects/usfirst/app/views/event_group_preferences/new.html.erb
+    .git_aliases          8853  Fundamental       ~/aliases/.git_aliases
+    Reference.org         5703  Org               ~/Documents/JobKit/SnowyOwl/Reference.org
+    new.html.erb           962  RHTML             ~/rails_projects/usfirst/app/views/coach_invitations/new.html.erb
+  * *Messages*            2014  Fundamental
+ %  *Compile-Log*            0  Compilation
+    mailer_for_events.rb  1515  Ruby              ~/rails_projects/usfirst/app/models/mailer_for_events.rb
+ %  *Completions*          343  Completion List

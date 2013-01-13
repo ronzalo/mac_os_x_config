@@ -1,0 +1,2 @@
+How to mirror a site
+wget -m -p http://www.site.com/

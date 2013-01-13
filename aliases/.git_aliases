@@ -1,0 +1,402 @@
+# -*- coding: utf-8 -*-
+git checkout master
+
+git remote
+git checkout -b charles
+DEFINITIONS
+    git checkout . ~ revert to previous definitions
+
+git pull origin master
+git add .
+
+#blow my changes in uncommited on master branch...WARNING, blows away commits
+git reset --hard
+git reset --hard HEAD
+git reset --hard
+
+working directory to last known commit
+git reset --hard HEAD
+git reset --hard HEAD^
+
+git status
+git add .
+git commit -m ''
+git pu
+
+# How to push my stuff up to the remote prepository much like  git push heroku master
+git push origin charles_hack
+
+
+
+# any mmodified files in my workingdir are blown
+git reset --hard
+
+#
+git reset --hard HEAD^  blow away last commit
+git reset --hard HEAD^^  blow away last two commit
+git reset --hard HEAD^^^  blow away last three commit
+
+on for local repository
+git checkout charles_hack
+
+;;; get the latest version
+git pull origin
+
+
+OPTION 1
+  git checkout charles
+   git add .
+   git commit
+   git push origin charles   # adds files to remote branch
+
+OPTION 2
+  git checkout charles
+    git add .
+    git commit
+  git checkout master     # this is local asshole
+                          # (like being on my local master before
+                             pulling remote master)
+  git pull origin master  # pull other peoples changes
+  git rebase charles      # merge other peoples changes into the
+                          # local branch I am on in this case
+                          # master(see above 1 line)
+   # for conflicts
+   git add f1 f2 ...
+   git commit -m "resolve Cs"
+  # do all tests
+  git push origin master # now everyone has the Sum of all people's efforts
+  git checkout -b charles
+
+
+
+
+  # In works the following says: "move my local master changes to the remote repository"  certainty(3)
+  $ git push origin master
+
+
+
+-------------
+git pull origin craig
+
+# Show Lots Of Information about where a git repository came from
+  git remote show origin
+
+
+### Want to get the remote ruote2.0 branch
+
+# Here are the branches
+charles@charles-laptop:~/workspace/ruote2.0.jmettraux$ git branch -a
+  master
+* ruote2.0
+  remotes/origin/HEAD -> origin/master
+  remotes/origin/master
+  remotes/origin/ruote2.0
+
+# I can not pull directly because I have some changes but did not realize it
+charles@charles-laptop:~/workspace/ruote2.0.jmettraux$  git pull origin/ruote2.0
+fatal: 'origin/ruote2.0' does not appear to be a git repository
+fatal: The remote end hung up unexpectedly
+
+
+# So I moved over to the local master branch by doing the badly named git checkout command
+charles@charles-laptop:~/workspace/ruote2.0.jmettraux$ git checkout master
+Switched to branch 'master'
+
+# What did this really pull??
+charles@charles-laptop:~/workspace/ruote2.0.jmettraux$ git pull
+remote: Counting objects: 29, done.
+remote: Compressing objects: 100% (18/18), done.
+remote: Total 18 (delta 13), reused 0 (delta 0)
+Unpacking objects: 100% (18/18), done.
+From git://github.com/jmettraux/ruote
+   9257815..fabdb9b  ruote2.0   -> origin/ruote2.0
+Already up-to-date.
+
+# Move over the correct branch.
+charles@charles-laptop:~/workspace/ruote2.0.jmettraux$ git checkout ruote2.0
+Switched to branch 'ruote2.0'
+Your branch is behind 'origin/ruote2.0' by 3 commits, and can be fast-forwarded.
+
+# Get all the code from github, remote (origin) repository, for that specific branch ruote2.0
+charles@charles-laptop:~/workspace/ruote2.0.jmettraux$ git pull origin ruote2.0
+From git://github.com/jmettraux/ruote
+ * branch            ruote2.0   -> FETCH_HEAD
+Updating 9257815..fabdb9b
+Fast forward
+ CREDITS.txt                     |    1 +
+ lib/ruote/engine/context.rb     |    2 +-
+ lib/ruote/exp/fe_participant.rb |   14 +++++++++-----
+ test/bm/ici.rb                  |    9 +++++++--
+ 4 files changed, 18 insertions(+), 8 deletions(-)
+charles@charles-laptop:~/workspace/ruote2.0.jmettraux$
+
+git fetch
+
+####################################################################################
+# Instead of saying sha1 I will use the work id, it is shorter and makes more sense
+
+
+# To cat a file do
+git show <id>
+
+# Find the <id> of a file do
+git ls-files -s cpgir1.rb
+
+
+git ls-tree
+
+--- ... +++ ''' --- ... +++ ''' --- ... +++ ''' --- ... +++ ''' --- ... +++ ''' --- ... +++ '''
+--- ... +++ ''' --- ... +++ ''' Thu 15 Oct 2009 10:25:25 AM EDT --- ... +++ ''' --- ... +++ '''
+--- ... +++ ''' --- ... +++ ''' --- ... +++ ''' --- ... +++ ''' --- ... +++ ''' --- ... +++ '''
+
+ # I installed qgit a better version of git gui
+$ git --version
+$ git config --list
+$ git config --global user.name "Charles Magid"
+$ git config --global user.email cmmagid@gmail.com
+ # or
+$ cat ~/.gitconfig
+$ git config --global alias.co checkout
+$ git config --global apply.whitespace nowarn
+
+ # infotoid: master is the name of my default local branch
+ # infotoid: "nothing to commit (working directory clean)"
+ # => all the stuff in working directory has been added to .git dir
+
+$ git remote add origin git@github.com:ChasManRors/learngit.git
+ # We now have a remote repository “origin”
+ # that will fetch all of it’s  refs/heads/* branches
+ # and store them in our local repo in
+ # refs/remotes/origin/* when a git fetch is performed.
+
+ # These are local directories.  They represent the same directory.
+ # They live inside of .git dir.
+ refs/remotes/git@github.com:ChasManRors/learngit.git/*
+ refs/remotes/origin/*
+ # git push <target> <local>
+$  git push origin master  # => Git.localbranch(master).pushtoremotebranch(origin)
+                           # => Git.origin.recieve(master)
+
+ # The effect of the above command can be summarized:
+ # git stick into remote name origin the contents of master
+ # or
+ # remote_origin add local_master
+
+all branches are represented as => refs/heads/*
+
+  git init
+  touch README
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:ChasManRors/learngit.git
+  git push origin master
+
+
+
+
+ heroku create
+Created http://simple-night-62.heroku.com/ | git@heroku.com:simple-night-62.git
+Git remote heroku added
+
+$  heroku create learngit
+Created http://learngit.heroku.com/ | git@heroku.com:learngit.git
+
+Fri 16 Oct 2009 09:36:12 AM EDT
+
+The purpose of a 'git add' is to push content into the 'index'
+
+git log --status
+
+$ git remote add heroku git@heroku.com:newname.git
+
+get this tutorial says Tom Dyer http://screencasts.pragprog.com/v-jwsceasy-v-preview.mov
+http://pragprog.com/screencasts/v-jwsceasy/source-control-made-easy The real one
+
+rec: tom dyer
+http://grb.rubyforge.org/
+
+rec tom dyer
+http://git-wt-commit.rubyforge.org/
+
+rec tom dyer
+http://progit.org/book/
+
+# how to destuctively revert a file to an older version
+git checkout [commit-ref (SHA1)] [file/to/restore]
+
+
+# How to push an existing Heroku project up to github.
+
+Create the project on github with web interface,
+git remote add github git@github.com:youruser/yourproject.git;
+git push github master
+
+---------
+
+# CHECKOUT OUT AND OVERWRITE LOCAL FILES WITH ONES FROM ANOTHER BRANCH!
+git checkout bug_30 -- filename1 filename2
+git checkout add_bio -- app/views/site/home.html.erb
+
+# Which were the last files to have changed
+git log -1 --stat
+
+# Check out these tips
+http://www.developer.com/features/article.php/52691_3886146_2/10-Git-Tips-and-Tricks-for-Beginners.htm
+
+# Web interface for git
+git instaweb --httpd webrick
+# open http://localhost:1234/ in browser
+# if you get the error: "No known browser available."  Configure the following
+$ git config --global web.browser ff
+$ git config --global browser.ff.cmd "open -a Firefox.app"
+
+# To install grb
+sudo gem install git_remote_branch --include-dependencies
+
+# to get help with the remote tracking gem
+grb
+
+# To tell github about a local branch I want it to track, like Joyent
+grb publish Joyent
+
+# To push the Joyent branch to Github
+git checkout Joyent
+git push origin Joyent
+
+
+# text graph of branches
+git log --graph --oneline --all
+
+
+# Opps had stuff on Production when it should have been on a branch  # Thanks to Tom Dyer
+git branch whatever
+git checkout whatever
+git diff EngineYardProduction
+git stash save
+git stash list
+git stash apply
+
+# How to restore a deleted uncommited directory
+git checkout -- directoryname
+
+# very short log info
+git log -4
+
+# short log info including files changes
+git log -4 --stat
+
+Q: How do I revert changes in Git?
+
+Q: How do I revert changes in Git: IF FILE HAS BEEN STAGED
+A: $ git unstage README
+
+    Explaination:
+     # A staged change is a change created by doing a
+     $ git add
+  # after doing the following once, Which I have done already
+    $ git config --global alias.unstage 'reset HEAD'
+  # you can undo a staged change                                ## So now instead of:
+    $ git unstage README            ## $ git reset HEAD README
+  # This gets rid of the effect of having done a
+    $ git add blah blah blah
+
+Q: How do I revert changes in Git: WHEN I HAVE NOT DONE A "$ git add" AND I HAVE NOT DONE A "$ git commit"?
+A: $ git checkout -- README
+
+  Explanation:
+     # Put the two dashes there so git knows not to checkout
+     # a branch named README, remember what "$ git checkout readme" does.
+
+Q: How do I revert changes in Git:
+A: $ git revert HEAD
+
+  Explanation:
+    Undoes the last commit
+    Or
+    $ git revert HEAD^
+    To Revert the next-to-last commit
+ $
+ $ http://jabberwocky.eu/2010/03/24/fscking-up-with-git-and-how-to-solve-it/
+bash: http://jabberwocky.eu/2010/03/24/fscking-up-with-git-and-how-to-solve-it/: No such file or directory
+ $
+ $
+
+diff
+
+ $ git diff master --  app/controllers/coach_invitations_controller.rb
+
+show older version of a file
+$ git show HEAD~4:src/main.c
+
+Look for a specific version of a single file through its diff history, to locate the sha1
+ $ gitk app/controllers/coach_invitations_controller.rb
+
+Then print out the located file
+ $ git show 4ce6a2f8a5cea4a9bf9dc893b9eaf3e5e5706a72:app/controllers/coach_invitations_controller.rb
+
+
+Ex: Do a diff with an earlier version of a file
+$ git diff HEAD~2 -- app/models/postal_district.rb
+
+
+# create an alias heroku for git@heroku.com:newname.git
+$ git remote add heroku git@heroku.com:newname.git
+
+
+# goes right past staging and directly to repository
+git commit -am "wip"
+
+git push origin oldname:newnameonremote
+
+# remote kill newnameonremote branch on github
+git push origin :newnameonremote
+
+?? how to I cherry pick stuff from someone elses pull request
+
+jenkins ci
+
+scrumdo
+
+gittiapp.com
+
+soucetreeapp.com
+git-tower.com
+
+smartgit gitx sourcetree
+
+# --no-ff use it (in other contexts too) to prevent trouble with reverting merges.
+$ git pull --no-ff
+
+
+
+$ git difftool revision_1:file_1 revision_2:file_2
+
+
+$ git log --no-merges --stat --author="Pattern" --name-only --pretty=format:"" | sort -u
+
+
+
+# Semantics
+git add #	=> puts stuff into staging
+
+
+|                   |                                                   |              |             |
+| Working Directory | Index                                             | Repository   | stash       |
+| unstaged          | Current Directory Cache                           | Object Store | in-progress |
+| uncached          | Cache                                             |              |             |
+|                   | Directory Cache                                   |              |             |
+|                   | Staging Area                                      |              |             |
+|                   | Staged Files                                      |              |             |
+|                   |                                                   |              |             |
+|                   | OD: Index can have multiple stages during a merge |              |             |
+|                   |                                                   |              |             |
+|                   |                                                   |              |             |
+|                   |                                                   |              |             |
+|                   |                                                   |              |             |
+|                   |                                                   |              |             |
+|                   |                                                   |              |             |
+|                   |                                                   |              |             |
+|                   |                                                   |              |             |
+
+
+git rev-parse `git merge-base A B`^

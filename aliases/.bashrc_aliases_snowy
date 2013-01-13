@@ -1,0 +1,103 @@
+# SNOWY OWL (FLL) SPECIFIC FUNCTIONS/ALIASES
+
+# BEGIN Get db from production into local db
+
+    ## one-liner; dump production database on production server
+    # $ cd; cat current/config/database.yml; mysqldump --opt -u first_db -p -h first-mysql-production-master first_production > dump_production_"`date '+%Y-%m-%d'`".sql; gzip dump_production_"`date '+%Y-%m-%d'`".sql; echo 'DONE'
+
+    ## one-liner; pull mysql dumpfile from production_1 to local machine
+    # $ echo "Password: Aj792v43zF82" && scp fllprod1:/home/first/dump_production_"`date '+%Y-%m-%d'`".sql.gz .
+
+    ## one-liner; import production database into my local database
+    # $ gunzip dump_production_"`date '+%Y-%m-%d'`".sql.gz && mysql first_development -u root  < dump_production_"`date '+%Y-%m-%d'`".sql
+
+# END Get db from production into local db
+
+# BEGIN Get db from production2 to staging db
+
+    ## one-liner shell to production_2
+    # $ echo "Password: Aj792v43zF82" && ssh fllprod2 
+
+    ## one-liner; dump production database on production server
+    # $ cd; cat current/config/database.yml; mysqldump --opt -u first_db -p -h first-mysql-production-master first_production > dump_production_"`date '+%Y-%m-%d'`".sql; gzip dump_production_"`date '+%Y-%m-%d'`".sql; echo 'DONE'
+
+    ## one-liner; pull mysql dumpfile from production_2 to local machine
+    # $ echo "Password: Aj792v43zF82" && scp fllprod2:/home/first/dump_production_"`date '+%Y-%m-%d'`".sql.gz .
+
+    ## one-liner; push dumpfile from local machine to staging
+    # $ echo "Password: Aj792v43zF82" && scp dump_production_"`date '+%Y-%m-%d'`".sql.gz first@tm25-s00014:/home/first/dump_production_"`date '+%Y-%m-%d'`".sql.gz
+
+    ## one-liner; import production database into staging db
+    # $ cd ; cat current/config/database.yml ;  gunzip dump_production_"`date '+%Y-%m-%d'`".sql.gz && echo "0L50ZO60Ze1U" ; mysql first_staging -p -u first_db  < dump_production_"`date '+%Y-%m-%d'`".sql
+
+# END Get db from production2 to staging db
+
+# END 
+
+# BEGIN 
+
+    ## one-liner shell to staging
+    # $ echo "Password: Aj792v43zF82" && ssh first@tm25-s00014
+
+# END 
+
+
+### VVVVVVVVVVVV Rewrite the stuff below VVVVVVVVVVVVVVVVVV ###
+
+
+
+
+
+# SHELL TO STAGING FROM LOCAL MACHINE ASSUMES SETTINGS IN ~/.ssh/config
+# $ ssh first@tm25-s00014
+# alias sshstaging="ssh first@tm25-s00014" # Password: Aj792v43zF82
+   so_shell_to_staging () { echo "Password: Aj792v43zF82" && ssh first@tm25-s00014 ; }
+snowy_shell_to_staging () { echo "Password: Aj792v43zF82" && ssh first@tm25-s00014 ; }
+            sshstaging () { echo "Password: Aj792v43zF82" && ssh first@tm25-s00014 ; }
+
+# SHELL TO PRODUCTION SERVER 1
+so_shell_to_production_1 () { echo "Password: Aj792v43zF82" && ssh fllprod1 ; }
+snowy_shell_to_production_1 () { echo "Password: Aj792v43zF82" && ssh fllprod1 ; }
+sshprod1 () { echo "Password: Aj792v43zF82" && ssh fllprod1 ; }
+
+# SHELL TO PRODUCTION SERVER 2
+so_shell_to_production_2 () { echo "Password: Aj792v43zF82" && ssh fllprod2 ; }
+snowy_shell_to_production_2 () { echo "Password: Aj792v43zF82" && ssh fllprod2 ; }
+sshprod2 () { echo "Password: Aj792v43zF82" && ssh fllprod2 ; }
+
+# PULL FROM STAGING /data/first/current/* TO LOCAL MACHINE 
+# $ scp first@tm25-s00014:/data/first/current/dump.sql . # Password: Aj792v43zF82
+so_pull_from_staging () { echo "Password: Aj792v43zF82" && scp "first@tm25-s00014:/data/first/current/$*" .; }
+snowy_pull_from_staging () { echo "Password: Aj792v43zF82" && scp "first@tm25-s00014:/data/first/current/$*" .; }
+scppullfromstaging () { echo "Password: Aj792v43zF82" && scp "first@tm25-s00014:/data/first/current/$*" .; }
+
+# PULL FROM PRODUCTION 1 /home/first/current/* TO LOCAL MACHINE # fllprod1
+# BAD scppullfromprod1 () { echo "Password: Aj792v43zF82" && scp "fllprod1:/data/first/current/$*" .; }
+so_pull_from_production_1 () { echo "Password: Aj792v43zF82" && scp "fllprod1:/home/first/current/$*" .; }
+snowy_pull_from_production_1 () { echo "Password: Aj792v43zF82" && scp "fllprod1:/home/first/current/$*" .; }
+scppullfromprod1 () { echo "Password: Aj792v43zF82" && scp "fllprod1:/home/first/current/$*" .; }
+
+# Put this alias on the remote staging machine; for now this is just documentation
+# 0L50ZO60Ze1U
+#alias dumpit="mysqldump -u first_db -p first_staging > dump.sql"
+dumpit2() { cd current; cat config/database.yml; echo "0L50ZO60Ze1U"; mysqldump -u first_db -p first_staging > dump.sql && gzip dump.sql; echo 'DONE'; }
+
+#   adapter:   mysql
+#   database:  first_production
+#   username:  first_db
+#   password:  0L50ZO60Ze1U
+#   host:      first-mysql-production-master
+# GOOD production server dump works
+#cat ~/current/dumpprod.sql 
+#mysqldump --opt -u first_db -p -h first-mysql-production-master first_production > dumpprod.sql
+#0L50ZO60Ze1U
+
+
+# IMPORT DATA INTO MYSQL
+# mysql first_development -u root  < /Users/cmmagid/Downloads/dump.sql 
+
+dumpit2() { cd current; cat config/database.yml; echo "0L50ZO60Ze1U"; mysqldump -u first_db -p first_staging > dump.sql && gzip dump.sql; echo 'DONE'; }
+
+
+
+alias idj="ps auxww | egrep -i \(runn\|delay\|dj\) | egrep -v egrep"

@@ -1,0 +1,5 @@
+To install on Karmic
+    sudo add-apt-repository ppa:jonoomph/openshot-edge
+    sudo apt-get update
+    sudo apt-get install openshot openshot-docs
+

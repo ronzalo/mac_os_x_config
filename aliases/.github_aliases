@@ -1,0 +1,111 @@
+Complex It LLC Example
+
+Assuming you have an account on github.com
+
+Global setup:
+ Download and install Git
+  git config --global user.name "Charles Magid"
+  git config --global user.email cmmagid@gmail.com
+
+Next steps:
+  mkdir ComplexIT_LLC
+  cd ComplexIT_LLC
+  git init
+  touch README
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:ChasManRors/ComplexIT_LLC.git
+  git push origin master
+
+Existing Git Repo?
+  cd existing_git_repo
+  git remote add origin git@github.com:ChasManRors/ComplexIT_LLC.git
+  git push origin master
+
+Importing a Subversion Repo?
+  Click here
+
+When you're done:
+  Continue
+
+Git flow of controll ala Pascal
+
+    The idea behind a rebase is to pull a branch up to HEAD so that it'll merge cleaning (in fact it'll just do a fast-foward instead of a merge)
+
+    For multiple people working on the same repo, I've attached 3 scripts that someone sent me last week that I really like:
+
+    $ hack "branchname"
+    # creates a new branch of off master
+
+    $ sink
+    # rebases your current branch to be up to date with master, so it'll merge cleanly
+
+    $ ship
+    # does a squash commit, merging all the features of that branch into master into a single commit and pushing to origin
+
+    So a standard collaborative workflow would be:
+
+    Fork via github
+    hack my-feature
+      # write code
+      git commit . -m 'Commit message'
+      .. repeat ..
+    sink
+    ship
+
+    Then you'll have 1 new commit off of master that you can create a pull request with
+
+
+    git remote -v
+
+
+$ curl http://github.com/api/v2/json/repos/show/schacon?page=2
+$ curl http://github.com/api/v2/json/repos/create/ChasManRors?name=feeisitwise
+repos/create
+
+
+
+================================================================
+        To work with remote designer
+================================================================
+Initialize Project:
+- Destroy App on Heroku (under My Apps)
+- Destroy Dir & Staging locally (within Documents\GitHub)
+- Delete repository in GitHub.com on Volumesquared (within Admin tab)
+- Stop tracking all repository in GitHub app [unexpected behavior]
+***********************************
+Make my changes locally and testing on Heroku.com:
+- Fork Charles' repository on GitHub.com
+- Once forked, I need to "clone in windows" to bring it locally to my computer
+- Set up App on Heroku via Shell
+- $ heroku create feewise-volumesquared (which creates a space on Heroku.com)
+- Make a change on local files
+- $ git status
+- $ git add .
+- $ git status
+- $ git commit -a -m"notes on change"
+- $ git push heroku master
+- $ heroku ps
+- $ heroku run rake db:migrate (Only need to do it once after a fork)
+- $ heroku logs (to double check the completed process)
+- $ heroku open (to check changes in browser)
+***********************************
+Close the loop with Charles on GitHub.com:
+- Use GitHub Windows App to sync
+- Once synced with VS account, please go and make a pull request for Charles
+
+***********************************
+
+How to add a collaborator to a github repo
+
+Browse to repo Ex: https://github.com/ChasManRors/feewise-development
+Click admin button 3rd row last column
+Click on Collaborators on left.
+
+***********************************
+
+How to block a user
+
+Visit the user's profile
+Click the gear button on the right side of the profile
+Click "Block User"

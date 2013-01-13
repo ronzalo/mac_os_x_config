@@ -1,0 +1,27 @@
+from http://cch4rails.blogspot.com/2007/11/testng-ruby-on-rails-applications.html
+
+1) Unit Testing deals with tests on models.
+2) Controllers are tested via Functional Testing
+3) Integration Testing focuses on the testing of the interation between controllers
+
+Rails has a number of features that make it easy to test your application. In particular, Rails uses a separate runtime database dedicated to testing and can automatically populate the test database with fresh sample data (that you provide) before each test.
+
+This is how you execute the tests :-
+
+a) Test all units and functionals
+rake test
+
+b) Run tests for functionals  (test controllers)
+rake test:functionals
+Ex: running a specific test
+
+$ rake test:functionals TEST=test/functional/admin/events_controller_test.rb
+
+
+c) Run tests for integration
+rake test:integration
+
+d) Run tests for units (test models)
+rake test:units
+
+

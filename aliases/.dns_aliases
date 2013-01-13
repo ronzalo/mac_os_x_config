@@ -1,0 +1,62 @@
+Get your DNS name by signing up for google apps
+    https://www.google.com/a/cpanel/hopeforthefutureintl.org/Dashboard
+
+
+Read email from google, which describes how to:
+
+  Created an administrator account for your domain, click the following link:
+    https://www.google.com/a/cpanel/domain/setup/hopeforthefutureintl.org/PDkI4CYBAAA.Y6mbgBJp_Nbs9kIG6B_rUA.BVAuoktN3ZuPdowsh5GQZg?hl=en
+
+Proceed to the dashboard
+
+    https://www.google.com/a/cpanel/hopeforthefutureintl.org/
+
+    click 'Domain Settings' tab
+
+    Click on sub-tab 'Domain Names'
+
+    Click on link for 'Advanced DNS settings'
+
+Write down the credentials to sign onto goDaddy
+
+    To change Advanced DNS settings, sign in to your DNS console
+    with the following information :
+
+    Sign-in name : 33697108
+    Password : 3mf6lkc6ch71dmp2
+    Customer service PIN : 3792
+    godaddy customer service email : gdomains@secureserver.net 
+
+Now you are in the special domain services manager webapp
+
+<fuzzy>
+
+Click on your dns name
+
+click on total dns 
+
+</fuzzy>
+
+Now one by one remove all of the cname aliases  (boring
+
+we add the first cname alias www and hope_for_the_future.heroku.com
+
+[[[for the second one be sure to add the dot at the end!!!!!
+
+       But this no longer works and probably for the best
+
+]]]
+
+Adding the @ A records
+
+75.101.163.44
+75.101.145.87
+174.129.212.2
+
+The gmail MXs are already set up on the goDaddy site.
+
+Now issue command line heroku commands
+
+
+Do testing
+  host hope_for_the_future.heroku.com

@@ -1,0 +1,131 @@
+#### Set up the authentication ####
+$ cat ./config/backup_fu.yml
+# The app_name is used as the backup filename prefix
+app_name: danestreet
+# You must create the s3_bucket specified below via an external tool like S3 Browser, etc
+verbose: true
+s3_bucket: ds_backups
+aws_access_key_id: 1MYVYVRY9JWA5DSK01G2
+
+#### Get a connection ####
+>> require 'aws/s3'
+>> @fu_conf = YAML.load_file(File.join(RAILS_ROOT, 'config', 'backup_fu.yml')).symbolize_keys
+>> myconnection  = AWS::S3::Base.establish_connection!(
+      :access_key_id => @fu_conf[:aws_access_key_id],
+      :secret_access_key => @fu_conf[:aws_secret_access_key]
+    )
+
+#### Find out what directories already exist in the cloud? ####
+>> bl = AWS::S3::Service.buckets
+
+#### opps created one I did not intend to create ####
+>> Bucket.create('Docmosis')
+>> b = AWS::S3::Bucket.create('Docmosis')
+>> b = AWS::S3::Bucket.create('Docmosis')
+
+#### create communications bucket ####
+>> b = AWS::S3::Bucket.create('ds_Docmosis')
+
+#### find files in a bucket ####
+>> tdocs = AWS::S3::Bucket.find('test_ds_documents')
+
+#### Array of files in bucket ####
+>> tdocs.entries
+
+bucket = AWS::S3::Bucket.find('test_ds_documents');nil
+service = AWS::S3::Service
+service.buckets.each{|x| puts "name = #{x.name}"};nil
+AWS::S3::Bucket.objects('test_ds_documents').size
+
+
+#### to store => Name of the Object, its Value, and the Bucket to put it in ####
+file = 'black-flowers.mp3'
+AWS::S3::S3Object.store(file, open(file), 'jukebox')
+
+service = AWS::S3::Service
+fil = '/home/charles/Downloads/104693.rtf'
+AWS::S3::S3Object.store(fil, open(fil), 'test_ds_documents')
+
+open('myfbbb.rtf', 'w') do |file|
+  AWS::S3::S3Object.stream(fil, 'test_ds_documents') do |chunk|
+    file.write chunk
+  end
+end
+
+
+r = Referral.all[5000 - 22]
+r.to_json
+r.additional_questions.to_json
+
+
+
+@referral.form_type
+@referral.requestor.profile.client.name
+@referral.requestor.profile.client.main_address
+@referral.requestor.profile.client.main_city
+@referral.requestor.profile.client.main_state
+@referral.requestor.profile.client.main_postal_code
+@referral.created_at.strftime('%m/%d/%y') 
+@referral.requested_due_datetime.strftime('%m/%d/%y') if @referral.requested_due_datetime 
+@referral.display_claimant_name 
+@referral.referral_type.name =~ /Disability/) ? "Disability Date:" : "Injury Date:" 
+@referral.referral_type.name =~ /Disability/) ? (@referral.disability_date.to_datetime.strftime('%m/%d/%y') if @referral.disability_date)  : (@referral.injury_date.to_datetime.strftime('%m/%d/%y') if @referral.injury_date) 
+@referral.social_security_number 
+@referral.insured_name 
+@referral.claim_number 
+@referral.jurisdictional_state 
+@referral.birth_date.to_datetime.strftime('%m/%d/%y') if @referral.birth_date 
+@referral.diagnosis 
+@referral.id 
+@referral.display_form_type 
+@referral.display_claimant_name 
+ rtf_bold "Communication: " unless prompted 
+ provider.contact_comments 
+ simple_rtf_format(@referral.records_reviewed) 
+ rtf_bold referral_document.document_date.strftime('%m/%d/%y') 
+ rtf_bold referral_document.name 
+ rtf_bold referral_document.suffix 
+ referral_document.description 
+ simple_rtf_format(@referral.clinical_summary) if @referral.clinical_summary 
+ rtf_bold  question.description 
+ simple_rtf_format(question.opinion) if question.opinion 
+ rtf_bold 'Conflict of Interest Attestation:' 
+@referral.reviewer.display_name 
+@referral.reviewer_specialty.name if @referral.reviewer_specialty 
+@referral.reviewer_license.description + @referral.reviewer_license.number + @referral.reviewer_license.state if @referral.reviewer_license 
+ simple_rtf_format(@referral.cited_guidelines) if @referral.cited_guidelines 
+@referral.created_at.strftime('%m/%d/%y') 
+@referral.requested_due_datetime.strftime('%m/%d/%y') if @referral.requested_due_datetime 
+@referral.display_claimant_name 
+@referral.injury_date.to_datetime.strftime('%m/%d/%y') if @referral.injury_date 
+@referral.social_security_number 
+@referral.insured_name 
+@referral.claim_number 
+@referral.jurisdictional_state 
+@referral.birth_date.strftime('%m/%d/%y') if @referral.birth_date 
+@referral.diagnosis 
+@referral.id 
+@referral.display_form_type 
+ rtf_bold "Communication: " unless prompted 
+ provider.contact_comments 
+ rtf_bold 'Medical Records: ' 
+ simple_rtf_format(@referral.records_reviewed) 
+ rtf_bold referral_document.document_date.strftime('%m/%d/%y') 
+ rtf_bold referral_document.name 
+ rtf_bold referral_document.suffix 
+ referral_document.description 
+ simple_rtf_format(@referral.clinical_summary) if @referral.clinical_summary 
+ rtf_bold 'Questions: ' unless prompted 
+ question.description 
+ question.response 
+ rtf_bold 'Recommendations: ' 
+@referral.ur_recommendation.name if @referral.ur_recommendation 
+ rtf_bold 'Rationale: ' 
+@referral.rationale 
+ rtf_bold 'Cited guideline: ' 
+ simple_rtf_format(@referral.cited_guidelines) if @referral.cited_guidelines 
+ rtf_bold 'Conflict of Interest Attestation:' 
+ rtf_bold 'Reviewed by: ' 
+@referral.reviewer.display_name 
+@referral.reviewer_specialty.name if @referral.reviewer_specialty 
+@referral.reviewer_license.description + @referral.reviewer_license.number + @referral.reviewer_license.state if @referral.reviewer_license 

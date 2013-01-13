@@ -1,0 +1,153 @@
+# See http://docs.rubygems.org/read/chapter/10
+# top of doc tree is: http://docs.rubygems.org/read/book/2
+# list all available gems using current path info
+gem query --remote  
+
+# get environment
+$ gem env
+
+# find what needs updating
+$ gem outdated
+
+# docs
+http://www.rubygems.org/read/chapter/1
+
+# Example of how to install a gem we just built
+$ sudo gem install pkg/ruote-2.0.0.gem
+
+# Create a gem:
+See http://rubygems.rubyforge.org/wiki/wiki.pl?CreateAGemInTenMinutes
+
+# shows entire environment
+gem sp <gem name>
+
+# Add bunch of new gems from gem cutter respository
+sudo gem sources -a http://gemcutter.org/
+
+--------------------------------------------------------------
+You can search a remote list of gems for the phrase you are after:
+
+ gem search mysql --remote gems.rubyforge.org
+
+This will give a list of gems with the word 'mysql' in them.
+--------------------------------------------------------------------
+Installing
+
+Installing a particular gem is very simple:
+
+ sudo gem install mysql
+
+That will, not unsurprisingly, install the gem 'mysql' (which is the ruby bindings for MySQL, not MySQL itself!).
+
+The example above will give a choice of versions to install. On a Linux VPS simply choose the latest 'ruby' version. So at the time of writing I would select option (3) mysql 2.7 (ruby).
+
+Often a gem will have several dependencies with it. To stop the install asking if you want the dependencies to be installed use this:
+
+ sudo gem install mysql --include-dependencies
+
+--------------------------------------------------------------------
+Outdated
+
+To get a list of gems that are now outdated (they have a newer version available), use this command:
+
+ gem outdated
+
+--------------------------------------------------------------------
+
+Get latest version of rubygems
+
+ $ sudo gem update --system
+
+Updating
+
+To update all the installed rubygems is just as straightforward:
+
+ gem update
+
+However, you may not want to update all at once, in which case specify the gem:
+
+ gem update mysql
+
+--------------------------------------------------------------------
+Clean
+
+This will remove outdated versions of gems that are installed, leaving the new updated version installed:
+
+ gem clean
+
+This will leave a nice and shiny up to date rubygems install.
+--------------------------------------------------------------------
+Removing
+
+At some point you may want to get rid of a gem completely. No problem:
+
+ sudo gem uninstall mysql
+
+--------------------------------------------------------------------
+Listing installed gems
+
+To get a list of locally installed gems, issue this command:
+
+ gem list
+
+That will give an overview of the gems you have installed. 
+
+--------------------------------------------------------------------
+
+Usage: gem install GEMNAME [options]
+
+  Options:
+    -v, --version VERSIO
+
+--------------------------------------------------------------------
+
+Start documentation server
+
+gem server
+
+
+gem sources -a http://gems.github.com
+
+
+--------------------------------------------------------------------
+
+From EY
+
+      Chas,
+
+      There may be a limit we can raise to get the CSV (or any
+      long-running actions) done. We'd need to make sure Nginx also
+      doesn't shut the connection when this happens either. However,
+      we highly recommend not doing this, as the more appropriate
+      solution to this kind of issue (any long-running action) is to
+      use a background processor to do the job for you.
+
+      You should take a look at the 2 most common background processors nowadays:
+
+      Delayed Job -
+      ===========
+
+      http://github.com/collectiveidea/delayed_job
+
+      Resque -
+      ========
+
+      http://github.com/defunkt/resque
+
+      Check the Resque README for differences between Resque and
+      Delayed_job (search for "Resque vs DelayedJob"). I would
+      personally recommend Delayed job as it should be easier to
+      maintain and use, but Resque is also a viable option.
+
+ Thu Mar 17 11:46:23 2011
+
+Had to roll back rubygems 
+=>
+    $ gem install rubygems-update -v='1.4.2'
+    $ gem uninstall rubygems-update -v='1.5.0'
+    $ update_rubygems
+
+
+Install a specific version of a gem
+
+gem install GEM --version VERSION 

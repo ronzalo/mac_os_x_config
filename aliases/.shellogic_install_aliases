@@ -1,0 +1,30 @@
+I’d still recommend using rvm
+
+$ sudo gem install rvm
+# See Note 3
+$ rvm install ree
+$ rvm use ree—default
+$ install postgres (in ubuntu it would be sudo apt-get install postgresqll )
+$ set up your databases in database.yml
+$ gem install pg
+# See Note 1
+$ rake gems:install (post bundler it will be gem install bundler && bundle install)
+# See  Note 2
+$ rake db:migrate db:seed
+
+And you should be able to bring a server up.
+
+
+Note 1
+  Fix version conflict
+  See  http://www.jamievandyke.com/post/378395109/uninitialized-constant-rails-railtie for bug
+  $ gem install responders -v 0.4.0
+
+
+Note 2
+  Fix wrong case
+# ln -s /home/charles/workspace/ShellLogicMaster/shellogic/db/bootstrap/SDTM_Schema.txt 
+        /home/charles/workspace/ShellLogicMaster/shellogic/db/bootstrap/SDTM_schema.txt
+
+Note 3
+     I did this because of some unidentified dependency.  Though I did not do  rvm use ree—default.  I am using rails 2.3.5 and ruby 1.8.7.174 

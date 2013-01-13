@@ -1,0 +1,30 @@
+Screen may have N sessions
+Sessions may have N windows
+
+alias devteam='ssh -p 31222 devteam@new.railsinboston.com'
+alias devteamopen='firefox http://new.railsinboston.com:3000/'
+
+kronos%2000
+
+Screen commands:
+screen -ls  => list all screen sessions
+screen -x letsgetogether # when someone is allready attached
+screen -r my_session=> connect me to the session named "my_session"  # if nobody is in it safer to use -x always
+screen -L  => create a screen that will log
+screen -S codereview  => create a screen named "codereview"
+
+cheat screen => good overview of screen commands
+
+C-a - prefix for all screen commands
+C-a ? => help
+C-a c => create a new window
+C-a k => kill current window
+C-a d => detach from current session
+C-a DD => Detaches from the window AND the ssh shell
+C-a x  => Lock the current screen with the current user's pwd
+C-a " (quote) => list windows
+C-a <digit>  => goto window <digit>
+C-a n     => goto next window
+C-a p  => goto previous window
+C-a A => name window
+C-a H => toggle window logging

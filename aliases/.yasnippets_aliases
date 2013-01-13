@@ -1,0 +1,44 @@
+Rules for emacs starter kit
+
+RULE:  Put new snippet in github directory then link to yasnippets folder
+    ~/.emacs.d/yasnippet-ruby-mode/anaf  # GITHUB directory
+
+  Link snippet to snippet in yasnippet's ruby-mode directory
+     ~/.emacs.d/yasnippet-0.6.1c/snippets/text-mode/ruby-mode/anaf # YASNIPPET'S RUBY-MODE directory
+
+  Example
+    ln -s ~/.emacs.d/yasnippet-ruby-mode/anaf ~/.emacs.d/yasnippet-0.6.1c/snippets/text-mode/ruby-mode/anaf
+
+
+Rules for
+
+RULE:
+
+    ;; I DON'T THINK THE NEXT IS VALID ANY MORE
+    ;; Places to put the ror snippet changes, other erbs etc link to html-mode
+    ;; ~/.emacs.d/plugins/yasnippets-rails/rails-snippets/ruby-mode/
+    ;; ~/.emacs.d/plugins/yasnippets-rails/rails-snippets/html-mode
+
+
+Places to put Ruby snippets
+
+    ~/.emacs.d/plugins/yasnippets-rails/rails-snippets/ruby-mode # no groups
+    ~/.emacs.d/plugins/yasnippet/snippets/text-mode/ruby-mode   # has groups
+
+
+# How to move the rails snippets over to current ruby mode install
+$ cp ~/addons/yasnippets-rails/rails-snippets/rhtml-mode/* ~/addons/yasnippet-0.6.1c/snippets/text-mode/html-mode/
+$ cp -r ~/addons/yasnippets-rails/rails-snippets/rhtml-mode ~/addons/yasnippet-0.6.1c/snippets/text-mode
+$ cp ~/addons/yasnippets-rails/rails-snippets/ruby-mode/* ~/addons/yasnippet-0.6.1c/snippets/text-mode/ruby-mode/
+
+
+; Thu Jan 27 16:34:15 2011
+; Use yasnippets from subversion only.  That one works
+http://yasnippet.googlecode.com/svn/trunk/doc/snippet-organization.html
+
+c-c & c-s  => provide a list of snippets to choose from
+[tab] => expand snippet
+
+
+/.yas-make-groups
+/.yas-parents

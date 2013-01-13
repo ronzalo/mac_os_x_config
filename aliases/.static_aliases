@@ -1,0 +1,12 @@
+For Static CMS
+
+    static/public/stylesheets/application.css
+      Put stylesheet info here
+
+    static/app/views/layouts/custom.html.erb
+      Put ruby code in here, I made a fix and got it accepted back in the trunk
+      Here is where the menu and basic layout goes
+
+    static/app/views/pages/show.html.erb
+      Here is where the page stored in the database is inserted
+

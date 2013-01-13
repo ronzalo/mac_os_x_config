@@ -1,0 +1,28 @@
+notes
+
+rake notes will search through your code for comments beginning with FIXME, OPTIMIZE or TODO. The search is only done in files with extension .builder, .rb, .rxml, .rhtml and .erb for both default and custom annotations.
+$ rake notes
+(in /home/foobar/commandsapp)
+app/controllers/admin/users_controller.rb:
+  * [ 20] [TODO] any other way to do this?
+  * [132] [FIXME] high priority for next deploy
+ 
+app/model/school.rb:
+  * [ 13] [OPTIMIZE] refactor this code to make it faster
+  * [ 17] [FIXME]
+
+If you are looking for a specific annotation, say FIXME, you can use rake notes:fixme. Note that you have to lower case the annotation’s name.
+$ rake notes:fixme
+(in /home/foobar/commandsapp)
+app/controllers/admin/users_controller.rb:
+  * [132] high priority for next deploy
+ 
+app/model/school.rb:
+  * [ 17]
+
+You can also use custom annotations in your code and list them using rake notes:custom by specifying the annotation using an environment variable ANNOTATION.
+$ rake notes:custom ANNOTATION=BUG
+(in /home/foobar/commandsapp)
+app/model/post.rb:
+  * [ 23] Have to fix this one before pushing!
+

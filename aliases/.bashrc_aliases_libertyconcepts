@@ -1,0 +1,31 @@
+#
+alias bgrestart='cd ~/rails_projects/Webiva ; RAILS_ENV=development ./script/background.rb stop ; RAILS_ENV=development ./script/background.rb start ; cd -'
+
+alias itemacs='/Applications/Emacs.app/Contents/MacOS/Emacs -q -nw -l  /Users/cmmagid/.emacs.d.r0man.emacs.rails.reloaded/init.el'
+
+# alias      ho='sudo /Applications/Emacs.app/Contents/MacOS/Emacs /etc/hosts -q -nw -l  /Users/cmmagid/.emacs.d.r0man.emacs.rails.reloaded/init.el'
+alias        ho='sudo /Applications/Emacs.app/Contents/MacOS/Emacs /etc/hosts -q -nw'
+alias      seeh='sudo /Applications/Emacs.app/Contents/MacOS/Emacs -nw -q /etc/hosts'
+alias  etchosts='sudo /Applications/Emacs.app/Contents/MacOS/Emacs -nw -q /etc/hosts'
+alias sudohosts='sudo /Applications/Emacs.app/Contents/MacOS/Emacs -nw -q /etc/hosts'
+
+# as in cd to current PROJECT not poll or petitions
+#alias cdp='cd /Users/cmmagid/rails_projects/Webiva/vendor/modules/poll_demo'
+#alias cdp='cd /Users/cmmagid/rails_projects/Webiva/vendor/modules/pet_demo'
+# alias cdp='cd /Users/cmmagid/rails3/inventroysquareup'
+# alias cdw='cd /Users/cmmagid/rails_projects/Webiva'
+
+
+#   # Define things like the following
+#   # sudo emacs
+#   se
+#   # sudo emacs client
+#   sec
+#   #  sudo emacs nw
+#   senw
+#   #  emacs
+#   e
+#   #  emacs client
+#   ec
+#   #  emacs nw
+#   enw

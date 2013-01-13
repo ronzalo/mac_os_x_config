@@ -1,0 +1,6 @@
+
+# Needed for install of RubyMine
+    $ export JDK_HOME=/usr
+    $ sudo gem install  ruby-debug-ide
+    $ sudo apt-get install ruby1.8-dev
+

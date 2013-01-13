@@ -1,0 +1,99 @@
+****************************************************************************************
+
+1) http://webchat.freenode.net/
+2) /msg nickserv identify rubyCharles openone
+3) http://www.gogloom.com/FreeNode/Chat+Rooms
+4) /join #refinerycms
+
+
+****************************************************************************************
+
+ /msg nickserv register <your-password> <your-email>
+
+ /msg nickserv register openone cmmagid@gmail.com
+
+
+/msg NickServ VERIFY REGISTER chasmanrors_ llzzbyjvszo
+
+
+  [INFO]  Channel view for “#boston.rb.mentor” opened.
+  -->|  YOU (chasmanrors_) have joined #boston.rb.mentor
+  =-= Topic for #boston.rb.mentor is “#boston.rb.mentor All are welcome to ask Ruby, Rails, general questions to get them started”
+  =-= Topic for #boston.rb.mentor was set by macajueli!~drogers@173-166-2-61-newengland.hfc.comcastbusiness.net on Mon 14 Jun 2010 01:12:50 PM EDT
+  === [freenode-info] please register your nickname...don't forget to auto-identify! http://freenode.net/faq.shtml#nicksetup
+  >nickserv<  register openone cmmagid@gmail.com
+  *nickserv*  An email containing nickname activation instructions has been sent to cmmagid@gmail.com.
+  *nickserv*  If you do not complete registration within one day, your nickname will expire.
+  *nickserv*  chasmanrors_ is now registered to cmmagid@gmail.com, with the password openone.
+  *nickserv*
+  *nickserv*  freenode is a service of Peer-Directed Projects Center, a
+  *nickserv*  not-for-profit organisation registered in England and Wales.
+  *nickserv*  For frequently-asked questions about the network, please see the
+  *nickserv*  FAQ page (http://freenode.net/faq.shtml). Should you wish to
+  *nickserv*  support the PDPC you can contribute to our current fundraiser at
+  *nickserv*  http://freenode.net/pdpc_donations.shtml.
+
+# How to register nick name with nick server
+
+
+If you have any questions, issues and/or ideas for improvement please
+join#rvm on irc.freenode.net and let me know, note you must register
+(http://bit.ly/5mGjlm) and identify (/msg nickserv <nick> <pass>) to
+talk, this prevents spambots from ruining our day.
+
+
+=============================================================================
+
+http://docs.dal.net/docs/nickserv.html#2
+# => docs
+
+/server irc.freenode.net
+# => connect to server
+
+template: /msg nickserv register your_password your_email_address # =>
+actual:   /msg nickserv register openone cmmagid@yahoo.com
+# => register one time
+
+
+template: /nick awesomenickname
+actual:   /nick rubyCharles
+# => each time?
+
+template: /msg nickserv register your_password your_email_address
+actual:   /msg nickserv register openone cmmagid@yahoo.com
+# => [18:59] -NickServ- rubyCharles is now registered to cmmagid@yahoo.com, with the password openone.
+# => one time
+
+
+template: /msg nickserv identify [nickname] [password]
+actual:   /msg nickserv identify rubyCharles openone
+# => identify to server each time
+
+
+from
+
+If you have any questions, issues and/or ideas for improvement please
+join#rvm on irc.freenode.net and let me know, note you must register
+(http://bit.ly/5mGjlm) and identify (/msg nickserv <nick> <pass>) to
+talk, this prevents spambots from ruining our day.
+
+to
+
+If you have any questions, issues and/or ideas for improvement please
+join#rvm on irc.freenode.net and let me know, note you must register
+(http://bit.ly/5mGjlm) and identify (/msg nickserv identify <nick> <pass>) to
+talk, this prevents spambots from ruining our day.
+
+Question:
+
+
+
+****************************************************************************************
+
+1) http://webchat.freenode.net/
+2) /msg nickserv identify rubyCharles openone
+3) http://www.gogloom.com/FreeNode/Chat+Rooms
+4) /join #refinerycms
+
+
+/msg gitinfo .voice

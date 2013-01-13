@@ -1,0 +1,17 @@
+Basic
+
+# controller
+
+ @posts = Post.paginate :page => params[:page], :order => 'created_at DESC'
+
+# view
+
+ <%= will_paginate @posts %>
+
+# “config/environment.rb”
+
+ Rails::Initializer.run do |config|
+  config.gem 'mislav-will_paginate', :version => '~> 2.3.11', 
+             :lib => 'will_paginate', :source => 'http://gems.github.com'
+ end
+

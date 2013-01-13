@@ -1,0 +1,483 @@
+# -*- coding: utf-8 -*-
+
+http://reference.jumpingmonkey.org/  One-liners from DHH
+http://apidock.com/ruby/notes/good?page=1  One-liners
+
+# Not a real aliases file just used for documentation
+
+File.ancestors
+#=> [File, IO, File::Constants, Enumerable, Object, Kernel]
+
+# ancestors is the superclasses or hierarchy method name
+
+
+# How to find out if IO a superclass of File
+File < IO == true
+#=> true
+
+# How to find out which superclass defines a method (in this example it is IO class)
+File.method(:open)
+#=> #<Method: File(IO).open>
+
+# Method to execute sql using database.yml definitions
+  def exec(sql)
+    ActiveRecord::Base.connection.execute sql
+  end
+
+# if true f has not been saved
+f.new_record?
+
+# Simple class eval
+  class A
+    def yup;
+      puts "yup";
+    end
+  end
+
+  module B
+    def self.included(base)
+      base.class_eval do
+        def yup;
+         puts "nope";
+        end
+      end
+    end
+  end
+
+  class A; include B; end
+  A.new.yup  # => "nope"
+
+# convert array a into a hash
+>>Hash[*a]
+
+# create a hash from key array and value array
+>> Hash.create(['a', 'b', 'c'], [1, 2, 3])
+
+# return new hash same as orig but with additional elements
+orig.merge({"sam1" => "password3"})
+
+# Destroy/Modify original hash, add additional elements
+orig.merge!({"sam1" => "password3"})
+
+# print out a hash table
+ users_hash.each {  |key, value|
+ puts "Key is #{key} and value is #{value}"
+ }
+
+
+# Difference in times
+
+intime = Time.local (2009, "Aug", 21, 9, 58, 28)
+outtime = Time.local(2009, "Aug", 21, 17, 31, 33)
+timeatwork = outtime - intime
+timeatwork = (outtime - intime)/(60 * 60)
+
+
+$:.unshift('lib')
+
+x.unshift("foo") => push foo onto head of x
+x.shift => view top of x
+
+
+# grep
+@engine.methods.select{|x| x.include? "expression"}
+
+seasons = %w{ Spring Summer Autumn Winter }
+  # => ["Spring", "Summer", "Autumn", "Winter"]
+
+
+# Date arithmetic
+require 'rubygems'
+require 'active_support'
+
+10.days.ago
+1.month.from_now
+2.weeks.since(Time.local(2006, 1, 1))
+
+y2k - 1.day
+y2k + 6.3.years
+6.3.years.since y2k
+
+365.times{|d| puts (0.days.ago + d.day).to_date}
+
+   t = Time.now
+   t.strftime("Printed on %m/%d/%Y")   #=> "Printed on 04/09/2003"
+   t.strftime("at %I:%M%p")            #=> "at 08:56AM"
+
+
+# Write to a new file
+  # $stdout (or its synonym '$>') is the destination of output
+  # for Kernel#print, Kernel#puts, and family functions
+  logfile = File.new("log.txt", "w")
+  old = $stdout
+  $stdout = logfile                 # switch to logfile for output
+  puts "Countdown initiated ..."
+  $stdout = old                     # return to original output
+  puts "You have 30 seconds to reach minimum safety distance."
+
+
+365.times{|d| puts "--- --- --- --- --- --- --- --- " + (0.days.ago + d.day).to_date.strftime( "%A (%m/%d/%Y)") + " --- --- --- --- --- --- --- ---" }
+
+# Get the list of directories in the path from shell cli
+ruby -e "puts $:"
+
+# class variables example
+  class Polygon
+     class << self
+       attr_accessor :sides
+     end
+     @sides = 8
+   end
+
+
+
+22.times {|d| i = ((-7).days.ago + d.day); puts i.to_date.strftime("%A (%m/%d/%Y)")}
+11.times {|d| i = ((-7).days.ago + d.day); puts i.to_date.strftime("%A (%m/%d/%Y)") unless i.to_date.strftime("%A") == "Tuesday"}
+
+ !(%w{Thursday Tuesday Saturday Sunday}).include? i.to_date.strftime("%A")
+
+33.times {|d| i = ((-7).days.ago + d.day); puts i.to_date.strftime("%A (%m/%d/%Y)") unless !((%w{Thursday Tuesday Saturday Sunday}).include? i.to_date.strftime("%A"))
+
+
+
+( == "Tuesday" || i.to_date.strftime("%A") == "Thursday")}
+
+
+33.times {|d| i = ((-7).days.ago + d.day); puts i.to_date.strftime("%m/%d") unless (%w{Monday Thursday Tuesday Saturday Sunday}).include? i.to_date.strftime("%A")}
+
+15.times{|d| puts "** " + (0.days.ago + d.day).to_date.strftime( "%A (%m/%d/%Y)") }
+
+# remove extra white space
+" This is      a       bad    string. ".squeeze(" ").strip
+
+# Example create hash from yaml/yml file
+a = YAML::load( File.open( './config/database.yml' ) )
+
+
+http://caiustheory.com/ruby-shortcuts
+
+There's a few useful shorthand ways to create certain objects in Ruby,
+a couple of obvious ones are [] to create an Array and {} to create a
+Hash (Or block/Proc). There's some not so obvious ones too, for
+creating strings, regexes and executing shell commands.
+
+With all of the examples I've used {} as the delimiter characters, but you can use a variety of characters. Personally I tend to use {} unless the string contains them, in which case I'll use // or @@. My only exception appears to be %w, for which I tend to use ().
+Strings
+
+% and %Q are the same as using double quotes, including string interpolation. Really useful when you want to create a string that contains double quotes, but without the hassle of escaping them.
+
+%{}                 # => ""
+%Q{}                # => ""
+
+%{caius}            # => "caius"
+%{caius #{5}}       # => "caius 5"
+%{some "foo" thing} # => "some \"foo\" thing"
+
+%q is equivalent to using single quotes. Behaves exactly the same, no string interpolation.
+
+%q{}           # => ''
+%q{caius}      # => "caius"
+%q{caius #{5}} # => "caius \#{5}"
+
+Arrays
+
+%w is the equivalent of using String#split. It takes a string and splits it on whitespace. With the added bonus of being able to escape whitespace too. %W allows string interpolation.
+
+%w(foo bar sed)  # => ["foo", "bar", "sed"]
+%w(foo\ bar sed) # => ["foo bar", "sed"]
+%W(foo #{5} bar) # => ["foo", "5", "bar"]
+
+Regexes
+
+%r is just like using // to create a regexp object. Comes in handy
+ when you're writing a regex containing / as you don't have to
+ continually escape it.
+
+%r{foo|bar} # => /foo|bar/
+%r{foo/bar} # => /foo\/bar/
+
+Symbols
+
+%s creates a symbol, just like writing :foo manually. It takes care of escaping the symbol, but unlike :"" it doesn't allow string interpolation however.
+
+%s{foo}      # => :foo
+%s{foo/bar}  # => :"foo/bar"
+:"foo-#{5}"  # => :"foo-5"
+%s{foo-#{5}} # => :"foo-\#{5}"
+
+Shelling out
+
+%x is the same as backticks (``), executes the command in a shell and returns the output as a string. And just like backticks it supports string interpolation.
+
+`echo hi`     # => "hi\n"
+%x{echo hi}   # => "hi\n"
+%x{echo #{5}} # => "5\n"
+
+>> ('a'..'z').to_a.shuffle[0..3].join
+=> "vnqg"
+
+
+"fooxbarxbazx".split('x')
+=> ["foo", "bar", "baz"]
+
+def meth(ob, ex)
+  (ob.methods - Object.methods).sort.select{|x| x.include? ex}
+end
+
+
+FROM: http://railstips.org/blog/archives/2009/05/11/class-and-instance-methods-in-ruby/
+
+class methods
+=============
+    # Way 1
+    class Foo
+      def self.bar
+        puts 'class method'
+      end
+    end
+
+    Foo.bar # "class method"
+
+    # Way 2
+    class Foo
+      class << self
+        def bar
+          puts 'class method'
+        end
+      end
+    end
+
+    Foo.bar # "class method"
+
+    # Way 3
+    class Foo; end
+    def Foo.bar
+      puts 'class method'
+    end
+
+    Foo.bar # "class method"
+
+instance methods
+================
+
+    # Way 1
+    class Foo
+      def baz
+        puts 'instance method'
+      end
+    end
+
+    Foo.new.baz # "instance method"
+
+    # Way 2
+    class Foo
+      attr_accessor :baz
+    end
+
+    foo = Foo.new
+    foo.baz = 'instance method'
+    puts foo.baz
+
+    # Way 3
+    class Foo; end
+
+    foo = Foo.new
+    def foo.bar
+      puts 'instance method'
+    end
+
+    Foo.new.baz # "instance method"
+
+months = Hash.new{|h, k| h[k] = []}
+articles.each do |a|
+  months[a.month] << a.name
+end
+
+
+# Exceptions from http://www.troubleshooters.com/codecorn/ruby/basictutorial.htm (Must Read => to understand ruby as an advanced programmer)
+
+    begin
+            # attempt code here
+    rescue SyntaxError => mySyntaxError
+            print "Unknown syntax error. ", mySyntaxError, "\n"
+            # error handling specific to problem here
+    rescue StandardError => myStandardError
+            print "Unknown general error. ", myStandardError, "\n"
+            # error handling specific to problem here
+    else
+            # code that runs ONLY if no error goes here
+    ensure
+            # code that cleans up after a problem and its error handling goes here
+    end
+# In the preceding, variables mySyntaxError and myStandardError are local variables to store the contents of global variable $!, the exception that was raised.
+
+
+# Retry
+# There's a retry keyword enabling a retry on error. This is handy when performing an activity that might benefit from a retry (reading a CD, for instance):
+
+    begin
+            # attempt code here
+    rescue
+            puts $!
+            if EscNotPressed()
+                    print "Reload the CD, or press ESC\n"
+                    retry
+            else
+                    puts "User declined to retry further"
+            end
+    end
+
+
+# Raising an Exception
+# Sometimes the neither the system nor the language detect an error, but you do. Perhaps the user input someone 18 years old for Medicare. Linux doesn't know that's wrong. Ruby doesn't know that's wrong. But you do.
+# You can raise a generic exception (or the current exception if there is one) like this:
+
+    raise if age < 65
+
+
+# regex
+         string1 = "I will drill for a well in walla walla washington."
+         regex = Regexp.new(/w.ll/)
+         matchdata = regex.match(string1)
+
+http://www.sinatrarb.com/intro.html
+
+
+You can use File.open method to create a new file object and assign that file object to a file. However, there is one difference in between File.open and File.new methods. The difference is that the File.open method can be associated with a block, whereas you cannot do the same using the File.new method.
+
+File.open("filename", "mode") do |aFile|
+   # ... process the file
+end
+
+Here is a list of The Different Modes of Opening a File:
+
+Modes   Description
+r       Read-only mode. The file pointer is placed at the beginning of the file. This is the default mode.
+r+      Read-write mode. The file pointer will be at the beginning of the file.
+w       Write-only mode. Overwrites the file if the file exists. If the file does not exist, creates a new file for writing.
+w+      Read-write mode. Overwrites the existing file if the file exists. If the file does not exist, creates a new file for reading and writing.
+a       Write-only mode. The file pointer is at the end of the file if the file exists. That is, the file is in the append mode. If the file does not exist, it creates a new file for writing.
+a+      Read and write mode. The file pointer is at the end of the file if the file exists. The file opens in the append mode. If the file does not exist, it creates a new file for reading and writing.
+Reading and Writing Files:
+
+Find by time?
+  find(:all, :conditions => ['created_at > ?', Time.local(2006, 4, 27, 22, 0, 0)])
+
+
+BulkOrder.all.each{|o| puts "#{o.id} #{o.created_at} #{o.season.name}" if o.season.name == "Smart Move Season"};nil
+
+
+Here is my favorite idiom for creating a Hash from an Array of keys and an Array of values:
+
+  keys = [:a, :b]
+  values = [1,2]
+  h = Hash[*keys.zip(values).flatten]      # => {:b=>2, :a=>1}
+
+String#match will match single token only
+
+  >> s = "{{person}} ate {{thing}}"
+  => "{{person}} ate {{thing}}"
+  >> r = /\{\{(.*?)\}\}/
+  => {{}}
+  >> s.match(r).captures
+  => ["person"]
+
+Using String#scan pulls out all tokens you were searching for:
+
+  >> s.scan(r).flatten
+  => ["person", "thing"]
+
+Ex: Using rdebug for script/runner (http://www.ruby-forum.com/topic/78992)
+
+  rdebug -- script/runner -e development 'Delayed::Worker.new().start' first
+
+class Test1
+  def h
+    $a = 5
+    @b = 4
+
+    while $a > 0
+      puts $a
+      $a= $a - 1
+    end
+  end
+end
+
+test = Test.new
+test.h
+
+puts $a
+# => 5
+puts @b
+# => nil
+
+#EXAMPLE USE FOR CONDITIONS
+
+@products = Product.find(:all,
+  :limit => 5,
+  :joins => [:tags],
+  :conditions => { :locale => 'en', :id_not => '1', :tags => { :name => ['a','b']}
+)
+
+
+# REMOVE NILS FROM AN ARRAY
+[nil, nil, "sw1p 4dp", "W1K 4DS", "SW1P 2NT", "N1 6LR"].compact
+=> ["sw1p 4dp", "W1K 4DS", "SW1P 2NT", "N1 6LR"]
+
+# To find hierarchy or inheritance use
+ancestors
+superclass
+
+# substitute (find and replace) "foo" with "bar" on each line
+    $  ruby -pe 'gsub(/foo/, "bar")' < file.txt
+
+
+ruby sentences
+https://gist.github.com/2354740
+
+
+# Pascal's wonderful trick for converting a collection into a hash with side effects. Note it will expand or contract the amount of data in each element of the original collection
+newlist = ('a'..'z').map do |l| {
+   :nextone => l.to_s + '1',
+   :nextnextone => l.to_s + '2' }
+end
+
+
+****************************************************************
+
+Implicit iteration => filtering and transformation
+
+It may seem obvious to a Smalltalker or Rubist, but it was hard as a Java programmer.  Compared with Java, Ruby provides a higher level of abstraction.  Here are two simple and fundamental examples.
+
+You can return a new collection with the same number of objects transformed. In this case a mapping of integers to booleans.
+
+Transforming:
+
+» [1,2,3,4].map{|x| x.odd? }
+
+=> [true, false, true, false]
+
+Or, you can return a new filtered collection.  Much like a Sql SELECT … WHERE predicate
+
+Filtering:
+
+» [1,2,3,4].select{|x| x.odd? }
+
+  => [1, 3]
+
+Benchmark or Timing
+    timing = Benchmark.measure { @x = FeeWise.find_agentdata_by_agent_id(params[:id]) }
+    timing2 = Benchmark.measure {@lead_place_agent = OpenStruct.new  etc
+
+
+# Basic command line file for ruby ;)
+
+		#!/usr/bin/env ruby
+
+		ARGV.each do|a|
+			puts "Argument: #{a}"
+		end
+
+
+# compile ri docs
+rdoc -Y in your Rails gem directory

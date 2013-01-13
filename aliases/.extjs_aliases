@@ -1,0 +1,11 @@
+# http://www.extjs.com/blog/2009/09/30/ext-js-on-rails-a-comprehensivetutorial/
+## Install 
+    sudo gem install gemcutter
+    gem tumble # switch away from github to gemcutter ins ~/.gemrc
+    sudo gem install extjs-mvc
+## Do the tutorial
+    cd workspace
+    rails extonrails
+    cd extonrails
+    ln -s /www/shared/js/ext-3.0.1 public/javascripts/ext-3.0.1  here
+    rm public/index.html

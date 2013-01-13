@@ -1,0 +1,676 @@
+# commandline basics
+
+$ rvm get head
+$ rvm reload
+$ rvm install 1.9.3
+$ rvm use 1.9.3@experiment100 --create
+$ rvm current
+$ rails new play
+$ cd play
+
+$ git init
+$ git add .
+$ git commit -am 'initial commit'
+
+
+################################################################
+
+
+# -*- coding: utf-8 -*-
+[great cheat even though it is out of date] http://blog.nanorails.com/pages/rails-1-1-cheat-sheet
+
+relationships http://guides.rubyonrails.org/association_basics.html
+
+# many to many
+--------------
+class Physician < ActiveRecord::Base
+  has_many :appointments
+  has_many :patients, :through => :appointments
+end
+
+class Appointment < ActiveRecord::Base
+  belongs_to :physician
+  belongs_to :patient
+end
+
+class Patient < ActiveRecord::Base
+  has_many :appointments
+  has_many :physicians, :through => :appointments
+end
+
+
+# polymorphic associations
+---------------------------
+class Picture < ActiveRecord::Base
+  belongs_to :imageable, :polymorphic => true
+end
+
+class Employee < ActiveRecord::Base
+  has_many :pictures, :as => :imageable
+end
+
+class Product < ActiveRecord::Base
+  has_many :pictures, :as => :imageable
+end
+( t.references :imageable, :polymorphic => true)
+
+# install
+    http://www.hackido.com/2009/04/install-ruby-rails-on-ubuntu-904-jaunty.html
+
+# Multiple attributes in the same find by separating them with "and"
+    Person.find_by_user_name_and_password or
+    Payment.find_by_purchaser_and_state_and_country.
+    Person.find_last_by_user_name_and_password or ...
+
+
+# Use of helper from within a model
+  #models/wikipedia_reader.rb
+    def read!(kword)
+      ... pure_text = helpers.strip_tags(text_with_unwanted_html_tags) ...
+    end
+    def helpers
+      ActionController::Base.helpers
+    end
+
+# Named Scope for Search
+  named_scope :search, lambda { |search|
+              { :conditions =>
+                ["first_name LIKE :search OR last_name LIKE :search", {:search => "%#{search}%"}] } }
+
+# Example named scope with two args
+  named_scope :with_referrals_between, lambda { |begin_date, end_date| { :conditions=>['users.id in (select reviewer_id from referrals where invoice_date >= ? and invoice_date < ?)', begin_date.to_date.beginning_of_month , end_date.to_date.end_of_month + 1.day]}}
+
+# Example of simple named scope
+  named_scope :unlimited, :conditions => 'not limited'
+
+# Put this in to use password protection all except show and index controller actions.
+# Ex: class PostsController < ApplicationContrroller
+  before_filter :authenticate, :except => [:index, :show]
+
+  private
+# The worker
+  def authenticate
+    authenticate_or_request_with_http_basic do |name, password|
+      name == "admin" && password == "secrete"
+    end
+  end
+
+
+# Single                        Multiple
+# ------------------------------------------------------------------------
+Comment.find                    @post.comments.find
+Comment.new                     @post.comments.build
+redirect_to(@comment)           redirect_to ([@post, @comment])
+redirect_to(comments_url)       redirect_to (post_comments_url(@post))
+
+  # POST /comments
+  # POST /comments.xml
+  def create
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.build(params[:comment])
+
+
+#------------------------------
+Select example
+  <%= f.select :my_integer_for_my_instance_var, [["My_Display_One",1], ["My_Display_Two",2], ["My_Display_Three",3]] %>
+
+        select(”sales_agent”, “customer_id”, @customers.collect{|customer| [customer.name(params), id]})
+
+
+select("post", "category", Post::CATEGORIES, {:include_blank => true})
+
+  <select name="post[category]">
+    <option></option>
+    <option>joke</option>
+    <option>poem</option>
+    <option>bookmark</option>
+    <option>telegram</option>
+    <option>interactiveTV</option>
+    <option>DVR</option>
+  </select>
+
+
+
+#------------------------------
+More examples of select. Pay attention to the names.  This is good
+        select( object,    method,           choices, options = {},                                           html_options = {})
+<%=     select :variable, :attribute,        choices, options,                                                html_options %>
+        select :variable, :attribute,        choices, options,                                                html_options
+        select  Model,    :attribute,        choices, options,                                                html_options
+<%=   f.select            :template_minutes, TIMES,   {:include_blank => true, :label => 'Template prep time'}              %>
+
+Note groupings:
+    {object, variable, model}
+    {method, attribute, column, column name}
+
+
+#------------------------------
+Multi select
+
+    Incidental to tutorial but seems to cover what I need
+    http://www.rubyplus.org/episodes/85/download
+
+     _form.html.erb
+
+      <% @selected = @book.authors.collect{|b| b.id} %>
+      <select name="book[author_id][]", multiple='multiple'>
+      <%= options_from_collection_for_select(Author.find(:all), :id, :name, @selected) %>
+      </select>
+
+
+Multiple yields, content_for
+
+    .../app/views/foos/index.html.erb
+
+    <% content_for :second do %>
+
+    <% @foos.each do |foo| %>
+      <tr>
+        <td><%=h foo.i %></td>
+        <td><%=h foo.t %></td>
+        <td><%=h foo.b %></td>
+        <td><%= link_to 'Show', foo %></td>
+        <td><%= link_to 'Edit', edit_foo_path(foo) %></td>
+        <td><%= link_to 'Destroy', foo, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+
+    .../app/views/layouts/application.html.erb
+    ...
+         <%= yield :first %>
+    ...
+         <%= yield :second %>
+    ...
+
+
+# Add model info from schema to models
+# ------------------------------------
+    $ script/plugin install  http://repo.pragprog.com/svn/Public/plugins/annotate_models
+    $ rake annotate_models
+
+
+How to use hidden field in Rails
+<%= f.hidden_field :user_id, :value => current_user.id %>
+
+This passes a hidden variable user_id with the value of current_user.id
+
+
+
+
+
+# has_many-through-checkboxes
+# ------------------------------------
+http://millarian.com/programming/ruby-on-rails/quick-tip-has_many-through-checkboxes/
+
+It’s really easy to create a many-to-many relationship that can be assigned through checkboxes. Check it out!
+
+Let’s say you have Users and Groups. A User can belong to a Group and a Group can have many Users – we call this a Membership, like so (migrations omitted for brevity):
+
+app/models/user.rb
+
+class User < ActiveRecord::Base
+  has_many :memberships, :dependent => :destroy
+  has_many :groups, :through => :memberships
+end
+app/models/group.rb
+
+class Group < ActiveRecord::Base
+  has_many :memberships, :dependent => :destroy
+  has_many :users, :through => :memberships
+end
+app/models/membership.rb
+
+class Membership < ActiveRecord::Base
+  belongs_to :group
+  belongs_to :user
+end
+We can now assign groups to members in a relatively easy manner with no extra work needed in the models. Behold!
+
+app/views/users/edit.html.erb
+
+<h1>User <%= @user.id -%></h1>
+
+<h2>Group Memberships</h2>
+<% form_for @user do -%>
+  <% Group.all.each do |group| -%>
+    <div>
+      <%= check_box_tag :group_ids, group.id, @user.groups.include?(group), :name => 'user[group_ids][]' -%>
+      <%= label_tag :group_ids, group.id -%>
+    </div>
+  <% end -%>
+  <%= submit_tag -%>
+<% end -%>
+Errr… something like that. Anyway, the important thing to note is the use of group_ids. The values will get submitted as group_ids, a member of the User. Where did that come from? We don’t have an attribute or method on the model for it, so where’d it come from? Well, seems that it is auto-generated for you to allow something like I just showed.
+
+When this form is submitted, any checked Groups will be associated through Memberships to the User by way of the magic *_ids= method. Should work the other way too with user_ids checkboxes on a group. No extra code needed. Awesome, right?
+
+Bonus: If you uncheck all the checkboxes, then nothing gets posted, doh! So make sure to merge a default value with your parameters like this to ensure the *_ids= method gets called:
+
+app/controllers/users_controller.rb
+
+@user.attributes = {'group_ids' => []}.merge(params[:user] || {})
+Super Bonus: When you’re defaulting the group_ids in the controller make sure to use the key as a string, not a symbol. Or if you do use a symbol then make it a Hash with_indifferent_access.
+
+
+from Dan thanks Thu Sep 23 18:56:55 2010
+
+To get a local environment set up follow these steps:
+
+1. rake db:migrate
+2. rake db:bootstrap
+3. rake default_restrictions
+
+y eg.events.map(&:title)
+
+Error capture in controller
+ flash[:notice] = @event_group_preference.errors.full_messages.join('. ')
+
+
+Add to Rakefile to get debugging in delayed_jobs code
+ require(File.join(File.dirname(__FILE__), 'config', 'boot'))
+ +#require 'ruby-debug'
+
+
+Thu Mar 17 15:46:28 2011
+
+Sample controller before filters
+
+ before_filter :access
+ before_filter :load_bulk_order, :except => [:index, :new, :create]
+ before_filter :can_manage_bulk_order?, :only => [:edit, :update, :show]
+ before_filter :authorize_by_email, :only => [:edit, :update]
+ before_filter :access, :except => [:edit, :update]
+ before_filter :redirect_to_event_group,
+ before_filter :access
+ before_filter :verify_valid_event_id,
+ before_filter :redirect_to_event_group,
+ before_filter :redirect_to_event_group,
+ before_filter :restrict_to_managers, :only => [:edit, :update, :confirm, :delete, :finish]
+ before_filter :default_sort_order, :only => :index
+ before_filter :load_order_group, :except => :index
+ before_filter :redirect_if_order_group_has_no_orders, :only => :show
+ before_filter :can_manage_order_group?, :only => [:edit,
+ before_filter :can_view_order_group?, :only => :show
+ before_filter :load_order
+ before_filter :can_manage_orders?, :only => [:update, :edit_status]
+ before_filter :access
+ before_filter :undeletable,
+ before_filter :access
+ before_filter :remove_blank_fulfillment_house_name,
+ before_filter :password_filter, :only => [:update]
+ before_filter :authenticate
+ before_filter :authorize
+ before_filter :enforce_privacy_policy
+ before_filter :default_sort_order, :only => :index
+ before_filter :check_season, :only => [:new, :create]
+ before_filter :grab_team
+ before_filter :force_login, :only => [:edit]
+ skip_before_filter :authenticate
+ skip_before_filter :authorize
+ skip_before_filter :authorize
+ skip_before_filter :enforce_privacy_policy
+ before_filter :team_required_registration_information,
+ before_filter :grab_location_from_user, :only => :index
+ before_filter :valid_distance_search?, :if => :distance_search?
+ before_filter :check_season, :only => [:new, :create]
+ before_filter :default_sort_order, :only => :index
+ before_filter :default_sort_order, :only => :index
+ before_filter :ensure_user_is_owner,  :only => [:edit, :update, :place]
+ before_filter :has_unpurchased_teams, :only => [:new]
+ before_filter :ensure_can_register,   :only => [:new, :place]
+ before_filter :load_team
+ before_filter :load_order, :only => [:edit, :update]
+ before_filter :access,     :only => [:edit, :update]
+ before_filter :redirect_to_edit, :only => [:new], :if => :team_has_order?
+ before_filter :ensure_valid
+ skip_before_filter :authorize
+ skip_before_filter :authorize
+ skip_before_filter :enforce_privacy_policy
+ before_filter :grab_event
+ before_filter :assign_empty_answers, :only => [:new, :create]
+ before_filter :team_required_registration_information,
+ skip_before_filter :authorize
+ skip_before_filter :enforce_privacy_policy
+ before_filter :redirect_user_home, :only => :new, :if => :logged_in?
+ before_filter :default_sort_order, :only => :index
+ before_filter :check_season, :only => [:new, :create]
+ before_filter :convert_combobox_values, :only => [:create, :update]
+ before_filter :prevent_non_admin_or_team_number, :only => [:confirm, :destroy]
+ before_filter :authorize_for_edit, :only => [:edit, :update]
+ before_filter :authorize_for_show, :only => :show
+ before_filter :default_sort_order, :only => :index
+ skip_before_filter :authorize,              :except => :index
+ skip_before_filter :enforce_privacy_policy, :except => [:index,:show]
+ before_filter :you?,            :except => [:new, :create, :confirm, :confirm_email]
+ before_filter :email_change,    :only => [:confirm_email]
+ before_filter :password_filter, :only => [:update]
+
+sample after model callbacks
+
+ after_save :set_users_mat_warning_policy
+ after_save :notify_bulk_order_to_update_fsk_quantities
+ after_create :deliver_coach_invitation_email
+ after_create :create_delayed_job
+ after_update :add_team_to_selected_preference_restricted_team_list,
+ after_create :create_delayed_job, :unless => :skip_creating_delayed_job
+ after_save   :recalculate_totals
+ after_save   :set_users_mat_warning_policy
+ after_update :notify_team_of_state_change,        :if => :state_changed?
+ after_update :notify_order_group_of_state_change, :if => :state_changed?
+ after_update :notify_of_cancelation,              :if => :changed_to_canceled?
+ after_save :order_changed
+ after_create :create_csv_file
+ after_save    :notify_team_of_role_change
+ after_destroy :notify_team_of_role_change
+ after_create :close_last_season,
+ after_validation_on_create :set_coach_and_purchaser_from_team_role
+ after_create :set_persistent_team
+ after_update :update_persistent_team, :if => :team_number_changed?
+ after_save   :update_primary_contact!, :if => :primary_contact_changed?
+
+
+railscasts 17 doing many to many with checkboxes
+railscasts 258 doing many to many with http://loopj.com/jquery-tokeninput/
+...
+
+Getting more stack trace info from the debugger
+(rdb:2687) p ap caller(0)
+
+Add route to restful resource Ex:  this provides the tasks controller with a completed action
+  map.resources :tasks, :collection => { :completed => :get }
+  map.resources :tasks, :collection => { :completed => :get }, :member => { :complete => :put }
+
+
+How to use hidden field in Rails
+<%= f.hidden_field :user_id, :value => current_user.id %>
+This passes a hidden variable user_id with the value of current_user.id
+
+
+How to update the parms hash
+  params[:transfer].update(foo)
+    foo = {:a => 1, :b => 2}
+    prm = {:c => 3, :d => 4}
+    prm.update(foo) # => {:a=>1, :d=>4, :c=>3, :b=>2}
+    prm.update :b => 100000 # => {:a=>1, :d=>4, :c=>3, :b=>100000}
+
+
+A short few line form for deleting a team
+ <% form_for :team, :url => team_path(:id => team.id, :wizard => true), :html => { :onsubmit => "return confirm(_('Are you sure you want to delete this team?'))", :method => :delete } do |form| -%>
+   <%= image_submit_tag 'trash.gif' %>
+ <% end -%>
+
+
+Nested fields in forms !!!
+
+I. In order to do a fields_for in a view do this in the model
+
+    has_many :projects
+    accepts_nested_attributes_for :projects, :allow_destroy => true
+
+    has_one :coach_info
+    accepts_nested_attributes_for :coach_info, :allow_destroy => true
+
+
+II. and this in the view
+
+  <% form_for @person, :url => { :action => "update" } do |person_form| %>
+    ...
+    <% person_form.fields_for :projects do |project_fields| %>
+      Delete: <%= project_fields.check_box :_destroy %>
+    <% end %>
+  <% end %>
+
+  <% form_for @person, :url => { :action => "update" } do |person_form| %>
+    ...
+    <% person_form.fields_for :projects do |project_fields| %>
+      Delete: <%= project_fields.check_box :_destroy %>
+    <% end %>
+
+  <% end %>
+
+Tail of array
+Returns the tail of the array from position.
+%w( a b c d ).from(0)  # => %w( a b c d )
+%w( a b c d ).from(2)  # => %w( c d )
+%w( a b c d ).from(10) # => nil
+%w().from(0)           # => %w()
+
+
+# to => gives you head to 1+ the number you give it
+%w( a b c d ).to(0)  # => ["a"]
+%w( a b c d ).to(2)  # => ["a", "b", "c"]
+%w( a b c d ).to(10) # => ["a", "b", "c", "d"]
+%w().to(0)           # => []
+
+
+
+# Ex: u = some 'User'
+def some(a)
+  tl = Kernel.const_get(a.capitalize).all
+  tl.from(tl.length - rand(tl.length/2)).first
+end
+
+How to add errors to rails models
+  self.errors.add(:team_role, _(": You must choose if you are going to coach this team."))
+
+update example from model
+   update_attribute :persistent_team, persistent_team
+
+<head>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var j = jQuery.noConflict();
+                j("#accordion").accordion({
+                                           collapsible: true,
+                                           autoHeight: false,
+                                           active: false
+            <!-- navigation: true, --> <!-- This breaks it on FF too-->
+            <!-- animated: 'bounceslide' -->  <!-- This breaks it on FF -->
+                });
+            });
+        </script>
+</head>
+
+$("input").blur(function() {
+      $.ajax({
+        type:"POST",
+        url:"/controller/action",
+        data: $(this).val(),
+        dataType:"script",
+        callback:null
+      });
+    }
+    return false;
+  });
+
+
+$('#other').click(function() {
+    $('#target').blur(function() {
+        alert('Handler for .blur() called.');
+    });
+});
+
+
+function upperCase()
+{
+var x=document.getElementById("fname").value;
+document.getElementById("fname").value=x.toUpperCase();
+}
+</script>
+
+
+
+$("input").blur(function() {
+      $.ajax({
+        type:"POST",
+        url:"/controller/action",
+        data: $(this).val(),
+        dataType:"script",
+        callback:null
+      });
+    }
+    return false;
+  });
+
+
+# How to test for existance of a db table in a migration
+
+  def self.table_exists?(name)
+    ActiveRecord::Base.connection.tables.include?(name)
+  end
+
+  drop_table :table_name if self.table_exists?("table_name")
+
+
+# How to update a single field in a model
+
+    self.update_attribute(:excluded,exclude)
+
+
+# rails generate scaffold generic field type values
+:primary_key, :string, :text, :integer, :float, :decimal, :datetime, :timestamp, :time, :date, :binary, :boolean.
+
+
+Where to look for the definition of a method
+o In private methods of a class
+o MixedIn from another Module
+o Inherited
+o Can be both Inherited and MixedIn
+
+
+One reason Ruby code is hard to read?
+
+<% raise flash.inspect %>
+
+
+# Example to generate static pages
+rails generate controller StaticPages home help --no-test-framework
+
+# Rails - How to update a single model attribute from a controller
+
+  # Example 1
+  User.first.update_attribute(:username, "ryanb")
+
+  # Example 2
+  @calendar.update_attributes(:done => toggle)
+
+  # Then add to model(Calendar or User)
+  attr_accessible :username # Ex 1
+  attr_accessible :done     # Ex 2
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+BASICs Mon Apr 30 15:46:00 2012
+
+rails new jquery-138-example
+cd jquery-138-example/
+rails g scaffold product name:string price:decimal
+rails g scaffold review name:string body:text product:references
+e config/routes.rb
+    resources :products
+      # Sample resource route with sub-resources:
+    resources :products do
+      resources :reviews
+    end
+be rake db:migrate
+e app/views/products/show.html.erb
+addacomment
+
+
+
+
+
+<% provide(:title, 'Home') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruby on Rails Tutorial Sample App | <%= yield(:title) %></title>
+  </head>
+  <body>
+    <h1>Sample App</h1>
+    <p>
+      This is the home page for the
+      <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
+      sample application.
+    </p>
+  </body>
+</html>
+
+
+
+http://stackoverflow.com/questions/1430247/passing-parameters-in-rails-redirect-to
+
+redirect_to :controller => 'thing', :action => 'edit', :id => 3, :something => 'else'
+# Would yield /thing/3/edit?something=else
+
+        &&&&&&
+
+# If you are using RESTful resources you can do the following:
+
+redirect_to action_name_resource_path(resource_object, {:param_1 => 'value_1', :param_2 => 'value_2'})
+
+or
+#You can also use the object_id instead of the object
+redirect_to action_name_resource_path(resource_object_id, {:param_1 => 'value_1', :param_2 => 'value_2'})
+
+or
+#if its a collection action like index, you can omit the id as follows
+redirect_to action_name_resource_path({:param_1 => 'value_1', :param_2 => 'value_2'})
+
+#An example with nested resource is as follows:
+redirect_to edit_user_project_path(@user, @project, {:param_1 => 'value_1', :param_2 => 'value_2'})
+
+
+
+
+
+#The following all do the same thing.  This makes view templates harder to learn
+
+render :edit
+render :action => :edit
+render 'edit'
+render 'edit.html.erb'
+render :action => 'edit'
+render :action => 'edit.html.erb'
+render 'books/edit'
+render 'books/edit.html.erb'
+render :template => 'books/edit'
+render :template => 'books/edit.html.erb'
+render '/path/to/rails/app/views/books/edit'
+render '/path/to/rails/app/views/books/edit.html.erb'
+render :file => '/path/to/rails/app/views/books/edit'
+render :file => '/path/to/rails/app/views/books/edit.html.erb'
+
+
+#
+
+<%= image_tag "home.gif", :size => "50x20" %>
+
+
+if Rails.env.to_s == "production"
+  STRIPE_PUBLIC_KEY = ENV['STRIPE_PUBLIC_KEY']
+else
+  STRIPE_PUBLIC_KEY = "pk_HgvTFebTaKx6va86KHCHAAo77KMus"
+end
+
+
+#How to enter default text as a hint into a field
+ Enter Zip: <%= text_field_tag :search, params[:search], :class=>"search-query",:placeholder => "Search by Zip Code"%>
+
+
+
+
+# The following needs to be validated and fleshed out
+
+Rails 3
+    aModel.save( :validate => false )   -   In order to bypass validations
+    aModel.save                         -   Without an exclamation it will return false if it fails any validation
+    aModel.save!                        -   If any validation returns false, save! throws an error and canceles the save. 
+
+Rails 2
+    aModel.save( false )   -   in order to bypass validations
+    aModel.save            -   
+    aModel.save!           -   

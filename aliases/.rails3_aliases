@@ -1,0 +1,43 @@
+# http://railstutorial.org/book#sec:rubygems
+
+
+# update rvm
+$ rvm update --head
+$ rvm reload
+
+# install proper versions of ruby
+$ rvm install 1.8.7
+$ rvm install 1.9.2
+
+# set up a gemset
+$ rvm --create     1.8.7-p174@rails2tutorial
+$ rvm --create use 1.9.2@rails3tutorial
+
+# set the default gemset and ruby version
+$ rvm --default use 1.9.2@rails3tutorial
+
+# remember how to do updates with 'gem' command
+URL: http://docs.rubygems.org/read/chapter/10
+
+$ sudo gem install rails --version 3.0.0
+
+$ mkdir rails_projects
+$ cd rails_projects
+$ rails new first_app
+
+# edit ~/rails_projects/first_app/Gemfile
+
+  git add .
+  git commit -m "Initial commit"
+  git co -f
+  git push origin master
+  git co -b modify_README
+# note this is a git move not a unix move
+  git mv README README.markdown
+
+  $ git commit -a -m "Improved the README file" 
+
+# How to log
+	Rails.logger.info "My info message"
+	Rails.logger.debug "My debugging message"
+	Rails.logger.warn "My warning message"

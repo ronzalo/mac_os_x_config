@@ -1,0 +1,32 @@
+Wed May 23 16:50:38 2012
+
+Getting the error: "ActionController::RoutingError (uninitialized constant UsersController):"
+
+if you already checked the
+
+link_to method
+
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+
+devise.rb config
+
+          config.sign_out_via = :delete
+
+
+routes.rb config
+
+          devise_for :users
+          and
+          root :to => "home#index"
+
+See if your routes.rb has a "resource :users" before a "devise_for :users" then try swapping them
+
+Works
+  devise_for :users
+  resources :users
+
+Fails
+  resources :users
+  devise_for :users
+
+################################################################################

@@ -1,0 +1,30 @@
+http://www.therailsway.com/2009/7/22/do-it-later-with-delayed-job
+
+Offloading it.
+
+The killer feature that delayed_job has is send_later, this lets you transparently turn a method call on a class or object into a delayed_job. For example:
+
+  @photo.calculate_thumbnails # runs during your request
+  @photo.send_later(:calculate_thumbnails) # runs in a worker at some later stage
+
+It also supports declaring certain methods to be handled asynchronously in an environment file:
+
+  # production.rb
+  config.after_initialize do
+    Photo.handle_asynchronously :calculate_thumbnails
+  end
+
+By making use of handle_asynchronously you can mark all the suitable callbacks to fire asynchronously without having to change any of your controllers. Just add an after_initialize block to your production environment and mark them for async handling.
+
+Locating commands
+    ~/rails_projects/usfirst/vendor/plugins/delayed_job/tasks/tasks.rb
+
+
+~/rails_projects/usfirst/vendor/plugins/delayed_job/tasks/tasks.rb
+
+rake jobs:clear
+rake jobs:work
+
+tasks directory is associated with cap commands
+
+~/rails_projects/usfirst/vendor/plugins/delayed_job/lib/delayed/worker.rb

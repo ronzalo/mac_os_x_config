@@ -1,0 +1,284 @@
+noConflict
+
+    http://stackoverflow.com/questions/952010/is-it-true-that-jquery-rails-is-problematic
+
+    <%= javascript_include_tag 'prototype' %>
+    <%= javascript_include_tag 'jquery' %>
+    <script type="text/javascript">
+        var $j = jQuery.noConflict();
+    </script>
+
+jQuery Rails: A parent has multiple children
+
+       http://railsforum.com/viewtopic.php?id=28447
+       http://railsforum.com/viewtopic.php?pid=105737#p105737
+
+What is needed to get rails to work with jquery
+
+  - Down load jQuery javascript files jquery-1.3.2.js (or latest) and
+    jquery-ui-1.7.2.custom.min.js (or latest) See
+    http://docs.jquery.com/Downloading_jQuery and http://jqueryui.com/
+             (example: http://jqueryui.com/download/jquery-ui-1.7.2.custom.zip)
+    Customize and unzip the downloaded theme.
+  - Down load jQuery css file jquery-ui-1.7.2.custom.css(or latest) and unzip
+
+    - place jquery *.js files in to public/javascripts
+      $ cd app/
+      $ cd public/javascripts
+      $ cp ~/downloads/jquery-1.3.2.js .
+      $ chmod 755 jquery-1.3.2.js
+      $ cp ~/downloads/jquery-ui-1.7.2.custom/js/* .
+
+    - Place jquery-ui-1.7.2.custom.css into *public/stylesheets*
+      $ cd app/
+      $ cd public/stylesheets
+      $ cp -r ~/downloads/jquery-ui-1.7.2.custom/css/smoothness .
+
+?  - For images
+    $ cd app/
+    $ mkdir public/stylesheets/images
+    $ cd public/stylesheets/images
+    $ cp ~/downloads/jquery-ui-1.7.2.custom/css/smoothness/images/* .
+
+  - To get rails to see jquery files
+
+    - Edit and add the followiing lines to the header section of
+      application.html.erb ie above </head> tag.
+
+      edit app/views/layouts/application.html.erb
+
+           <%= stylesheet_link_tag 'jquery-ui-1.7.2.custom' %>
+           <%= javascript_include_tag 'jquery-1.3.2' %>
+           <%= javascript_include_tag 'jquery-ui-1.7.2.custom.min' %>
+
+    - To add jquery on load functionality insert non-obtrusive
+      javascript above the </head> but below the erb
+      'javascript_include_tag' and stylesheet_include_tag' s.
+      See ~/workspace/jquery_calendar_multiple_child_models2/ for examples
+
+Sample app layout:
+
+    <%= stylesheet_link_tag 'sandstone/default' %>
+
+    <%= jqgrid_stylesheets %>
+    <%= jqgrid_javascripts %>
+
+    <%= stylesheet_link_tag 'jquery-ui-1.7.2.custom' %>
+
+    <%= javascript_include_tag 'jquery-1.3.2' %>
+    <%= javascript_include_tag 'jquery-ui-1.7.2.custom.min' %>
+
+    <script type="text/javascript">
+      var $j = jQuery.noConflict();
+    </script>
+
+    <script type="text/javascript">
+      $j(function(){
+      // Accordion
+      $j("#accordion").accordion({ header: "h3",
+      active: false,
+      alwaysOpen: false
+      });
+      });
+    </script>
+
+    <script type="text/javascript">
+      $j(function() {
+        $j('input').filter('.datepicker').datepicker({
+          changeMonth: true,
+          changeYear: true,
+      <!-- showOn: 'button', -->
+      <!-- buttonImage: 'jquery/images/calendar.gif', -->
+      <!-- buttonImageOnly: true -->
+        });
+      });
+    </script>
+
+  </head>
+
+    - Add div's and h3 headers where needed in erb files
+
+Sample Datepicker:
+    <%= form.text_field :name, :size => 15, :class => "datepicker" %>
+
+    - Don't forget to Remove other layouts app/views/layouts/
+
+# ------------------------------------------------------------
+
+# Automatically add datepicker to places having dates in rails apps
+# just wrap in a div
+
+    <div class="datetime">
+      <%= f.datetime_select :dt %>
+    </div>
+
+    <div class="date">
+      <%= f.date_select :d %>
+    </div>
+
+# From http://snipt.net/boriscy/datetime-jquery-formtastic/
+# Place the following in layouts/application.html.erb
+
+$(document).ready(function() {
+    // Define the dateFormat for the datepicker
+    $.datepicker._defaults.dateFormat = 'dd M yy';
+
+    /**
+     * Sets the date for each select with the date selected with datepicker
+     */
+    $('input.ui-date-text').live("change", function() {
+        var sels = $(this).siblings("select:lt(3)");
+        var d = $.datepicker.parseDate($.datepicker._defaults.dateFormat, $(this).val() );
+
+        $(sels[0]).val(d.getFullYear());
+        $(sels[1]).val(d.getMonth() + 1);
+        $(sels[2]).val(d.getDate());
+    });
+
+    /**
+     * Replaces the date or datetime field with jquey-ui datepicker
+     */
+    $('.date, .datetime').each(function(i, el) {
+        var input = document.createElement('input');
+        $(input).attr({'type': 'text', 'class': 'ui-date-text'});
+        // Insert the input:text before the first select
+        $(el).find("select:first").before(input);
+        $(el).find("select:lt(3)").hide();
+        // Set the input with the value of the selects
+        var values = [];
+        $(input).siblings("select:lt(3)").each(function(i, el) {
+            var val = $(el).val();
+            if(val != '')
+                values.push(val);
+        });
+        if( values.length > 1) {
+            d = new Date(values[0], parseInt(values[1]) - 1, values[2]);
+            $(input).val( $.datepicker.formatDate($.datepicker._defaults.dateFormat, d) );
+        }
+
+        $(input).datepicker();
+    });
+});
+
+
+time widgets
+
+    A few time related jQuery widgets.
+
+    Very unique and fun Time picker but a little too off the main stream
+      http://www.jnathanson.com/index.cfm?page=jquery/clockpick/ClockPick
+
+    Combination Date and time picker, real nice
+      http://razum.si/jQuery-calendar/TimeCalendar.html
+
+    Interesting, non standard looking but because it is by Resig it will undergo the most upkeep
+      http://ejohn.org/blog/picking-time/
+
+    Time picker similar to datepicker but slightly klunkier
+      http://pttimeselect.sourceforge.net/example/index.html
+
+
+
+Minimal jQuery code
+
+    <h1>Click on read more and read less</h1>
+
+        <p>
+          This is paragraph Zero and it always present in this example
+        </p>
+
+        <p class='comment-body'>
+          This is paragraph One and it is hidden at first but the visibility can be toggled
+        </p>
+
+        <a href="#" class="more">read more</a>
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            var $firstPara = $('p:eq(1)');
+
+            $firstPara.hide();
+            $('a.more').click(function() {
+                $firstPara.slideToggle('slow');
+                var $link = $(this);
+                if ( $link.text() == "read more" ) {
+                    $link.text('read less');
+                } else {
+                    $link.text('read more');
+                }
+                return false;
+            });
+        });
+
+    </script>
+
+
+*** *In main erb file* ***
+
+    <head>
+    ...
+	    <%= javascript_include_tag 'prototype' %>
+	    <%= javascript_include_tag 'scriptaculous.js?load=effects,controls' %>
+	    <!-- <#%= javascript_include_tag 'jquery' %>  -->
+	    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
+    ...
+
+    </head>
+    <body>
+	<script type="text/javascript">
+	    var $j = jQuery.noConflict();
+	</script>
+
+	<script type="text/javascript">
+	    google.load("jquery", "1.4");
+	    google.load("jqueryui", "1.7.2");$0
+	</script>
+
+
+http://www.developer.com/open/article.php/3868471/The-Top-10-jQuery-Plugins-for-the-JavaScript-Weary
+
+
+$('#other').click(function() {
+    $('#target').blur(function() {
+        alert('Handler for .blur() called.');
+    });
+});
+
+
+$('ul.tree a.tree_trigger').live('click', function() {
+// Is the next <ul> hidden?
+if ($(this).next('ul').is(':hidden')) {
+$(this).addClass('trigger_expanded').next('ul')
+.addClass('tree_expanded');
+} else {
+$(this).removeClass('trigger_expanded').next('ul')
+.removeClass('tree_expanded');
+}
+// Nofollow.
+this.blur();
+return false;
+
+
+jQuery("form fieldset label ~ input#user_email").focus(function(){console.log(this)})
+
+
+// Basic show and hide http://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_hide_show
+
+<script>
+$(document).ready(function(){
+  $("#hide").click(function(){
+    $("p").hide();
+  });
+  $("#show").click(function(){
+    $("p").show();
+  });
+});
+</script>
+
+
+<p>If you click on the "Hide" button, I will disappear.</p>
+<button id="hide">Hide</button>
+<button id="show">Show</button>

@@ -1,0 +1,6 @@
+Extracting Specific Files from tarball
+
+Extract a file called etc/default/sysstat from config.tar.gz tarball:
+$ tar -ztvf config.tar.gz
+$ tar -zxvf config.tar.gz etc/default/sysstat
+$ tar -xvf {tarball.tar} {path/to/file}
