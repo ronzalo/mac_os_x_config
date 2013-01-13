@@ -1,0 +1,381 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sun Jan 13 17:00:04 2013
+;; Desktop file format version 206
+;; Emacs version 24.3.50.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("yas" "yasn" "ruby" "remo" "yasni" "auto-comple" "completeauto" "complete" "auto-" "comple" "auto" "ls" "cp -r" "cp" "snipp" "rake"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("/Users/cmagid/.emacs.d/init.el" "/Users/cmagid/.emacs.d/elpa/auto-complete-20121203.832/auto-complete.el" "/Users/cmagid/.emacs.d/init.el" "/Users/cmagid/.emacs.d/snippets/1/ruby-mode/has_many :comments, :dependent => :nullify" "/Users/cmagid/projects/newppm/app/controllers/locations_controller.rb" "/Users/cmagid/.emacs.d/snippets/1/rhtml-mode/Snippets/%" "~/.emacs.d/" "/Users/cmagid/.emacs.d/elpa/yasnippet-readme.txt" "~/.emacs.d.current/snippets-assisted/" "~/.emacs.d.current/snippets/" "/Users/cmagid/.emacs.d.current/init.el" "~/.emacs.d/elpa/" "~/.emacs.d/elpa/yasnippet-20130112.1823/" "~/.emacs.d.current/" "~/.emacs.d/plugins/yasnippet/Snippets/" "~/.emacs.d/plugins/yasnippet/" "~/.emacs.d/./plugins/yasnippet/Snippets/" "~/.emacs.d/elpa/yasnippet-20130112.1823/" "~/.emacs.d/elpa/" "/Users/cmagid/.emacs.d/elpa/yasnippet-readme.txt" "/Users/cmagid/projects/newppm/app/controllers/locations_controller.rb" "/Users/cmagid/.emacs.d/elpa/auto-complete-20121203.832/auto-complete.el" "/Users/cmagid/.emacs.d.current/init.el" "~/.emacs.d.current/" "/Users/cmagid/.emacs.d/init.el" "/Users/cmagid/aliases/.ruby_aliases" "/Users/cmagid/.emacs.d/elpa/rinari-20130107.1109/" "~/.emacs.d/el-get/" "~/.emacs.d/elpa/" "/Users/cmagid/projects/local-data/organize/non-specific/makeMastersFiles" "/Users/cmagid/projects/newppm/gitdiff.log" "~/projects/" "/Users/cmagid/projects/newppm/gitdiff.log" "/Users/cmagid/.emacs.d/init.el" "~/projects/local-data/organize/non-specific/" "/Users/cmagid/projects/local-data/organize/non-specific/application.js_info.txt" "/Users/cmagid/projects/conflicts-example/repo01/.git/COMMIT_EDITMSG" "/Users/cmagid/projects/local-data/organize/gtd.org" "/Users/cmagid/.bashrc" "/Users/cmagid/aliases/.ruby_aliases" "/Users/cmagid/aliases/.emacs_aliases" "~/aliases/" "/Users/cmagid/projects/conflicts-example/repo02/mergeconflict.txt" "~/projects/conflicts-example/repo02/mergeconflict2.txt" "~/projects/conflicts-example/repo01/newmessyfile.txt" "/Users/cmagid/projects/conflicts-example/repo02/.git/MERGE_MSG" "/Users/cmagid/projects/conflicts-example/repo01/.git/COMMIT_EDITMSG" "/Users/cmagid/.emacs.d/.emacs.desktop" "/Users/cmagid/.gitconfig" "/Users/cmagid/projects/conflicts-example/repo01/README.md" "~/projects/conflicts-example/repo02/" "~/projects/conflicts-example/repo01/" "~/.ssh/" "/Users/cmagid/.emacs.d/init.el" "/Users/cmagid/.gitconfig" "~/projects/newppm/app/views/report/" "/usr/local/bin/" "/Users/cmagid/brew/bin" "~/.emacs.d/./nxhtml/util/mumamo.el" "/Users/cmagid/.emacs.d/nxhtml/util/mumamo.el" "~/projects/newerppm/app/views/" "/Users/cmagid/projects/newerppm/app/views/a_filters/_base_filter.haml" "/Users/cmagid/projects/newerppm/app/assets/stylesheets/client/anninc/_config.scss" "/Users/cmagid/projects/newerppm/Capfile" "~/.emacs.d/nxhtml/" "/Users/cmagid/projects/local-data/organize/non-specific/emacs-error-nxhtml-for-rhtml-fu.org" "~/.emacs.d" "~/.emacs.d/" "~/.emacs.d" "/Users/cmagid/aliases/.emacs_aliases" "~/projects/local-data/organize/non-specific/emacs-error-nxhtml-for-rhtml-fu.org" "~/projects/local-data/" "/Users/cmagid/.emacs.d/nxhtml/README.txt" "~/Downloads/nxhtml" "~/projects/newppm/app/views/locations/" "~/projects/newppm/app/views/switchout_groups/" "/Users/cmagid/projects/newppm/app/views/switchout_groups/_form.rhtml" "/Users/cmagid/projects/newppm/app/views/switchout_groups/_submenu_list.html.erb" "~/projects/newppm/app/views/./switchout_groups/choose_selection_group_placement.rhtml" "~/projects/newppm/app/views/" "~/projects/newppm/public/stylesheets/snippets/c_placement" "/Users/cmagid/projects/newppm/public/stylesheets/snippets/c_placement/c_placement/placeholder_content_groups/index.css" "~/projects/newppm/./public/stylesheets/snippets/c_placement/c_placement/placeholder_content_groups/index.css" "/Users/cmagid/.emacs.d/init.el"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/Users/cmagid/.emacs.d/init.el"
+  "init.el"
+  'emacs-lisp-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  13165
+  '(13141 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/Users/cmagid/projects/newppm/app/controllers/locations_controller.rb"
+  "locations_controller.rb"
+  'ruby-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  543
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/Users/cmagid/.emacs.d/elpa/auto-complete-20121203.832/auto-complete.el"
+  "auto-complete.el"
+  'emacs-lisp-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  1662
+  '(3090 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/Users/cmagid/.emacs.d/snippets/1/ruby-mode/has_many :comments, :dependent => :nullify"
+  "has_many :comments, :dependent => :nullify"
+  'snippet-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/Users/cmagid/.emacs.d.current/init.el"
+  "init.el<2>"
+  'emacs-lisp-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  365
+  '(221 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "1<2>"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  186
+  '(nil nil)
+  t
+  '("/Users/cmagid/.emacs.d/snippets/1/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "snippets<2>"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  235
+  '(nil nil)
+  t
+  '("/Users/cmagid/.emacs.d/snippets/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  ".emacs.d"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  731
+  '(nil nil)
+  t
+  '("/Users/cmagid/.emacs.d/")
+  nil)
+
+(desktop-create-buffer 206
+  "/Users/cmagid/.emacs.d/elpa/yasnippet-readme.txt"
+  "yasnippet-readme.txt"
+  'text-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  197
+  '(3662 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "snippets"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  249
+  '(nil nil)
+  t
+  '("/Users/cmagid/.emacs.d.current/snippets/")
+  nil)
+
+(desktop-append-buffer-args 206
+  nil
+  "elpa"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  2756
+  '(1 nil)
+  t
+  '("/Users/cmagid/.emacs.d/elpa/")
+  nil)
+
+(desktop-append-buffer-args 206
+  nil
+  "yasnippet-20130112.1823"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  405
+  '(nil nil)
+  t
+  '("/Users/cmagid/.emacs.d/elpa/yasnippet-20130112.1823/")
+  nil)
+
+(desktop-append-buffer-args 206
+  nil
+  "yasnippet<2>"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  749
+  '(nil nil)
+  t
+  '("/Users/cmagid/.emacs.d.current/yasnippet/")
+  nil)
+
+(desktop-append-buffer-args 206
+  nil
+  ".emacs.d.current"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  3079
+  '(2761 nil)
+  t
+  '("/Users/cmagid/.emacs.d.current/")
+  nil)
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/.emacs.d/elpa/yasnippet-20130112.1823/yasnippet.el"
+  "yasnippet.el"
+  'emacs-lisp-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  1225
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/.emacs.d/elpa/auto-complete-20121203.832/auto-complete-config.el"
+  "auto-complete-config.el"
+  'emacs-lisp-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  18222
+  '(1 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-append-buffer-args 206
+  nil
+  "auto-complete-20121203.832"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  344
+  '(nil nil)
+  t
+  '("/Users/cmagid/.emacs.d/elpa/auto-complete-20121203.832/")
+  nil)
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/.emacs.d/elpa/auto-complete-20121203.832/auto-complete-autoloads.el"
+  "auto-complete-autoloads.el"
+  'emacs-lisp-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  1
+  '(1 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-append-buffer-args 206
+  nil
+  "dict"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  1155
+  '(1155 t)
+  t
+  '("/Users/cmagid/.emacs.d/elpa/auto-complete-20121203.832/dict/")
+  nil)
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/.emacs.d/elpa/auto-complete-20121203.832/dict/php-mode"
+  "php-mode"
+  'fundamental-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  4423
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/.emacs.d/elpa/auto-complete-20121203.832/dict/ruby-mode"
+  "ruby-mode"
+  'fundamental-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  1063
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/.emacs.d/elpa/auto-complete-20121203.832/auto-complete-pkg.el"
+  "auto-complete-pkg.el"
+  'emacs-lisp-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/.emacs.d/elpa/rinari-20130107.1109/rinari.el"
+  "rinari.el"
+  'emacs-lisp-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode checkdoc-minor-mode)
+  1
+  '(1 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/aliases/.ruby_aliases"
+  ".ruby_aliases"
+  'fundamental-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  13374
+  '(13357 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-append-buffer-args 206
+  nil
+  "rinari-20130107.1109"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  462
+  '(nil nil)
+  t
+  '("/Users/cmagid/.emacs.d/elpa/rinari-20130107.1109/")
+  nil)
+
+(desktop-append-buffer-args 206
+  nil
+  "repo01"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  253
+  '(nil nil)
+  t
+  '("/Users/cmagid/projects/conflicts-example/repo01/")
+  nil)
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/projects/newppm/app/models/location.rb"
+  "location.rb"
+  'ruby-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  638
+  '(131 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . utf-8-unix)))
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/projects/local-data/organize/non-specific/Information_Requested_by_Neil.txt"
+  "Information_Requested_by_Neil.txt"
+  'org-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  16141
+  '(16121 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix) (truncate-lines . t)))
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/.emacs.d/elpa/wrap-region-readme.txt"
+  "wrap-region-readme.txt"
+  'text-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  30
+  '(559 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/projects/local-data/organize/gtd.org"
+  "gtd.org"
+  'org-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  228643
+  '(233471 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix) (truncate-lines . t)))
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/projects/local-data/organize/non-specific/makeMastersFiles"
+  "makeMastersFiles"
+  'fundamental-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  3119
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-append-buffer-args 206
+  "/Users/cmagid/projects/newppm/gitdiff.log"
+  "gitdiff.log"
+  'fundamental-mode
+  '(global-whitespace-mode textmate-mode wrap-region-mode yas-minor-mode)
+  235
+  '(3761 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-append-buffer-args 206
+  nil
+  "projects"
+  'dired-mode
+  '(global-whitespace-mode textmate-mode yas-minor-mode)
+  430
+  '(nil nil)
+  t
+  '("/Users/cmagid/projects/")
+  nil)
+
