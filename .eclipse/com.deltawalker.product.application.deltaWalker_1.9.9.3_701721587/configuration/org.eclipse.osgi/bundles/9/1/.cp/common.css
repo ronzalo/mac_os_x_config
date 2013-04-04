@@ -1,0 +1,128 @@
+table {
+	width:100%;
+}
+
+td {
+	padding:5px;
+}
+td.lead {
+	background-color: #E8F2FE;
+	width:180px;
+}
+th  {
+	background-color: #E8F2FE;
+}
+table {
+	display: table;
+	border-collapse: collapse;
+	border-spacing: 0px;
+}
+
+table, th, td {
+    border: 1px solid lightgray;
+}
+td.no-background
+{
+	background-color: #FFFFFF;
+}
+
+a:link
+{
+	text-decoration:none;	
+}
+a:hover
+{
+	text-decoration:none;	
+}
+a:visited
+{
+	text-decoration:none;	
+}
+.deleted 
+{
+	color: #ff8000;
+}
+
+.added
+{
+	color: #5282d0;
+}
+
+.different
+{
+	color: #008000;
+}
+
+.conflicting
+{
+	color: #ff0000;
+}
+
+.see-also
+{
+	/*color: #FF6633;*/
+	color: #FFA64C;
+}
+
+.access
+{
+	color: #999999;
+}
+
+h1
+{
+	/*color: #85A6DE;*/
+	color: #316AC5;
+	font-size: 24px;
+	font-family: "Arial", sans-serif;
+	font-weight: bold;
+	line-height: normal;
+}
+
+h2
+{
+	color: #316AC5;
+	font-family: "Arial", sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	padding-top: 20px;
+}
+
+h3
+{
+	color: #316AC5;
+	font-family: "Arial", sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+h4
+{
+	color: #316AC5;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 5px;
+	font-family: "Arial", sans-serif;
+}
+
+h5
+{
+	color: #316AC5;
+	font-size: 12px;
+	margin-right: 0px;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
+
+h6
+{
+	color: #316AC5;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 1px;
+/*	margin-top: 0;*/
+	font-family: "Arial", sans-serif;
+	padding-top: 20px;
+}

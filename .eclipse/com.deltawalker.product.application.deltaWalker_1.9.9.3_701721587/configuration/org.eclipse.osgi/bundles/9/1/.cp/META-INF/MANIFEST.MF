@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.ui
+ .intro,com.deltawalker,org.eclipse.ui.forms,com.deltopia,org.eclipse.
+ ui.workbench.texteditor,com.deltopia.swt,com.deltawalker.doc,com.delt
+ awalker.splash,com.deltawalker.update
+Bundle-Vendor: %Bundle-Vendor
+Bundle-ActivationPolicy: lazy
+Bundle-Version: 1.9.9.3
+Bundle-Localization: plugin
+Bundle-Name: %deltawalker.product.application.plugin.name
+Bundle-Activator: com.deltawalker.product.application.internal.Applica
+ tionProductPlugin
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.deltawalker.product.application;singleton:=tr
+ ue
+

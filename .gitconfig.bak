@@ -1,0 +1,34 @@
+[core]
+	excludesfile = /Users/cmagid/.gitignore_global
+	pager = cat
+	quotepath = false
+[alias]
+	co = checkout
+  branch-point = !sh -c 'merge=$(git rev-list --grep="Merge.*$1" --all | tail -1) && git merge-base $merge^1 $merge^2'
+	unstage = reset HEAD
+[user]
+	name = Charles Magid
+	email = cmagid@rbmtechnologies.com
+[color]
+	ui = auto
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[merge]
+	tool = Kaleidoscope
+[push]
+	default = matching

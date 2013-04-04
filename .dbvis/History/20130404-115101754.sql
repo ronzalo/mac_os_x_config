@@ -1,0 +1,1 @@
+select id,name,updated_at from locations 

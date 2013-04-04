@@ -1,0 +1,1 @@
+select id,name,email,updated_at from locations where ORDER BY updated_at DESC

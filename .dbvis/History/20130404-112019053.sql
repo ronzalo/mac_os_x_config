@@ -1,0 +1,1 @@
+select * from locations order by updated_at

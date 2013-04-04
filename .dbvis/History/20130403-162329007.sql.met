@@ -1,0 +1,15 @@
+#Extended file properties defined by DbVisualizer
+#Wed Apr 03 16:23:29 EDT 2013
+last.execution_count=1
+last.elapsed_time=0.080
+exec.schema=public
+file.comment=
+last.execution_time=1365020608981
+file.encoding=MacRoman
+last.database_type=PostgreSQL
+last.affected_row_count=0
+exec.catalog=o2pvw
+last.sql_preview=select id,name,props,deleted_at from categories wh
+last.execution_error_count=0
+last.execution_success_count=1
+exec.connection=o2pvw

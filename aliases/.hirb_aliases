@@ -1,0 +1,9 @@
+Hirb has both pager and formatter functionality enabled by default. If you want to turn off the functionality of either you can pass that in at startup:
+
+Hirb.enable :pager=>false
+Hirb.enable :formatter=>false
+
+or toggle their state at runtime:
+
+Hirb::View.toggle_pager
+Hirb::View.toggle_formatter

@@ -1,0 +1,3 @@
+INFO: 15:23:10  [SELECT - 325 row(s), 0.001 secs] Result set fetched
+SUMMARY: ... 1 statement(s) executed, 325 row(s) affected, exec/fetch time: 0.001/0.000 sec
+ [1 successful, 0 warnings, 0 errors]

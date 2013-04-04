@@ -1,0 +1,47 @@
+/* Shared style applied to all pages */
+/* trick to get desired scroll bar behavior on all browsers */ 
+html {
+	overflow:auto;
+	border:0px;
+	height:100%;
+	}
+
+	
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color:#0c4d89;
+	background-image:url(images/bgHeader.png);
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	margin: 0px;
+	line-height: 18px;
+	padding: 0px;
+	height: 100%;
+	} 
+	
+h1 {
+	text-align:left;
+	font-size: 24px;
+	font-weight:normal;
+	letter-spacing: 1px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	} 
+h2 {
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+h3 {
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+
+
+h4 {
+	font-size: 12px;
+	letter-spacing: 1px;
+	}	
+code {
+	font-size: small;
+	font-weight: bold;
+}

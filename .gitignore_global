@@ -1,0 +1,5 @@
+*~
+.DS_Store
+*.locally.sql
+dev.log
+rr.txt

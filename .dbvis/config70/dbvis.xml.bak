@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DbVisualizer>
+  <!--Saved at: Thu Apr 04 10:11:21 EDT 2013-->
+  <General>
+    <AppAntialiasedFonts>true</AppAntialiasedFonts>
+    <AppFont>Default-plain-12</AppFont>
+    <AppOpenSQLFilesInNewJVM>false</AppOpenSQLFilesInNewJVM>
+    <AskQuit>false</AskQuit>
+    <AutoCompletionAutoPopup>false</AutoCompletionAutoPopup>
+    <AutoCompletionCase>Default</AutoCompletionCase>
+    <AutoCompletionInstant>false</AutoCompletionInstant>
+    <AutoCompletionSortColumns>true</AutoCompletionSortColumns>
+    <AutoCompletionSortTables>true</AutoCompletionSortTables>
+    <BookmarkFrameGeometry></BookmarkFrameGeometry>
+    <BooleanFalseFormat>false</BooleanFalseFormat>
+    <BooleanTrueFormat>true</BooleanTrueFormat>
+    <CellWindowGeometry>410|22|500|600</CellWindowGeometry>
+    <ChartConfigurationWindowGeometry></ChartConfigurationWindowGeometry>
+    <CheckForUpdateInterval>weekly</CheckForUpdateInterval>
+    <CheckForUpdateLastCheck>1364392871996</CheckForUpdateLastCheck>
+    <ColumnDelimiter>\t</ColumnDelimiter>
+    <CommanderMaxColumns>-1</CommanderMaxColumns>
+    <CommanderMaxRows>1000</CommanderMaxRows>
+    <ConfirmDisconnectAll>true</ConfirmDisconnectAll>
+    <DataGenerateFilterWithSorting>true</DataGenerateFilterWithSorting>
+    <DataMaxColumns>-1</DataMaxColumns>
+    <DataMaxFilters>15</DataMaxFilters>
+    <DataMaxRows>1000</DataMaxRows>
+    <DataMaxRowsInitial>-1</DataMaxRowsInitial>
+    <DatabasesTabToolbarVisible>true</DatabasesTabToolbarVisible>
+    <DateFormat>yyyy-MM-dd</DateFormat>
+    <DebugDestination>Debug Window</DebugDestination>
+    <DebugDetailLevel>Full</DebugDetailLevel>
+    <DebugFilename></DebugFilename>
+    <DebugLogLevel>Error</DebugLogLevel>
+    <DebugWindowAutoPopup>true</DebugWindowAutoPopup>
+    <DebugWindowGeometry></DebugWindowGeometry>
+    <DecimalNumberFormat>Unformatted</DecimalNumberFormat>
+    <DriverFrameGeometry></DriverFrameGeometry>
+    <DriverManagerBlackList>.*/mysql.*bin-g\.jar;ribo.jar;jtds3d.jar;jtds3.jar;jconn3d.jar</DriverManagerBlackList>
+    <DriverManagerDisplayOnError>false</DriverManagerDisplayOnError>
+    <DriverManagerDisplayWhenNewFiles>true</DriverManagerDisplayWhenNewFiles>
+    <DriverManagerReplaceFiles>true</DriverManagerReplaceFiles>
+    <DriverManagerRunFinderAtStartup>true</DriverManagerRunFinderAtStartup>
+    <DriverManagerSearchPath>${dbvis.prefsdir}/jdbc;${dbvis.home}/jdbc</DriverManagerSearchPath>
+    <Encoding>MacRoman</Encoding>
+    <ExecutionTimeout>60</ExecutionTimeout>
+    <ExplainDefaultView>graph</ExplainDefaultView>
+    <ExplainGraphNavModeEnabled></ExplainGraphNavModeEnabled>
+    <ExplainGraphNodeContent>result-set-explainviewer-show-operation-data-command</ExplainGraphNodeContent>
+    <FavoritesBarVisible>false</FavoritesBarVisible>
+    <FavoritesWindowGeometry></FavoritesWindowGeometry>
+    <FileChooserGeometry>445|239|550|422</FileChooserGeometry>
+    <FileQuickLoad>true|true|false|false|true|200</FileQuickLoad>
+    <FitTables>true</FitTables>
+    <FitTablesConsiderHeader>true</FitTablesConsiderHeader>
+    <FormEditorRightAlignedNumbers>false</FormEditorRightAlignedNumbers>
+    <GenerateSqlWithVariables>true</GenerateSqlWithVariables>
+    <GraphAnimate>true</GraphAnimate>
+    <GraphArcsToColumns>true</GraphArcsToColumns>
+    <GraphAutoEdgeRouting>true</GraphAutoEdgeRouting>
+    <GraphBridgeArcs>true</GraphBridgeArcs>
+    <GraphControlsVisible>true</GraphControlsVisible>
+    <GraphLayoutType>Hierarchic</GraphLayoutType>
+    <GraphNavModeEnabled>false</GraphNavModeEnabled>
+    <GraphNodeContent>Primary Key</GraphNodeContent>
+    <GraphReferencedOnly>false</GraphReferencedOnly>
+    <GraphSearchAutoZoom>true</GraphSearchAutoZoom>
+    <GraphShowArcLabel>true</GraphShowArcLabel>
+    <GraphShowOneLink>false</GraphShowOneLink>
+    <GridAutoShowWarnings>true</GridAutoShowWarnings>
+    <GridColumnLabelIsColumnAlias>true</GridColumnLabelIsColumnAlias>
+    <GridColumnSeparatorWidth>-1</GridColumnSeparatorWidth>
+    <GridColumnsTruncatedBG>#e7ab75</GridColumnsTruncatedBG>
+    <GridColumnsTruncatedBorder></GridColumnsTruncatedBorder>
+    <GridColumnsTruncatedFG>#000000</GridColumnsTruncatedFG>
+    <GridCopyBlobType>Value</GridCopyBlobType>
+    <GridCopyClobType>Value</GridCopyClobType>
+    <GridDeletedBG>#f07074</GridDeletedBG>
+    <GridDeletedBorder>#ff0000</GridDeletedBorder>
+    <GridDeletedFG>#ffffff</GridDeletedFG>
+    <GridEditedBG>#ffffb4</GridEditedBG>
+    <GridEditedBorder>#ffff00</GridEditedBorder>
+    <GridEditedFG>#000000</GridEditedFG>
+    <GridEvenBG>#ffffff</GridEvenBG>
+    <GridEvenBorder></GridEvenBorder>
+    <GridEvenFG>#000000</GridEvenFG>
+    <GridFont>Dialog-plain-12</GridFont>
+    <GridLinesColor>#d9d9d9</GridLinesColor>
+    <GridNullBG>#e8e8e8</GridNullBG>
+    <GridNullBorder></GridNullBorder>
+    <GridNullFG>#808080</GridNullFG>
+    <GridOddBG>#f0f5fa</GridOddBG>
+    <GridOddBorder></GridOddBorder>
+    <GridOddFG>#000000</GridOddFG>
+    <GridQuickFilterBG>#ffffdc</GridQuickFilterBG>
+    <GridQuickFilterBorder></GridQuickFilterBorder>
+    <GridQuickFilterFG>#000000</GridQuickFilterFG>
+    <GridReloadAfterEdit>false</GridReloadAfterEdit>
+    <GridShowRowHeader>true</GridShowRowHeader>
+    <HistoryTreeShowDetails>true</HistoryTreeShowDetails>
+    <HistoryWindowGeometry></HistoryWindowGeometry>
+    <IconSize>large</IconSize>
+    <IconSizeMenus>noicons</IconSizeMenus>
+    <IconSizeSubToolBars>small</IconSizeSubToolBars>
+    <ImageSize>150</ImageSize>
+    <InlineEditorPermDefault>No Confirm|No Confirm|No Confirm</InlineEditorPermDefault>
+    <InlineEditorPermProduction>Confirm|Confirm|Confirm</InlineEditorPermProduction>
+    <InlineEditorPermTest>No Confirm|Confirm|Confirm</InlineEditorPermTest>
+    <KeymapName>Mac OS X</KeymapName>
+    <LogAutoClear>true</LogAutoClear>
+    <LogFilterErrors>true</LogFilterErrors>
+    <LogFilterSuccess>true</LogFilterSuccess>
+    <LogFilterWarnings>true</LogFilterWarnings>
+    <LogShowMessage>true</LogShowMessage>
+    <LogShowSQL>false</LogShowSQL>
+    <LookAndFeel>com.apple.laf.AquaLookAndFeel</LookAndFeel>
+    <MainFrameGeometry>0|22|1440|815|329|350|0|200</MainFrameGeometry>
+    <MainWindowToolbarVisible>true</MainWindowToolbarVisible>
+    <MaxCharsTruncatesValue>TruncateValuesVisually</MaxCharsTruncatesValue>
+    <MonitorAutoAdjust>true</MonitorAutoAdjust>
+    <MonitorAutoStart>false</MonitorAutoStart>
+    <MonitorDefaultView>Tabbed</MonitorDefaultView>
+    <MonitorFrameGeometry></MonitorFrameGeometry>
+    <MonitorReloadSecs>300</MonitorReloadSecs>
+    <MonitorShowAtStartup>false</MonitorShowAtStartup>
+    <NavigatorGraphControlsVisible></NavigatorGraphControlsVisible>
+    <NavigatorGraphNavModeEnabled></NavigatorGraphNavModeEnabled>
+    <NewlineDelimiter>\n</NewlineDelimiter>
+    <NumberFormat>Unformatted</NumberFormat>
+    <ObjectActionsFormatSQL>true</ObjectActionsFormatSQL>
+    <ObjectActionsPreviewEnabled>false</ObjectActionsPreviewEnabled>
+    <PendingTransactionsAction>Ask</PendingTransactionsAction>
+    <PrettyAlignmentOnAs>true</PrettyAlignmentOnAs>
+    <PrettyAlignmentOnComma>false</PrettyAlignmentOnComma>
+    <PrettyAlignmentOnComment>false</PrettyAlignmentOnComment>
+    <PrettyAlignmentOnConcat>false</PrettyAlignmentOnConcat>
+    <PrettyAlignmentOnDeclaration>false</PrettyAlignmentOnDeclaration>
+    <PrettyAlignmentOnEqual>false</PrettyAlignmentOnEqual>
+    <PrettyAlignmentOnKeyword>false</PrettyAlignmentOnKeyword>
+    <PrettyAlignmentOnOperator>false</PrettyAlignmentOnOperator>
+    <PrettyBreakAfterAndOr>false</PrettyBreakAfterAndOr>
+    <PrettyBreakAfterComma>true</PrettyBreakAfterComma>
+    <PrettyBreakAfterConcat>false</PrettyBreakAfterConcat>
+    <PrettyBreakAfterSelectFromWhere>true</PrettyBreakAfterSelectFromWhere>
+    <PrettyBreakBeforeAndOr>true</PrettyBreakBeforeAndOr>
+    <PrettyBreakBeforeComma>false</PrettyBreakBeforeComma>
+    <PrettyBreakBeforeConcat>false</PrettyBreakBeforeConcat>
+    <PrettyBreakForBrackets>true</PrettyBreakForBrackets>
+    <PrettyBreakForCase>true</PrettyBreakForCase>
+    <PrettyBreakForJoin>true</PrettyBreakForJoin>
+    <PrettyDoubleIndentionForMainKeyword>false</PrettyDoubleIndentionForMainKeyword>
+    <PrettyIndentCondition>false</PrettyIndentCondition>
+    <PrettyIndention>4 spaces</PrettyIndention>
+    <PrettyKeywordCase>Keywords Uppercase</PrettyKeywordCase>
+    <PrettyLineWidth>100</PrettyLineWidth>
+    <PrettyNoEmptyLines>true</PrettyNoEmptyLines>
+    <PrettyNoWhitespace>true</PrettyNoWhitespace>
+    <PrettyQuoteChar>'</PrettyQuoteChar>
+    <PrettySourceSqlLanguage>Any SQL</PrettySourceSqlLanguage>
+    <PrettySpaceComma>Keep Unchanged</PrettySpaceComma>
+    <PrettySpaceOperator>Keep Unchanged</PrettySpaceOperator>
+    <PrettySpaceParent>Keep Unchanged</PrettySpaceParent>
+    <PrettySqlBetween>false</PrettySqlBetween>
+    <PrettySqlBetweenChar>"</PrettySqlBetweenChar>
+    <PrettyTargetSQL>SQL</PrettyTargetSQL>
+    <PropertiesFrameGeometry>107|109|983|600|4</PropertiesFrameGeometry>
+    <ProxyHost></ProxyHost>
+    <ProxyPassword>rSk+E2+Snss=</ProxyPassword>
+    <ProxyPort></ProxyPort>
+    <ProxyType>http</ProxyType>
+    <ProxyUseSettings>useNoProxy</ProxyUseSettings>
+    <ProxyUser></ProxyUser>
+    <QBDefaultTableDragStyle>Solid</QBDefaultTableDragStyle>
+    <QBDefaultTableSize>200|150</QBDefaultTableSize>
+    <QBTableQuickAdd>200</QBTableQuickAdd>
+    <RecentSQLFiles>/Users/cmagid/dbv13.04.03:encoding=MacRoman</RecentSQLFiles>
+    <RecentSQLFilesLimit>20</RecentSQLFilesLimit>
+    <RowFormWindowGeometry></RowFormWindowGeometry>
+    <RunConnectAllAtStartup>true</RunConnectAllAtStartup>
+    <SQLAllowGo>true</SQLAllowGo>
+    <SQLBlockCommentBegin>/*</SQLBlockCommentBegin>
+    <SQLBlockCommentEnd>*/</SQLBlockCommentEnd>
+    <SQLCallableBegin>--/</SQLCallableBegin>
+    <SQLCallableEnd>/</SQLCallableEnd>
+    <SQLCommanderAppearance>tabs</SQLCommanderAppearance>
+    <SQLCommanderAskSave>true</SQLCommanderAskSave>
+    <SQLCommanderAskUnsavedEdits>true</SQLCommanderAskUnsavedEdits>
+    <SQLCommanderControlsVisible>false</SQLCommanderControlsVisible>
+    <SQLCommanderDisplayMode>Grid</SQLCommanderDisplayMode>
+    <SQLCommanderPermDefault>Allow|Allow|Allow|Allow|Allow|Allow|Allow|Allow|Allow|Allow</SQLCommanderPermDefault>
+    <SQLCommanderPermProduction>Allow|Ask|Ask|Ask|Ask|Ask|Ask|Ask|Ask|Ask</SQLCommanderPermProduction>
+    <SQLCommanderPermTest>Allow|Allow|Allow|Allow|Ask|Allow|Allow|Ask|Allow|Ask</SQLCommanderPermTest>
+    <SQLCommanderProcessParameterMarkers>false</SQLCommanderProcessParameterMarkers>
+    <SQLCommanderProcessVariables>true</SQLCommanderProcessVariables>
+    <SQLCommanderResultSetsAppearance>tabs</SQLCommanderResultSetsAppearance>
+    <SQLCommanderResultSetsLabel>${index}: ${sql}</SQLCommanderResultSetsLabel>
+    <SQLCommanderResultSetsPinNew>false</SQLCommanderResultSetsPinNew>
+    <SQLCommanderResultSetsReadOnly>false</SQLCommanderResultSetsReadOnly>
+    <SQLCommanderResultSetsRemoveEmpty></SQLCommanderResultSetsRemoveEmpty>
+    <SQLCommanderResultSetsShowSQL>false</SQLCommanderResultSetsShowSQL>
+    <SQLCommanderResultSetsTabsLocation>Tabs at Top</SQLCommanderResultSetsTabsLocation>
+    <SQLCommanderResultSetsTabsRow>false</SQLCommanderResultSetsTabsRow>
+    <SQLCommanderStickyNew>false</SQLCommanderStickyNew>
+    <SQLCommanderStopOnError>false</SQLCommanderStopOnError>
+    <SQLCommanderStopOnWarning>false</SQLCommanderStopOnWarning>
+    <SQLDelimiter1>;</SQLDelimiter1>
+    <SQLDelimiter2>;</SQLDelimiter2>
+    <SQLEditorBG>#ffffff</SQLEditorBG>
+    <SQLEditorCaretBlink>true</SQLEditorCaretBlink>
+    <SQLEditorExpandTab>true</SQLEditorExpandTab>
+    <SQLEditorFont>Menlo-plain-12</SQLEditorFont>
+    <SQLEditorLineHighlight>#ffffd7</SQLEditorLineHighlight>
+    <SQLEditorSelectionBG>#a0b3f0</SQLEditorSelectionBG>
+    <SQLEditorShowSpecialChars>false</SQLEditorShowSpecialChars>
+    <SQLEditorStatusbarVisible>true</SQLEditorStatusbarVisible>
+    <SQLEditorTabSize>8</SQLEditorTabSize>
+    <SQLEditorToolbarVisible>true</SQLEditorToolbarVisible>
+    <SQLHistoryIgnoreDuplicateEntries>true</SQLHistoryIgnoreDuplicateEntries>
+    <SQLHistoryIgnoreErrorEntries>false</SQLHistoryIgnoreErrorEntries>
+    <SQLHistoryIgnoreSQLRegex></SQLHistoryIgnoreSQLRegex>
+    <SQLHistoryMaxFiles>300</SQLHistoryMaxFiles>
+    <SQLLineComment1>--</SQLLineComment1>
+    <SQLLineComment2>//</SQLLineComment2>
+    <SSHConnectionPassword>Clear at Disconnect</SSHConnectionPassword>
+    <SSHKeepAliveInterval>60</SSHKeepAliveInterval>
+    <SSHKnownHostsFile></SSHKnownHostsFile>
+    <SSHRequirePassword>true</SSHRequirePassword>
+    <SSHRequireUserid>false</SSHRequireUserid>
+    <ScriptsDoubleClickAction>CurrentEditor</ScriptsDoubleClickAction>
+    <ScriptsModifierDoubleClickAction>NewEditor</ScriptsModifierDoubleClickAction>
+    <ScriptsTabToolbarVisible>true</ScriptsTabToolbarVisible>
+    <ScriptsTreeShowDetails>true</ScriptsTreeShowDetails>
+    <ShowBlobType>Size</ShowBlobType>
+    <ShowClobType>Size</ShowClobType>
+    <ShowDataFilter>false</ShowDataFilter>
+    <ShowDialogWhenCreateDatabase>true</ShowDialogWhenCreateDatabase>
+    <ShowNullAs>(null)</ShowNullAs>
+    <ShowPrimaryKeysForTables>true</ShowPrimaryKeysForTables>
+    <ShowReleaseNotes>true</ShowReleaseNotes>
+    <ShowRowsForTable>false</ShowRowsForTable>
+    <ShowRowsForTables>false</ShowRowsForTables>
+    <ShowTabIcons>true</ShowTabIcons>
+    <TimeFormat>HH:mm:ss</TimeFormat>
+    <TimeStampFormat>yyyy-MM-dd HH:mm:ss</TimeStampFormat>
+    <UseRelativePaths>false</UseRelativePaths>
+    <VariableDelimiter>||</VariableDelimiter>
+    <VariableFormWindowGeometry></VariableFormWindowGeometry>
+    <VariableIdentifierPrefix>${</VariableIdentifierPrefix>
+    <VariableIdentifierSuffix>}$</VariableIdentifierSuffix>
+    <Version>8.0.11</Version>
+    <WorkingDirectory>/Users/cmagid</WorkingDirectory>
+  </General>
+  <ObjectViewSettings />
+  <Drivers>
+    <Driver>
+      <Name>Cache</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:Cache://&lt;server&gt;:&lt;port1972&gt;/&lt;namespace&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>DB2</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:db2://&lt;server&gt;:&lt;port50000&gt;/&lt;database&gt;</URLFormat>
+      <DefaultClass>com.ibm.db2.jcc.DB2Driver</DefaultClass>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/db2/db2jcc4.jar</Path>
+          <Classes>
+            <Class type="jdbc">com.ibm.db2.jcc.DB2Driver</Class>
+          </Classes>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>DB2 (DataDirect)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:datadirect:db2://&lt;server&gt;:&lt;port50000&gt;/DatabaseName=&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>DB2 for AS/400 (JTOpen)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:as400://&lt;server&gt;naming=sql;errors=full</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>Firebird</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:firebirdsql:&lt;server&gt;/&lt;port3050&gt;:&lt;database-file&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>FrontBase</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:FrontBase://&lt;server&gt;:&lt;port&gt;/&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>HP Neoview</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:hpt4jdbc://&lt;system&gt;:&lt;port&gt;/:</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>HSQLDB server</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:hsqldb:hsql://&lt;server&gt;:&lt;port9001&gt;/&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>HSQLDB embedded</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:hsqldb:&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>H2 server</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:h2:tcp:&lt;server&gt;:&lt;port9092&gt;/&lt;database&gt;</URLFormat>
+      <DefaultClass>org.h2.Driver</DefaultClass>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/h2/h2.jar</Path>
+          <Classes>
+            <Class type="jdbc">org.h2.Driver</Class>
+          </Classes>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>H2 embedded</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:h2:&lt;database&gt;</URLFormat>
+      <DefaultClass>org.h2.Driver</DefaultClass>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/h2/h2.jar</Path>
+          <Classes>
+            <Class type="jdbc">org.h2.Driver</Class>
+          </Classes>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>Informix</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:informix-sqli://&lt;server&gt;:&lt;port1533&gt;/&lt;database&gt;:informixserver=&lt;dbservername&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>Informix (DataDirect)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:datadirect:informix://&lt;server&gt;:&lt;port1533&gt;;InformixServer=&lt;informixserver&gt;;DatabaseServer=&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>JavaDB/Derby server</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:derby://&lt;server&gt;:&lt;port1527&gt;/&lt;databaseName&gt;</URLFormat>
+      <DefaultClass>org.apache.derby.jdbc.ClientDriver</DefaultClass>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/derby/derby.jar</Path>
+        </Location>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/derby/derbyclient.jar</Path>
+          <Classes>
+            <Class type="jdbc">org.apache.derby.jdbc.ClientDriver</Class>
+          </Classes>
+        </Location>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/derby/derbynet.jar</Path>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>JavaDB/Derby embedded</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:derby:&lt;databaseName&gt;</URLFormat>
+      <DefaultClass>org.apache.derby.jdbc.EmbeddedDriver</DefaultClass>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/derby/derby.jar</Path>
+          <Classes>
+            <Class type="jdbc">org.apache.derby.jdbc.EmbeddedDriver</Class>
+          </Classes>
+        </Location>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/derby/derbyclient.jar</Path>
+        </Location>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/derby/derbynet.jar</Path>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>JDataStore</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:borland:dslocal:&lt;file&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>JDBC/ODBC Bridge</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:odbc:&lt;datasource&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>MaxDB</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:sapdb://&lt;server&gt;:&lt;port7210&gt;/&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>McKoi</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:mckoi://&lt;server&gt;:&lt;port9157&gt;/&lt;schema&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>Mimer</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:mimer:&lt;protocol&gt;://&lt;server&gt;:&lt;port1360&gt;/&lt;database&gt;</URLFormat>
+      <DefaultClass>com.mimer.jdbc.Driver</DefaultClass>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/mimer/mimer.jar</Path>
+          <Classes>
+            <Class type="jdbc">com.mimer.jdbc.Driver</Class>
+          </Classes>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>MySQL</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:mysql://&lt;server&gt;:&lt;port3306&gt;/&lt;database&gt;</URLFormat>
+      <DefaultClass>com.mysql.jdbc.Driver</DefaultClass>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/mysql/mysql.jar</Path>
+          <Classes>
+            <Class type="jdbc">com.mysql.jdbc.Driver</Class>
+          </Classes>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>Netezza</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:netezza://&lt;server&gt;:&lt;port5480&gt;/&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>Oracle Thin</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:oracle:thin:@&lt;server&gt;:&lt;port1521&gt;:&lt;sid&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>Oracle OCI</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:oracle:oci:@&lt;server&gt;:&lt;port1521&gt;:&lt;sid&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>Oracle (DataDirect)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:datadirect:oracle://&lt;server&gt;:&lt;port1521&gt;;ServiceName=&lt;servicename&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>Pervasive</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:pervasive://&lt;server&gt;:&lt;port&gt;/&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>PostgreSQL</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:postgresql://&lt;server&gt;:&lt;port5432&gt;/&lt;database&gt;</URLFormat>
+      <DefaultClass>org.postgresql.Driver</DefaultClass>
+      <LastName>PostgreSQL Native Driver</LastName>
+      <LastVersion>PostgreSQL 9.1 JDBC4 (build 902)</LastVersion>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/postgresql/postgresql.jar</Path>
+          <Classes>
+            <Class type="jdbc">org.postgresql.Driver</Class>
+          </Classes>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>Progress</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:jdbcProgress:T:&lt;server&gt;:&lt;port2055&gt;:&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>SQLite</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:sqlite:&lt;database&gt;</URLFormat>
+      <DefaultClass>org.sqlite.JDBC</DefaultClass>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/sqlite/sqlite.jar</Path>
+          <Classes>
+            <Class type="jdbc">org.sqlite.JDBC</Class>
+          </Classes>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>SQL Server (DataDirect)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:datadirect:sqlserver://&lt;server&gt;:&lt;port1433&gt;;DatabaseName=&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>SQL Server (jTDS)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:jtds:sqlserver://&lt;server&gt;:&lt;port1433&gt;;DatabaseName=&lt;database&gt;</URLFormat>
+      <DefaultClass>net.sourceforge.jtds.jdbc.Driver</DefaultClass>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/jtds/jtds.jar</Path>
+          <Classes>
+            <Class type="jdbc">net.sourceforge.jtds.jdbc.Driver</Class>
+          </Classes>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>SQL Server (Microsoft JDBC Driver)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:microsoft:sqlserver://&lt;server&gt;:&lt;port1433&gt;;DatabaseName=&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>SQL Server 2008 (Microsoft JDBC Driver)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:sqlserver://&lt;server&gt;:&lt;port1433&gt;;DatabaseName=&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>Sybase ASE (jTDS)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:jtds:sybase://&lt;server&gt;:&lt;port5000&gt;;DatabaseName=&lt;database&gt;</URLFormat>
+      <DefaultClass>net.sourceforge.jtds.jdbc.Driver</DefaultClass>
+      <Locations>
+        <Location type="dynamic">
+          <Path>/Applications/DbVisualizer.app/Contents/Resources/app/jdbc/jtds/jtds.jar</Path>
+          <Classes>
+            <Class type="jdbc">net.sourceforge.jtds.jdbc.Driver</Class>
+          </Classes>
+        </Location>
+      </Locations>
+    </Driver>
+    <Driver>
+      <Name>Sybase ASE (JConnect)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:sybase:Tds:&lt;server&gt;:&lt;port5000&gt;/&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>Sybase SQL Anywhere (JConnect)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:sybase:Tds:&lt;server&gt;:&lt;port2638&gt;/&lt;database&gt;</URLFormat>
+    </Driver>
+    <Driver>
+      <Name>Sybase (DataDirect)</Name>
+      <IsDefaultDriver>true</IsDefaultDriver>
+      <URLFormat>jdbc:datadirect:sybase://&lt;server&gt;:&lt;port2048&gt;;ServiceName=&lt;servicename&gt;</URLFormat>
+    </Driver>
+  </Drivers>
+  <Databases>
+    <Database id="1">
+      <Alias>rbmfirst</Alias>
+      <Url></Url>
+      <Driver>PostgreSQL</Driver>
+      <Userid>cmagid</Userid>
+      <Profile>auto</Profile>
+      <Type>postgresql</Type>
+      <Password>rSk+E2+Snss=</Password>
+      <ServerInfoFormat>1</ServerInfoFormat>
+      <Properties />
+      <UrlFormat>0</UrlFormat>
+      <UrlVariables>
+        <Driver>
+          PostgreSQL
+          <UrlVariable UrlVariableName="Server">localhost</UrlVariable>
+          <UrlVariable UrlVariableName="Port">5432</UrlVariable>
+          <UrlVariable UrlVariableName="Database">rbmfirst</UrlVariable>
+        </Driver>
+      </UrlVariables>
+      <SshSettings>
+        <SshEnabled>false</SshEnabled>
+        <SshHost></SshHost>
+        <SshPort>22</SshPort>
+        <SshUserid></SshUserid>
+        <SshPassword />
+        <SshPrivateKeyFile></SshPrivateKeyFile>
+        <SshPassphrase />
+      </SshSettings>
+    </Database>
+    <Database id="8">
+      <Alias>rbm_new_att</Alias>
+      <Url></Url>
+      <Driver>PostgreSQL</Driver>
+      <Userid>cmagid</Userid>
+      <Profile>auto</Profile>
+      <Type>postgresql</Type>
+      <Password>rSk+E2+Snss=</Password>
+      <ServerInfoFormat>1</ServerInfoFormat>
+      <Properties>
+        <Property key="dbvis.ConnectWhenConnectAll">true</Property>
+      </Properties>
+      <UrlFormat>0</UrlFormat>
+      <UrlVariables>
+        <Driver>
+          PostgreSQL
+          <UrlVariable UrlVariableName="Server">localhost</UrlVariable>
+          <UrlVariable UrlVariableName="Port">5432</UrlVariable>
+          <UrlVariable UrlVariableName="Database">rbm_new_att</UrlVariable>
+        </Driver>
+      </UrlVariables>
+      <SshSettings>
+        <SshEnabled>false</SshEnabled>
+        <SshHost></SshHost>
+        <SshPort>22</SshPort>
+        <SshUserid></SshUserid>
+        <SshPassword />
+        <SshPrivateKeyFile></SshPrivateKeyFile>
+        <SshPassphrase />
+      </SshSettings>
+    </Database>
+    <Database id="12">
+      <Alias>o2pvw</Alias>
+      <Url></Url>
+      <Driver>PostgreSQL</Driver>
+      <Userid>cmagid</Userid>
+      <Profile>auto</Profile>
+      <Type>postgresql</Type>
+      <Password>rSk+E2+Snss=</Password>
+      <ServerInfoFormat>1</ServerInfoFormat>
+      <Properties>
+        <Property key="dbvis.ConnectWhenConnectAll">true</Property>
+      </Properties>
+      <UrlFormat>0</UrlFormat>
+      <UrlVariables>
+        <Driver>
+          PostgreSQL
+          <UrlVariable UrlVariableName="Server">localhost</UrlVariable>
+          <UrlVariable UrlVariableName="Port">5432</UrlVariable>
+          <UrlVariable UrlVariableName="Database">o2pvw</UrlVariable>
+        </Driver>
+      </UrlVariables>
+      <SshSettings>
+        <SshEnabled>false</SshEnabled>
+        <SshHost></SshHost>
+        <SshPort>22</SshPort>
+        <SshUserid></SshUserid>
+        <SshPassword />
+        <SshPrivateKeyFile></SshPrivateKeyFile>
+        <SshPassphrase />
+      </SshSettings>
+    </Database>
+    <Database id="15">
+      <Alias>luxjan2</Alias>
+      <Url></Url>
+      <Driver>PostgreSQL</Driver>
+      <Userid>cmagid</Userid>
+      <Profile>auto</Profile>
+      <Type>postgresql</Type>
+      <Password>rSk+E2+Snss=</Password>
+      <ServerInfoFormat>1</ServerInfoFormat>
+      <Properties />
+      <UrlFormat>0</UrlFormat>
+      <UrlVariables>
+        <Driver>
+          PostgreSQL
+          <UrlVariable UrlVariableName="Server">localhost</UrlVariable>
+          <UrlVariable UrlVariableName="Port">5432</UrlVariable>
+          <UrlVariable UrlVariableName="Database">luxjan2</UrlVariable>
+        </Driver>
+      </UrlVariables>
+      <SshSettings>
+        <SshEnabled>false</SshEnabled>
+        <SshHost></SshHost>
+        <SshPort>22</SshPort>
+        <SshUserid></SshUserid>
+        <SshPassword />
+        <SshPrivateKeyFile></SshPrivateKeyFile>
+        <SshPassphrase />
+      </SshSettings>
+    </Database>
+    <Database id="11">
+      <Alias>att-stg-app-00.dc-00.corp.lan</Alias>
+      <Url></Url>
+      <Driver>PostgreSQL</Driver>
+      <Userid>app</Userid>
+      <Profile>auto</Profile>
+      <Type>postgresql</Type>
+      <Password>a2H/T6RTrlCji0+Z4ckQdI/0havTEIvcmdxrXY4jv9QplfAsVStwnDCAmCASqHHS</Password>
+      <ServerInfoFormat>1</ServerInfoFormat>
+      <Properties>
+        <Property key="dbvis.ConnectWhenConnectAll">true</Property>
+      </Properties>
+      <UrlFormat>0</UrlFormat>
+      <UrlVariables>
+        <Driver>
+          PostgreSQL
+          <UrlVariable UrlVariableName="Server">att-stg-db-00.dc-00.corp.lan</UrlVariable>
+          <UrlVariable UrlVariableName="Port">5432</UrlVariable>
+          <UrlVariable UrlVariableName="Database">att</UrlVariable>
+        </Driver>
+      </UrlVariables>
+      <SshSettings>
+        <SshEnabled>false</SshEnabled>
+        <SshHost></SshHost>
+        <SshPort>22</SshPort>
+        <SshUserid></SshUserid>
+        <SshPassword />
+        <SshPrivateKeyFile></SshPrivateKeyFile>
+        <SshPassphrase />
+      </SshSettings>
+    </Database>
+    <Database id="18">
+      <Alias>att-stg-app-00.dc-00.corp.lan (copy)</Alias>
+      <Url>jdbc:postgresql://att-stg-db-00.dc-00.corp.lan:5432/att</Url>
+      <Driver>PostgreSQL</Driver>
+      <Userid>app</Userid>
+      <Profile>auto</Profile>
+      <Type>postgresql</Type>
+      <Password>a2H/T6RTrlCji0+Z4ckQdI/0havTEIvcmdxrXY4jv9QplfAsVStwnDCAmCASqHHS</Password>
+      <ServerInfoFormat>0</ServerInfoFormat>
+      <Properties>
+        <Property key="dbvis.ConnectWhenConnectAll">true</Property>
+      </Properties>
+      <UrlFormat>0</UrlFormat>
+      <UrlVariables>
+        <Driver>
+          PostgreSQL
+          <UrlVariable UrlVariableName="Server">att-stg-db-00.dc-00.corp.lan</UrlVariable>
+          <UrlVariable UrlVariableName="Port">5432</UrlVariable>
+          <UrlVariable UrlVariableName="Database">att</UrlVariable>
+        </Driver>
+      </UrlVariables>
+      <SshSettings>
+        <SshEnabled>false</SshEnabled>
+        <SshHost></SshHost>
+        <SshPort>22</SshPort>
+        <SshUserid></SshUserid>
+        <SshPassword />
+        <SshPrivateKeyFile></SshPrivateKeyFile>
+        <SshPassphrase />
+      </SshSettings>
+    </Database>
+    <Database id="13">
+      <Alias>o2temp</Alias>
+      <Url></Url>
+      <Driver>PostgreSQL</Driver>
+      <Userid>cmagid</Userid>
+      <Profile>auto</Profile>
+      <Type>postgresql</Type>
+      <Password>rSk+E2+Snss=</Password>
+      <ServerInfoFormat>1</ServerInfoFormat>
+      <Properties />
+      <UrlFormat>0</UrlFormat>
+      <UrlVariables>
+        <Driver>
+          PostgreSQL
+          <UrlVariable UrlVariableName="Server">localhost</UrlVariable>
+          <UrlVariable UrlVariableName="Port">5432</UrlVariable>
+          <UrlVariable UrlVariableName="Database">o2temp</UrlVariable>
+        </Driver>
+      </UrlVariables>
+      <SshSettings>
+        <SshEnabled>false</SshEnabled>
+        <SshHost></SshHost>
+        <SshPort>22</SshPort>
+        <SshUserid></SshUserid>
+        <SshPassword />
+        <SshPrivateKeyFile></SshPrivateKeyFile>
+        <SshPassphrase />
+      </SshSettings>
+    </Database>
+    <Database id="20">
+      <Alias>release-0012.1.o2.local</Alias>
+      <Url></Url>
+      <Driver>PostgreSQL</Driver>
+      <Userid>cmagid</Userid>
+      <Profile>auto</Profile>
+      <Type>postgresql</Type>
+      <Password>rSk+E2+Snss=</Password>
+      <ServerInfoFormat>1</ServerInfoFormat>
+      <Properties />
+      <UrlFormat>0</UrlFormat>
+      <UrlVariables>
+        <Driver>
+          PostgreSQL
+          <UrlVariable UrlVariableName="Server">localhost</UrlVariable>
+          <UrlVariable UrlVariableName="Port">5432</UrlVariable>
+          <UrlVariable UrlVariableName="Database">release-0012.1.o2.local</UrlVariable>
+        </Driver>
+      </UrlVariables>
+      <SshSettings>
+        <SshEnabled>false</SshEnabled>
+        <SshHost></SshHost>
+        <SshPort>22</SshPort>
+        <SshUserid></SshUserid>
+        <SshPassword />
+        <SshPrivateKeyFile></SshPrivateKeyFile>
+        <SshPassphrase />
+      </SshSettings>
+    </Database>
+    <Database id="21">
+      <Alias>release-0013.o2.local</Alias>
+      <Url></Url>
+      <Driver>PostgreSQL</Driver>
+      <Userid>cmagid</Userid>
+      <Profile>auto</Profile>
+      <Type>postgresql</Type>
+      <Password>rSk+E2+Snss=</Password>
+      <ServerInfoFormat>1</ServerInfoFormat>
+      <Properties />
+      <UrlFormat>0</UrlFormat>
+      <UrlVariables>
+        <Driver>
+          PostgreSQL
+          <UrlVariable UrlVariableName="Server">localhost</UrlVariable>
+          <UrlVariable UrlVariableName="Port">5432</UrlVariable>
+          <UrlVariable UrlVariableName="Database">release-0013.o2.local</UrlVariable>
+        </Driver>
+      </UrlVariables>
+      <SshSettings>
+        <SshEnabled>false</SshEnabled>
+        <SshHost></SshHost>
+        <SshPort>22</SshPort>
+        <SshUserid></SshUserid>
+        <SshPassword />
+        <SshPrivateKeyFile></SshPrivateKeyFile>
+        <SshPassphrase />
+      </SshSettings>
+    </Database>
+    <Database id="22">
+      <Alias>release-0013.lux.local</Alias>
+      <Url> </Url>
+      <Driver>PostgreSQL</Driver>
+      <Userid>cmagid</Userid>
+      <Profile>auto</Profile>
+      <Type>postgresql</Type>
+      <Password>rSk+E2+Snss=</Password>
+      <ServerInfoFormat>1</ServerInfoFormat>
+      <Properties />
+      <UrlFormat>0</UrlFormat>
+      <UrlVariables>
+        <Driver>
+          PostgreSQL
+          <UrlVariable UrlVariableName="Server">localhost</UrlVariable>
+          <UrlVariable UrlVariableName="Port">5432</UrlVariable>
+          <UrlVariable UrlVariableName="Database">release-0013.lux.local</UrlVariable>
+        </Driver>
+      </UrlVariables>
+      <SshSettings>
+        <SshEnabled>false</SshEnabled>
+        <SshHost></SshHost>
+        <SshPort>22</SshPort>
+        <SshUserid></SshUserid>
+        <SshPassword />
+        <SshPrivateKeyFile></SshPrivateKeyFile>
+        <SshPassphrase />
+      </SshSettings>
+    </Database>
+  </Databases>
+  <Objects>
+    <Database id="1" />
+    <Database id="8" />
+    <Database id="12" />
+    <Database id="15" />
+    <Database id="11" />
+    <Database id="18" />
+    <Database id="13" />
+    <Database id="20" />
+    <Database id="21" />
+    <Database id="22" />
+  </Objects>
+</DbVisualizer>
+

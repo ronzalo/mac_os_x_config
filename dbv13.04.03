@@ -1,0 +1,1 @@
+select id,name,props,deleted_at from categories where props like '%attr%' and deleted_at isNULL

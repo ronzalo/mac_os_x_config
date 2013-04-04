@@ -1,0 +1,71 @@
+# deploy to a slot
+
+ $ be cap deploy slot12 SITE=lux LOCAL=true DB=charles_lux
+
+# deploy to staging
+  $ be cap deploy vzw-stg LOCAL=true
+
+
+
+# 61 matches for "cap deploy" in buffer: gtd.org
+#      67:|   | document how to debug cap deploy                     |                           |   |
+#     596:*** $ be cap deploy slot12 SITE=lux LOCAL=true DB=charles_lux
+#     600:*** bundle exec cap deploy lux-stg
+#     643:			6. bundle exec cap deploy slot12 LOCAL=true DB=charles_lux SITE=lux
+#    1222:|                  | PROD  | customer | http://vzw-prod-app.vzw.corp.lan/   | release-0012.1.vzw                  | be cap deploy vzw-prod           | rbmadmin/skittles drummer diatribe backhand |
+#    1223:|                  | STAGE | customer | http://vzw-stg-app.vzw.corp.lan     | release-0012.1.vzw<my topic branch> | be cap deploy vzw-stg LOCAL=true | rbmadmin/skittles drummer diatribe backhand |
+#    2411:		bundle exec cap deploy foo-stg LOCAL=true
+#    2449:bundle exec cap deploy LOCAL=true
+#    2639:		be cap deploy slot12
+#    2647:		bundle exec cap deploy slot12 SITE=o2 LOCAL=true
+#    2649:		be cap deploy slot12 SITE=o2 LOCAL=true DB=foome
+#    2653:**** $ be cap deploy slot12        SITE=o2 LOCAL=true DB=o2newtemp
+#    2654:          cap deploy <destination> <options>
+#    2656:**** $ be cap deploy slot12            site=o2 LOCAL=true DB=o2newtemp REASON="generalize pnp"
+#    2657:          cap deploy <destination>     <options>
+#    6554:**** Errors deploying to slot "$ be cap deploy slot12 SITE=lux LOCAL=true DB=luxjan2"
+#    6572:			6. be cap deploy slot12 SITE=lux LOCAL=true DB=charles_lux
+#    7295:	 5. ISSUES are a result of my not using the correct flag on the cap deploy command
+#    7301:**** how to cap deploy [[WARNING Watch out for case of arguments]]
+#    7302:		 $ bundle exec cap deploy slot12 SITE=lux LOCAL=true DB=charles_lux
+#    7310:			6. bundle exec cap deploy slot12 LOCAL=true DB=charles_lux SITE=lux
+#    7322:**** Fix error doing $ bundle exec cap deploy slot12 SITE=lux LOCAL=true DB=charles_lux
+#    7325:**** ISSUES are a result of my not using the correct flag on the cap deploy command
+#    7803:*** $ be cap deploy slot12 SITE=rog LOCAL=true DB=charles_rog
+#    8067:      http://vzw-stg-app.vzw.corp.lan/, that should be running release-0012.1.vzw (cap deploy vzw-stg).
+#    8070:      https://vzw-stage.rbmfrontline.com/ and it should be running release-0012.1.vzw-stg branch (cap deploy vzw-stg).
+#    8087:       release-0012.1.vzw - cap deploy vzw-prod
+#    8128:    |      | http://vzw-prod-app.vzw.corp.lan/   |      | release-0012.1.vzw     | cap deploy vzw-prod | customer's    |
+#    8129:    |      | http://vzw-stg-app.vzw.corp.lan/    |      | release-0012.1.vzw     | cap deploy vzw-stg  | customer's    |
+#    8130:    | DONE | https://vzw-stage.rbmfrontline.com/ |      | release-0012.1.vzw-stg | cap deploy vzw-stg  | RBM dataCentr |
+#    8133:    Ryan Toronto: there are 2 vzw stages, one is http://vzw-stg-app.vzw.corp.lan/, that should be running release-0012.1.vzw (cap deploy vzw-stg).
+#    8134:                                    the other is https://vzw-stage.rbmfrontline.com/ and it hsould be running release-0012.1.vzw-stg branch (cap deploy vzw-stg). the rbmfrontline.com one is only viewable by people in the office.
+#    8148:  $ be cap deploy slot12 SITE=cap LOCAL=true DB=charles_cap
+#    8162:  | vDEPLOYED        | TRUE      | PASS  | o2-prod       | DONE          | YES         | release-0012.1.o2        | cap deploy o2-prod  | (a) (b)                 | https://o2.rbmfrontline.com/            | [[o2-prod7171][o2-prod7171]]   |
+#    8163:  | vDEPLOYED        | TRUE      | PASS  | o2-stg        | DONE          | NO          | release-0012.1.o2        | cap deploy o2-?     |                         | https://o2-stage.rbmfrontline.com/      |               |
+#    8164:  | vDEPLOYED        | TRUE      | curr  | cap-prod      | CBT           | YES         | release-0012.1.cap       | cap deploy cap-prod |                         | https://cap.rbmfrontline.com            |               |
+#    8188:  | vDEPLOYED        |           |       | o2-prev       |               |             | LOCAL                    | cap deploy o2-pvw   |                         | https://o2-preview.rbmfrontline.com/    |               |
+#    8202:    | 2 |      | http://vzw-prod-app.vzw.corp.lan/   |      | release-0012.1.vzw     | cap deploy vzw-prod | customer's    |
+#    8203:    | 3 |      | http://vzw-stg-app.vzw.corp.lan/    |      | release-0012.1.vzw     | cap deploy vzw-stg  | customer's    |
+#    8204:    | 4 | DONE | https://vzw-stage.rbmfrontline.com/ |      | release-0012.1.vzw-stg | cap deploy vzw-stg  | RBM dataCentr |
+#    8237:   bundle exec cap deploy
+#    8244:    (a) - Received err on cap deploy
+#    9035:| o2-pvw         | development cap deploy o2-pvw                         | https://o2-preview.rbmfrontline.com/    |       |         |
+#    9967:      release-0012.1.vzw - cap deploy vzw-prod
+#   10256:| o2-pvw         | development cap deploy o2-pvw                         | https://o2-preview.rbmfrontline.com/    |       |         |
+#   11405:bundle exec cap deploy demo-stg LOCAL=true
+#   11410:bundle exec cap deploy crate-stg LOCAL=true
+#   11538:bundle exec cap deploy demo-stg
+#   11546:be cap deploy demo-stg
+#   12174:       bundle exec cap deploy demo-prod
+#   12178:client (release-0012.1.demo)$        bundle exec cap deploy demo-prod
+#   13689:    http://vzw-stg-app.vzw.corp.lan/, that should be running release-0012.1.vzw (cap deploy vzw-stg).
+#   13690:    https://vzw-stage.rbmfrontline.com/ and it should be running release-0012.1.vzw-stg branch (cap deploy vzw-stg).
+#   13691:    http://vzw-prod-app.vzw.corp.lan/   release-0012.1.vzw - cap deploy vzw-prod  - @ customer's  site
+#   13701:|                  | PROD  | customer | http://vzw-prod-app.vzw.corp.lan/   | release-0012.1.vzw                  | be cap deploy vzw-prod           | rbmadmin/skittles drummer diatribe backhand |       |
+#   13702:|                  | STAGE | customer | http://vzw-stg-app.vzw.corp.lan     | release-0012.1.vzw<my topic branch> | be cap deploy vzw-stg LOCAL=true | rbmadmin/skittles drummer diatribe backhand |       |
+#   13722:be cap deploy vzw-stg LOCAL=true
+#   13729:    $ bundle exec cap deploy vzw-stg LOCAL=true
+#   13765:    | STAGE | customer | http://vzw-stg-app.vzw.corp.lan | release-0012.1.vzw | be cap deploy vzw-stg LOCAL=true | rbmadmin/skittles drummer diatribe backhand |
+#   16892:    be cap deploy slot12 SITE=o2 LOCAL=true DB=charles_o2
+#   16894:      $ be cap deploy slot12 SITE=lux LOCAL=true DB=charles_lux

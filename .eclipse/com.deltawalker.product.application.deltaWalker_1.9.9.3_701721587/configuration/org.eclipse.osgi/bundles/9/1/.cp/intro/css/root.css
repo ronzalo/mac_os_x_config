@@ -1,0 +1,205 @@
+#content {
+	text-align:center;
+	margin: -150px 0px 0px -125px;
+	padding: 0px;
+	top: 50%;
+	position: absolute;
+	left: 50%;
+	bottom: 50%;
+	width: 250px;
+	height: 300px;
+	}
+#textContainer {
+	margin: 20px;
+	padding: 0px;
+	clear: both;
+}
+#passionInside {
+	background-image: url(images/grPassionInside.png);
+	background-repeat: no-repeat;
+	padding: 0px;
+	background-position: right center;
+	margin: 0px;
+	position: absolute;
+	clear: both;
+	float: left;
+	height: 60px;
+	width: 100%;
+	bottom: 20px;
+	right: 20px;
+}
+#passionInsideGrey {
+	background-image: url(../css/images/grPassionInsideGrey.gif);
+	background-repeat: no-repeat;
+	padding: 0px;
+	background-position: right center;
+	margin: 0px;
+	clear: both;
+	float: left;
+	height: 80px;
+	width: 100%;
+	bottom: 20px;
+	right: 20px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #eeeeee;
+}
+#headerLeft {
+	float: left;
+	height: 80px;
+	margin: 0px 20px 0px 0px;
+	padding: 0px 0px 0px 20px;
+}
+#headerContainer {
+	margin-bottom: 30px;
+	width: 100%;
+	height: 80px;
+	padding: 0px;
+}
+
+#headerRight {
+	float: right;
+	height: 80px;
+	margin: 0px;
+}
+#headerRight p {
+	margin-top: 33px;
+	text-align: right;
+	margin-right: 20px;
+	color: #95c9f9;
+	font-size: 11px;
+}
+#headerContainer #headerRight a {
+	font-size: 11px;
+	color: #95c9f9;
+	text-decoration: none;
+}
+#headerContainer #headerRight a:hover {
+	font-size: 11px;
+	color: #fff;
+	text-decoration: none;
+}
+#headerLeft #name {
+	height: 45px;
+	margin-top: 18px;
+	margin-left: 0px;
+	font-size: 18px;
+	color: #95C9F9;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #95C9F9;
+	letter-spacing: 1px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding: 0px;
+	float: left;
+}
+#headerLeft #name p {
+	white-space: nowrap;
+	padding: 13px 0px 0px;
+	margin: 0px 20px 0px 0px;
+}
+#headerLeft p {
+	font-size: 18px;
+	color: #95c9f9;
+	margin-top: 15px;
+	margin-left: 60px;
+	white-space: nowrap;
+
+}
+.bgHome {
+	background-image: url(images/bgIntro.png);
+	background-repeat: no-repeat;
+	background-color: #4ea1ef;
+	background-position: center top;
+}
+#nav {
+	background-image: none;
+	width: 200px;
+	text-align: left;
+	margin-right: auto;
+	margin-left: auto;
+}
+#titleHome {
+	font-size: 18px;
+	color: #95c9f9;
+	float: left;
+	width: 250px;
+	margin-top: 20px;
+	margin-left: 20px;
+	margin-bottom: 100px;
+	font-weight: normal;
+}
+
+
+/*Navigation*/
+
+#nav {
+	margin-top: 0px;
+} 
+#nav ul {
+	margin:0;
+	padding:0;
+	list-style:none;
+  }
+#nav li {
+	margin:0;
+	padding:0;
+	background-image:none;
+	line-height:normal;
+	color: #FFFFFF;
+	height: 50px;
+  }
+#nav li a, #nav li strong {
+	background-repeat:no-repeat;
+	background-position: 0px 0px;
+	display:block;
+	border-width:0;
+	margin: 0px;
+	padding: 0px 0px 0px 60px;
+	height: 43px;
+	vertical-align: middle;
+	line-height: 40px;
+	font-family: Arial, Helvetica, sans-serif;
+	color: #95c9f9;
+	font-size: 18px;
+	font-weight: normal;
+	text-decoration: none;
+  }
+
+#nav li a:hover {
+  background-position:0px -43px;
+  }
+#nav1 a,#nav1 a:hover,#nav1 strong {
+	background:url(images/btCompareFiles.png) no-repeat;
+	color: #FFCC00;
+  }
+#nav2 a,#nav2 a:hover,#nav2 strong {
+	background:url(images/btCompareFolders.png) no-repeat;
+	color: #FF66CC;
+  }
+#nav3 a,#nav3 a:hover,#nav3 strong {
+	background:url(images/btVideo.png) no-repeat;
+	color: #66CCFF;
+  }
+#nav4 a,#nav4 a:hover,#nav4 strong {
+	background:url(images/btTipsAndTricks.png) no-repeat;
+	color: #FF99FF;
+  }
+#nav5 a,#nav5 a:hover,#nav5 strong {
+	background:url(images/btPurchase.png) no-repeat;
+	color: #66CC99;
+  }
+#navText a,#navText a:hover,#navText strong, #navText {
+	color: #FFF;
+	font-size: 12px !important;
+	padding: 0px 0px 0px 0px !important;
+	line-height: 20px !important;
+	height: 23px !important;
+  }
+.separator {
+	padding: 0px !important;
+	height: 5px !important;
+	border-bottom: 0px dotted #62AEF5;
+	margin-bottom: 5px;
+}

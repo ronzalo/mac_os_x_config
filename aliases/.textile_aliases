@@ -1,0 +1,46 @@
+# how to do a table
+
+|_. Header |_. Header |_. Header |
+| Cell 1 | Cell 2 | Cell 3 |
+| Cell 1 | Cell 2 | Cell 3 |
+
+
+
+At the time of this writing this is a list of the client site combinations.
+
+
+|_. client-site |  
+| o2-prod       |
+| o2-stg        |
+| cap-prod      |
+| cap-stg       |
+| att           |
+| att-stg       |
+| att-stage     |
+| vha-prod      |
+| vha-stage     |
+| vzwi-prod     |
+| vzwi-stage    |
+| vzw-prod rbm  |
+| vzw-prod vzw  |
+| vzw-stage     |
+| vzt-prod      |
+| vzt-stg       |
+| ubc-prod      |
+| ubc-stg       |
+| rogers-prod   |
+| rogers-stg    |
+| lux-prod      |
+| lux-stg       |
+| demo-prod     |
+| demo-stage    |
+| hrsb-stg      |
+| hrsb-prod     |
+| o2-prev       |
+| pcs-stg       |
+| pcs-prod      |
+| ALL ATT SLOTS |
+| panera        |
+| panera        |
+| target-stg    |
+| target        |

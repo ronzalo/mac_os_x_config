@@ -1,0 +1,1 @@
+select id,name,props,deleted_at from categories where name like 'Odeon Stores'

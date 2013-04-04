@@ -1,0 +1,15 @@
+#Extended file properties defined by DbVisualizer
+#Thu Apr 04 16:08:16 EDT 2013
+last.execution_count=1
+last.elapsed_time=0.044
+exec.schema=public
+file.comment=
+last.execution_time=1365106096914
+file.encoding=MacRoman
+last.database_type=PostgreSQL
+last.affected_row_count=763
+exec.catalog=o2pvw
+last.sql_preview=select id,name,email,updated_at from locations ORD
+last.execution_error_count=0
+last.execution_success_count=1
+exec.connection=o2pvw

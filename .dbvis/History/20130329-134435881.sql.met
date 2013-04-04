@@ -1,0 +1,15 @@
+#Extended file properties defined by DbVisualizer
+#Fri Mar 29 13:44:35 EDT 2013
+last.execution_count=1
+last.elapsed_time=0.066
+exec.schema=public
+file.comment=
+last.execution_time=1364579075856
+file.encoding=MacRoman
+last.database_type=PostgreSQL
+last.affected_row_count=323
+exec.catalog=release-0013.o2.local
+last.sql_preview=SELECT version FROM public.schema_migrations
+last.execution_error_count=0
+last.execution_success_count=1
+exec.connection=release-0013.o2.local
