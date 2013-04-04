@@ -151,3 +151,8 @@ Had to roll back rubygems
 Install a specific version of a gem
 
 gem install GEM --version VERSION 
+
+# When you delete a gemset, rvm will prompt you to confirm the deletion.
+
+  $ rvm gemset use albinochipmunk
+  $ rvm gemset delete albinochipmunk

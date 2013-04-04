@@ -37,6 +37,11 @@
  (yaml-mode .
 	    [(20120901 1329)
 	     nil "Major mode for editing YAML files [source: github]" single])
+ (yagist .
+	 [(20130114 2346)
+	  ((json
+	    (1 2 0)))
+	  "Yet Another Emacs integration for gist.github.com [source: github]" single])
  (xml-rpc .
 	  [(20100311 151)
 	   nil "An elisp implementation of clientside XML-RPC [source: bzr]" single])
@@ -88,7 +93,7 @@
 	       (2 1 1)))
 	     "Writable ack-and-a-half buffer and apply the changes to files [source: github]" single])
  (wgrep .
-	[(20121202 1954)
+	[(20130114 1335)
 	 nil "Writable grep buffer and apply the changes to files [source: github]" single])
  (websocket .
 	    [(20121013 1846)
@@ -191,7 +196,7 @@
 	 [(20121026 2118)
 	  nil "The Typing Of Emacs [source: wiki]" single])
  (twittering-mode .
-		  [(20121105 32)
+		  [(20130114 2345)
 		   nil "Major mode for Twitter [source: github]" single])
  (twilight-theme .
 		 [(20120412 803)
@@ -399,7 +404,7 @@
 	   [(20120905 2101)
 	    nil "Support sequential operation which omitted prefix keys. [source: github]" single])
  (smartparens .
-	      [(20130113 315)
+	      [(20130113 1507)
 	       ((dash
 		 (1 0 2)))
 	       "Autoinsert pairs of defined brackets and wrap regions [source: github]" single])
@@ -433,7 +438,7 @@
 	    [(20121227 1032)
 	     nil "Rip Clojure namespaces apart and rebuild them. [source: github]" single])
  (skewer-mode .
-	      [(20130112 1051)
+	      [(20130114 107)
 	       ((simple-httpd
 		 (1 4 0))
 		(js2-mode
@@ -449,7 +454,7 @@
 	       [(20121224 1121)
 		nil "pure elisp HTTP server [source: github]" tar])
  (simp .
-       [(20130112 103)
+       [(20130114 1015)
 	nil "Simple project defenition, chiefly for file finding, and grepping [source: github]" tar])
  (sicp .
        [(20121012 1733)
@@ -619,7 +624,7 @@
 	   [(20121128 2314)
 	    nil "Run commands quickly [source: github]" single])
  (quickref .
-	   [(20130108 1213)
+	   [(20130113 1700)
 	    ((dash
 	      (1 0 3))
 	     (s
@@ -647,7 +652,7 @@
 		[(20091217 1955)
 		 nil "major mode for editing protocol buffers. [source: svn]" single])
  (projectile .
-	     [(20130113 1904)
+	     [(20130114 18)
 	      ((s
 		(1 0 0))
 	       (dash
@@ -826,7 +831,7 @@
 		  [(20120403 1455)
 		   nil "Interact with Pivotal Tracker through its API [source: github]" single])
  (php-mode .
-	   [(20130109 557)
+	   [(20130113 2020)
 	    nil "Major mode for editing PHP code [source: github]" single])
  (php+-mode .
 	    [(20121129 1452)
@@ -835,7 +840,7 @@
 	      [(20121130 1746)
 	       nil "switch between named \"perspectives\" of the editor [source: github]" single])
  (persp-mode .
-	     [(20130113 2231)
+	     [(20130114 2033)
 	      ((workgroups
 		(0 2 0)))
 	      "\"perspectives\" shared between frames [source: github]" single])
@@ -1111,7 +1116,7 @@
 		    (20111229)))
 		  "extra functions for markdown-mode [source: github]" tar])
  (markdown-mode .
-		[(20130113 1032)
+		[(20130114 1822)
 		 nil "Emacs Major mode for Markdown-formatted text files [source: github]" single])
  (mark-multiple .
 		[(20121118 1654)
@@ -1145,7 +1150,7 @@
 			       [(20121223 154)
 				nil "Advice for magit-log-edit-commit [source: github]" single])
  (magit .
-	[(20130112 1253)
+	[(20130114 1006)
 	 nil "Control Git from Emacs. [source: github]" tar])
  (mag-menu .
 	   [(20130109 2014)
@@ -1220,6 +1225,13 @@
  (kv .
      [(20121231 1444)
       nil "key/value data structure functions [source: github]" single])
+ (kite .
+       [(20121005 1430)
+	((json
+	  (1 2))
+	 (websocket
+	  (0 93 1)))
+	"WebKit inspector front-end [source: github]" tar])
  (killer .
 	 [(20120808 1322)
 	  nil "kill and delete text [source: github]" single])
@@ -1227,7 +1239,7 @@
 		   [(20110605 1744)
 		    nil "incremental search for the kill ring [source: github]" tar])
  (keymap-utils .
-	       [(20130106 1820)
+	       [(20130113 2310)
 		((cl-lib
 		  (0 2)))
 		"keymap utilities [source: github]" single])
@@ -1291,7 +1303,7 @@
 	  (1 4)))
 	"a Python auto-completion for Emacs [source: github]" tar])
  (javadoc-lookup .
-		 [(20130113 1254)
+		 [(20130113 1542)
 		  nil "Javadoc Emacs integration with Maven [source: github]" tar])
  (jaunte .
 	 [(20120212 134)
@@ -1373,7 +1385,7 @@
 		[(20130111 1820)
 		 nil "Major mode API client for status.net open microblogging [source: github]" tar])
  (icicles .
-	  [(20130113 1904)
+	  [(20130114 103)
 	   nil "Minibuffer input completion and cycling. [source: wiki]" tar])
  (ibuffer-vc .
 	     [(20121217 826)
@@ -1444,7 +1456,7 @@
 		 (20120811)))
 	       "Migemo plug-in for helm [source: github]" single])
  (helm-ls-git .
-	      [(20130113 1755)
+	      [(20130114 1739)
 	       nil "list git files. [source: github]" single])
  (helm-gtags .
 	     [(20130107 1439)
@@ -1478,7 +1490,7 @@
 	    (20120509)))
 	  "helm-sources and some utilities for GNU R. [source: github]" single])
  (helm .
-       [(20130113 1834)
+       [(20130114 1754)
 	nil "Helm is an Emacs incremental and narrowing framework [source: github]" tar])
  (header2 .
 	  [(20121228 2051)
@@ -1734,7 +1746,7 @@
 		    (0 1)))
 		  "A flymake handler for coffee script [source: github]" single])
  (flycheck .
-	   [(20130113 1608)
+	   [(20130114 1553)
 	    ((s
 	      (1 3 0))
 	     (dash
@@ -1831,15 +1843,15 @@
 		   (0 1)))
 		 "Move the region in 4 directions, in a way similar to Eclipse's [source: github]" single])
  (es-lib .
-	 [(20130112 1658)
+	 [(20130114 742)
 	  nil "A collection of emacs utilities [source: github]" tar])
  (es-edit-color-stamp .
-		      [(20130112 2151)
+		      [(20130114 743)
 		       ((es-lib
 			 (0 2)))
 		       "Edit a hex color stamp, using a QT or the internal color picker [source: github]" tar])
  (es-auto-auto-indent .
-		      [(20130113 1859)
+		      [(20130114 1144)
 		       ((es-lib
 			 (0 1)))
 		       "Indents code as you type [source: github]" single])
@@ -1887,7 +1899,7 @@
 	   [(20120413 1107)
 	    nil "Emacs window session manager [source: github]" single])
  (elpy .
-       [(20121205 1404)
+       [(20130114 38)
 	((pymacs
 	  (0 25))
 	 (auto-complete
@@ -2191,6 +2203,9 @@
  (centered-cursor-mode .
 		       [(20100310 1348)
 			nil "cursor stays vertically centered [source: wiki]" single])
+ (carton .
+	 [(20121109 1753)
+	  nil "Emacs dependency management made easy [source: github]" single])
  (caml .
        [(20121015 1250)
 	nil "OCaml code editing commands for Emacs [source: svn]" tar])
@@ -2255,7 +2270,7 @@
 		(3 0)))
 	      "vCard import/export for BBDB [source: github]" tar])
  (bbdb .
-       [(20121230 40)
+       [(20130113 1649)
 	nil "core of BBDB [source: git]" tar])
  (bash-completion .
 		  [(20111120 1539)

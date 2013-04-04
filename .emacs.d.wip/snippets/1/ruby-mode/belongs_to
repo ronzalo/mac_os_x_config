@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: belongs_to
-# key: bt
-## binding: direct-keybinding
-## expand-env: ((some-var some-value))
-## type: command
-# --
-belongs_to :${1:post}

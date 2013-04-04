@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: has_many :comments, :dependent => :nullify
-# key: hm.
-## binding: direct-keybinding
-## expand-env: ((some-var some-value))
-## type: command
-# --
-has_many :${1:comments}, :dependent => :nullify

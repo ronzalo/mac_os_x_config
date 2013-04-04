@@ -504,3 +504,29 @@ rvm use 1.9.3-head@rails3
 gem install rails --version 3.0.11
 echo "rvm use 1.9.3-head@rails3" > .rvmrc
 
+
+# “Invalid gemspec in” and “Illformed requirement” whenever I create a new project in rails (cucumber issue)
+  You need to update to the latest version of Rubygems, but you may also need to remove any gems installed on the older version of Rubygems.
+
+    If you're using rvm with gemsets, this is quite easy:
+
+        $ rvm gemset empty
+
+    Now you can update Rubygems:
+
+        $ gem update --system
+
+    If you've lost bundler because it was installed in your gemset, install it in the global gemset so it's there for all your gemsets, for good:
+
+        $ rvm @global gem install bundler
+
+    Now you can reinstall all your gems in a nice clean gemset on the shiny new Rubygems:
+
+        $ bundle
+
+    Happy now?
+
+================================================================
+rvm gemset delete r12
+rvm gemset create r12
+rvm use 1.8.7-p334@r12

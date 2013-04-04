@@ -130,3 +130,14 @@ PS1="\$(~/.rvm/bin/rvm-prompt) $ "
 
 
 chrome() { open -a Google\ Chrome "$*" ; }
+
+
+for file in $(find . -type f -name \*.html.erb); do
+  html2haml -e ${file} "$(dirname ${file})/$(basename ${file} .erb).haml";
+done
+
+
+# Cartesian product in Bash
+    echo {in,out,on}{come,going}
+    echo {easy,hard}-{in,out}{come,going}
+

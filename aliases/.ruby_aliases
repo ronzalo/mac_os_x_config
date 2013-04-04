@@ -481,3 +481,81 @@ Benchmark or Timing
 
 # compile ri docs
 rdoc -Y in your Rails gem directory
+
+
+
+SPLAT OPERATOR '*'
+
+The split mode :
+
+     pet1, pet2, pet3 = *["duck","dog","cat"]
+
+The collect mode :
+
+    *zoo = pet1, pet2, pet3
+
+Array examples :
+
+  >> pets = ["dog", "cat"]
+  => ["dog", "cat"]
+
+  >> pet_store = ["mole", "duck", pets]
+  => ["mole", "duck", ["dog", "cat"]]
+
+  >> pet_store = ["mole", "duck", *pets]
+  => ["mole", "duck", "dog", "cat"]
+
+  But, the splat array must be always the last element of the array.
+
+
+You can use this to define variable parameter functions or methods.
+
+    >> def pets(*mammals)
+    >> mammals
+    >> end
+    => nil
+
+    >> pets :monkey, :dog
+    => [:monkey, :dog]
+
+    >> pets :monkey, :dog, :cat
+    => [:monkey, :dog, :cat]
+
+
+The splat operator can be used in a case statement :
+
+  HISTORIANS = ['Braith', 'Dewey', 'Eduardo']
+
+  case name
+   when *BOARD_MEMBERS
+    "You're on the board!  A congratulations is in order."
+   when *HISTORIANS
+    "You are busy chronicling every deft play."
+   when *HISTORIANS|BOARD_MEMBERS
+    "We welcome you all to the First International
+     Symposium of Board Members and Historians Alike."
+   end
+
+
+We can also use the splat operator to create a Hash object form a array of pairs.
+  a = [[:planes, 21], [:cars, 36]]
+  h = Hash[*a]  # => { :planes=>21, :cars=>36}
+
+
+You’re wrong with here:
+
+    a = [[:planes, 21], [:cars, 36]]
+
+    h = Hash[*a] # => { :planes=>21, :cars=>36}
+
+    The result of that is actually:
+
+    {[:planes, 21]=>[:cars, 36]}
+
+    which means the key is [:planes, 21], which is valid but not expected.
+
+    h[[:planes, 21]] # => [:cars, 36]
+
+    to work as expected you have to do this:
+
+    h = Hash[*a.flatten] # => { :planes=>21, :cars=>36}

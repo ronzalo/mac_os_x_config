@@ -1,7 +1,0 @@
-# key: %ifel
-#name : <% if  ...  -%> $. <% else -%> <% end -%>
-# --
-<% if $1 -%>
-$0
-<% else -%>
-<% end -%>

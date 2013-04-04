@@ -7,15 +7,7 @@
 (push "/Users/cmagid/.rvm/rubies/ruby-1.9.3-p327/bin" exec-path)
 (push "/Users/cmagid/.rvm/bin" exec-path)
 (push "/Users/cmagid/brew/sbin" exec-path)
-;; (push "/usr/bin" exec-path)
-;; (push "/bin" exec-path)
-;; (push "/usr/sbin" exec-path)
-;; (push "/sbin" exec-path)
-;; (push "/Users/cmagid/.rvm/bin" exec-path)
 (push "/usr/local/Cellar/emacs/HEAD/bin" exec-path)
-;; (push "/usr/local/bin/" exec-path)
-
-(add-to-list 'load-path "~/.emacs.d/el-get")
 
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -24,7 +16,6 @@
 (setq inhibit-startup-message t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
-
 (delete-selection-mode t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -36,126 +27,25 @@
 
 (set-frame-font "Menlo-16")
 
-(defun ruby-mode-hook ()
-  (autoload 'ruby-mode "ruby-mode" nil t)
-  (add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rake\\'" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.ru\\'" . ruby-mode))
-  (add-hook 'ruby-mode-hook '(lambda ()
-                               (setq ruby-deep-arglist t)
-                               (setq ruby-deep-indent-paren nil)
-                               (setq c-tab-always-indent nil)
-                               (require 'inf-ruby)
-                               (require 'ruby-compilation)
-                               (define-key ruby-mode-map (kbd "M-r") 'run-rails-test-or-ruby-buffer))))
-;; (defun rhtml-mode-hook ()
-;;   (autoload 'rhtml-mode "rhtml-mode" nil t)
-;;   (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
-;;   (add-to-list 'auto-mode-alist '("\\.erb\\'" . rhtml-mode))
-;;   (add-to-list 'auto-mode-alist '("\\.rjs\\'" . rhtml-mode))
-;;   (add-hook 'rhtml-mode '(lambda ()
-;;                            (define-key rhtml-mode-map (kbd "M-s") 'save-buffer))))
-
-(defun yaml-mode-hook ()
-  (autoload 'yaml-mode "yaml-mode" nil t)
-  (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
-  (add-to-list 'auto-mode-alist '("\\.yaml$" . yaml-mode)))
-
-(defun css-mode-hook ()
-  (autoload 'css-mode "css-mode" nil t)
-  (add-hook 'css-mode-hook '(lambda ()
-                              (setq css-indent-level 2)
-                              (setq css-indent-offset 2))))
-(defun is-rails-project ()
-  (when (textmate-project-root)
-    (file-exists-p (expand-file-name "config/environment.rb" (textmate-project-root)))))
-
-(defun run-rails-test-or-ruby-buffer ()
-  (interactive)
-  (if (is-rails-project)
-      (let* ((path (buffer-file-name))
-             (filename (file-name-nondirectory path))
-             (test-path (expand-file-name "test" (textmate-project-root)))
-             (command (list ruby-compilation-executable "-I" test-path path)))
-        (pop-to-buffer (ruby-compilation-do filename command)))
-    (ruby-compilation-this-buffer)))
-
 (require 'package)
-   ;;; (setq package-archives (cons '("tromey" . "http://tromey.com/elpa/") package-archives))
+;; (setq package-archives (cons '("tromey" . "http://tromey.com/elpa/") package-archives))
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-(require 'el-get)
-
-(setq el-get-sources
-      '((:name ruby-mode
-               :type elpa
-               :load "ruby-mode.el"
-               :after (lambda () (ruby-mode-hook)))
-        (:name inf-ruby  :type elpa)
-        (:name ruby-compilation :type elpa)
-        (:name css-mode
-               :type elpa
-               :after (lambda () (css-mode-hook)))
-        (:name textmate
-               :type git
-               :url "git://github.com/defunkt/textmate.el"
-               :load "textmate.el")
-        (:name rvm
-               :type git
-               :url "http://github.com/djwhitt/rvm.el.git"
-               :load "rvm.el"
-               :compile ("rvm.el")
-               :after (lambda() (rvm-use-default)))
-        (:name rhtml
-               :type git
-               :url "https://github.com/crazycode/rhtml.git"
-               :features rhtml-mode
-               :after (lambda () (rhtml-mode-hook)))
-        (:name yaml-mode
-               :type git
-               :url "http://github.com/yoshiki/yaml-mode.git"
-               :features yaml-mode
-               :after (lambda () (yaml-mode-hook)))
-	))
-(el-get 'sync)
-
 ;; ================================================================ additions
 
-;; for rhtml files
-(load "~/.emacs.d/nxhtml/autostart.el")
+(require 'cl)
 
-;; http://stackoverflow.com/questions/10022379/having-eruby-nxhtml-mumamo-mode-be-set-every-time-i-open-a-html-erb-file
-(require 'mumamo-fun)
-(setq mumamo-chunk-coloring 'submode-colored)
-(add-to-list 'auto-mode-alist '("\\.rhtml?$" . eruby-nxhtml-mumamo-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\.erb$" . eruby-nxhtml-mumamo-mode))
+(global-set-key (kbd "C->") (quote forward-word))
+(global-set-key (kbd "C-<") (quote backward-word))
 
-;; Workaround the annoying warnings:
-;;    Warning (mumamo-per-buffer-local-vars):
-;;    Already 'permanent-local t: buffer-file-name
-(when (and (equal emacs-major-version 24)
-           (equal emacs-minor-version 2))
-  (eval-after-load "mumamo"
-    '(setq mumamo-per-buffer-local-vars
-           (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
-
-;; C-;
-(global-set-key (quote [67108923]) (quote forward-word))
-;; C-: ie C-shift-;
-(global-set-key (quote [67108922]) (quote backward-word))
-
-;; insert date
+;; Insert date
 (defun insert-date () "Insert according to locale's date and time format." (interactive)
   (insert (format-time-string "%c" (current-time))))
 
-;; flash screen for c-g do not ring bell
+;; Flash screen for c-g do not ring bell
 (set-variable (quote visible-bell) t nil)
 
 ;;Non-nil means open files upon request from the Workspace in a new frame.
@@ -244,10 +134,10 @@
 ;;(wrap-region-global-mode t) ; It does not work in rails mode
 
 ;;http://ergoemacs.org/emacs_manual/emacs/Saving-Emacs-Sessions.html
-;(desktop-save-mode 1)
-;(setq desktop-restore-eager 10)
+(desktop-save-mode 1)
+(setq desktop-restore-eager 10)
 ;;http://www.emacswiki.org/DeskTop
-;(setq history-length 1250)
+(setq history-length 1250)
 
 ;;(define-key global-map (kbd "C-+") 'col-highlight-flash)
 (define-key global-map (kbd "C-+") 'crosshairs-mode)
@@ -335,8 +225,6 @@
  end tell" dir))
      ))
 
-
-
 ;; https://github.com/Fuco1/smartparens
 ;; (require 'smartparens)
 ;; (smartparens-global-mode 1)
@@ -350,21 +238,53 @@
 (server-start) ;;; Use C-x # to close an emacsclient buffer.
 
 ;; https://github.com/capitaomorte/yasnippet
-;; (require 'yasnippet)
-;; (yas-global-mode 1)
-;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets/2")
-;; (add-to-list 'yas-snippet-dirs "~/.emacs.d/snippets/1") ; /1 is last s.t. snips r added here
+;;(require 'yasnippet)
+;; (setq yas/snippet-dirs
+;;       '("~/.emacs.d/snippets/2"            ;; personal snippets
+;;         "~/.emacs.d/snippets/1"
+;;         "~/.emacs.d/elpa/yasnippet-20130112.1823/snippets" ;; the default collection
+
+;;         ))
+;; (yas-global-mode 1) ;; or M-x yas-reload-all if you've started YASnippet already.
+;; (yas-reload-all 1)
+
+;; For rhtml files [I am guessing this needs to be after yasnippets]
+(load "~/.emacs.d/nxhtml/autostart.el")
+;; http://stackoverflow.com/questions/10022379/having-eruby-nxhtml-mumamo-mode-be-set-every-time-i-open-a-html-erb-file
+(require 'mumamo-fun)
+(setq mumamo-chunk-coloring 'submode-colored)
+(add-to-list 'auto-mode-alist '("\\.rhtml?$" . eruby-nxhtml-mumamo-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\.erb$" . eruby-nxhtml-mumamo-mode))
+;; Workaround the annoying warnings:
+;;    Warning (mumamo-per-buffer-local-vars):
+;;    Already 'permanent-local t: buffer-file-name
+(when (and (equal emacs-major-version 24)
+           (equal emacs-minor-version 2))
+  (eval-after-load "mumamo"
+    '(setq mumamo-per-buffer-local-vars
+           (delq 'buffer-file-name mumamo-per-buffer-local-vars))))
 
 (shell nil)
+
+(require 'auto-complete)
+;(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20121203.832/dict/")
+(require 'auto-complete-config)
+(ac-config-default)
+;; http://emacswiki.org/emacs/AutoComplete
+;; dirty fix for having AC everywhere
+(define-globalized-minor-mode real-global-auto-complete-mode
+  auto-complete-mode (lambda ()
+                       (if (not (minibufferp (current-buffer)))
+                         (auto-complete-mode 1))
+                       ))
+(real-global-auto-complete-mode t)
+
 
 ;; Can not get auto-complete to work
 ;(add-to-list 'load-path "~/.emacs.d")    ; This may not be appeared if you have already added.
 ;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 ;; (require 'auto-complete-config)
 ;; (ac-config-default)
-
-
 ; ================================================================ debugging
-
 
 ;*ERROR*: Symbol's function definition is void: local-ediff-frame-maximize
